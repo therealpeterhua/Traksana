@@ -20,5 +20,5 @@ class UsersController < ApplicationController
   end
 
   #PH - need to have email, invite takes place via email.
-  #Name should be optional...
+  #Name should be optional..
 end

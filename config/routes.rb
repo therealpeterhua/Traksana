@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do      #PH - why json here? json anyway?
     resources :teams
+    resources :users
   end
 end
 

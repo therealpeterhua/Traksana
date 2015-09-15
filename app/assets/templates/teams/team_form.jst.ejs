@@ -1,0 +1,10 @@
+<button class="reveal-form">Add New Team</button>
+
+<form class="new-team hidden">
+  <label for="team-name"></label>
+  <input id="team-name"
+         type="text"
+         name="team[moniker]"
+         value="<%= team.escape('moniker') %>">
+  <button class="submit-form">Submit</button>
+</form>

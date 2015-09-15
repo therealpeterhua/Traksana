@@ -1,0 +1,22 @@
+/* RESET */
+
+h1, h2, h3, h4, html, body, p, a, ul, li {
+  border: 0;
+  padding: 0;
+  margin: 0;
+
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  color: inherit;
+
+  background: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+.hidden {
+  display: none;
+}

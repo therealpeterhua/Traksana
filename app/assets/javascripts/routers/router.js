@@ -1,14 +1,17 @@
 Trak.Routers.Router = Backbone.Router.extend({
   initialize: function(options) {
-    this.collection = options.teams;
+    this.collection = options.collection;
+    //PH - why always use generic names rather than model/collection names
     this.$rootEl = options.$rootEl;
+    this.collection.fetch();
+    //PH - is this good place to put collection fetch?
   },
 
   routes: {
     "": "index",
-    "/teams/new": "new",
-    "/teams/:id": "show",
-    "/teams/:id/edit": "edit"
+    "teams/new": "new",
+    "teams/:id": "show",
+    "teams/:id/edit": "edit"
   },
 
   index: function() {
