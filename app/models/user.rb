@@ -2,8 +2,14 @@ class User < ActiveRecord::Base
   has_many :user_teams
   has_many :teams, through: :user_teams, source: :team
   has_many :managed_teams, class_name: 'Team', foreign_key: :leader_id
-  has_many :coworkers, through: :managed_teams, source: :members
-  # PH - need this last one-coworkers?
+
+  has_many :subordinates, -> {distinct},
+            through: :managed_teams,
+            source: :members
+
+  has_many :coworkers, -> {distinct},
+            through: :teams,
+            source: :members
 
   validates :email, :password_hash, :session_token, presence: true
   validates :email, uniqueness: true

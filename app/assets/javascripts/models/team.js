@@ -6,6 +6,17 @@ Trak.Models.Team = Backbone.Model.extend({
   },
 
   members: function() {
-    //get users here
+    this._members = this._members || new Trak.Collections.Users();
+
+    return this._members;
+  },
+
+  parse: function(response) {
+    if (response.members) {
+      this.members().set(response.members);
+      delete response.members;
+    }
+
+    return response;
   }
 })

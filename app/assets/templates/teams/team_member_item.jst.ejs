@@ -1,0 +1,5 @@
+<% if ( member.escape('name') ) { %>
+  <%= member.name %>
+<% } else { %>
+  <%= member.escape('email') %>
+<% } %>
