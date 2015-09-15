@@ -11,13 +11,15 @@ class SessionsController < ApplicationController
 
     if user
       log_in(user)
-      render json: user
+      redirect_to root_url
     else
-      render json: "Couldn't find that username and password!"
+      render json: "Couldn't find that username and password!",
+             status: :unprocessable_entity
     end
   end
 
   def destroy
     log_out
+    redirect_to new_session_url
   end
 end

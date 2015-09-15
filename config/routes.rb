@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
+
+  root to: "static_pages#root"
+
+  namespace :api, defaults: { format: :json } do      #PH - why json here? json anyway?
+    resources :teams
+  end
 end
 
 # The priority is based upon order of creation: first created -> highest priority.

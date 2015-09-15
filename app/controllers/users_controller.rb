@@ -19,6 +19,6 @@ class UsersController < ApplicationController
     params.require(:user).permit(:email, :password)
   end
 
-  #PETER HUA - need to have email, invite takes place via email.
+  #PH - need to have email, invite takes place via email.
   #Name should be optional...
 end

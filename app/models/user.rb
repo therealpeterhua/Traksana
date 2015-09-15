@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
-  # has_many :teams
-  # **through:
-  # **source:
+  has_many :user_teams
+  has_many :teams, through: :user_teams, source: :team
+  has_many :managed_teams, class_name: 'Team', foreign_key: :leader_id
+  has_many :coworkers, through: :managed_teams, source: :members
+  # PH - need this last one-coworkers?
 
   validates :email, :password_hash, :session_token, presence: true
   validates :email, uniqueness: true
@@ -10,7 +12,7 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
 
   def self.generate_unique_key
-    # **generate unique session tokens here
+    # PH**generate unique session tokens here
   end
 
   def self.find_by_credentials(email, password)
