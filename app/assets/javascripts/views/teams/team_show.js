@@ -3,6 +3,7 @@ Trak.Views.TeamShow = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model.members(), "sync", this.render);
   },
 
   render: function() {
@@ -18,6 +19,13 @@ Trak.Views.TeamShow = Backbone.CompositeView.extend({
       var teamMemberView = new Trak.Views.TeamMemberItem({model: member});
       this.addSubview("ul.team-member-item", teamMemberView);
     }.bind(this) );
+
+    var projectSubview = new Trak.Views.ProjectsIndex({
+      collection: this.model.projects(),
+      teamId: this.model.id
+    });
+
+    this.addSubview("div.projects-index", projectSubview);
   }
 
 })

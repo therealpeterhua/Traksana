@@ -1,6 +1,6 @@
 class Api::ProjectsController < ApplicationController
   def create
-    @project = current_user.projects.new(project_params)
+    @project = current_user.owned_projects.new(project_params)
     #**PH - make sure to pass up team_id here, should be in current_team
     if @project.save
       render json: @project
@@ -23,6 +23,7 @@ class Api::ProjectsController < ApplicationController
     else
       render json: @project.errors.full_messages,
              status: :unprocessable_entity
+    end
   end
 
   private

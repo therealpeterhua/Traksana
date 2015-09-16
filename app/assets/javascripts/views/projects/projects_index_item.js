@@ -1,5 +1,5 @@
-Trak.Views.TeamsIndexItem = Backbone.View.extend({
-  template: JST['teams/teams_index_item'],
+Trak.Views.ProjectsIndexItem = Backbone.View.extend({
+  template: JST['projects/projects_index_item'],
   tagName: 'li',
 
   initialize: function() {
@@ -7,7 +7,7 @@ Trak.Views.TeamsIndexItem = Backbone.View.extend({
   },
 
   render: function() {
-    var content = this.template({team: this.model});
+    var content = this.template({project: this.model});
     this.$el.html(content);
 
     return this;
