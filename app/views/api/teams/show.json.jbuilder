@@ -9,5 +9,12 @@ end
 json.projects do
   json.array!(@team.projects) do |project|
     json.extract!(project, *project.attributes.keys)      #PH - extracts all
+
+    json.tasks do               #PH - includes tasks for each project
+      json.array!(project.tasks) do |task|
+        json.extract!(task, *task.attributes.keys)
+      end
+    end
+
   end
 end

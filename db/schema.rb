@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916013035) do
+ActiveRecord::Schema.define(version: 20150916204700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,20 @@ ActiveRecord::Schema.define(version: 20150916013035) do
   add_index "projects", ["owner_id"], name: "index_projects_on_owner_id", using: :btree
   add_index "projects", ["team_id"], name: "index_projects_on_team_id", using: :btree
 
+  create_table "tasks", force: :cascade do |t|
+    t.integer  "creator_id",   null: false
+    t.integer  "project_id",   null: false
+    t.string   "title",        null: false
+    t.text     "description"
+    t.integer  "completer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tasks", ["completer_id"], name: "index_tasks_on_completer_id", using: :btree
+  add_index "tasks", ["creator_id"], name: "index_tasks_on_creator_id", using: :btree
+  add_index "tasks", ["project_id"], name: "index_tasks_on_project_id", using: :btree
+
   create_table "teams", force: :cascade do |t|
     t.integer  "leader_id",  null: false
     t.string   "moniker",    null: false
@@ -36,6 +50,16 @@ ActiveRecord::Schema.define(version: 20150916013035) do
   end
 
   add_index "teams", ["leader_id"], name: "index_teams_on_leader_id", using: :btree
+
+  create_table "user_tasks", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_tasks", ["task_id"], name: "index_user_tasks_on_task_id", using: :btree
+  add_index "user_tasks", ["user_id"], name: "index_user_tasks_on_user_id", using: :btree
 
   create_table "user_teams", force: :cascade do |t|
     t.integer  "user_id",    null: false

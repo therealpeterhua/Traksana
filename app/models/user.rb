@@ -2,19 +2,23 @@ class User < ActiveRecord::Base
   has_many :user_teams
   has_many :teams, through: :user_teams, source: :team
   has_many :managed_teams, class_name: 'Team', foreign_key: :leader_id
-  has_many :owned_projects, class_name: 'Project', foreign_key: :owner_id
-
   has_many :subordinates, -> {distinct},
             through: :managed_teams,
             source: :members
-
   has_many :coworkers, -> {distinct},
             through: :teams,
             source: :members
 
+  has_many :owned_projects, class_name: 'Project', foreign_key: :owner_id
   has_many :projects,
             through: :teams,
             source: :projects
+
+  has_many :user_tasks
+  has_many :created_tasks, class_name: 'Task', foreign_key: :creator_id
+  has_many :assigned_tasks,
+            through: :user_tasks,
+            source: :task
 
   # has_many :assigned_projects   PH** this is next
 
