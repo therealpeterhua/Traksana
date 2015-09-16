@@ -8,48 +8,49 @@ Trak.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    "": "index",
-    "teams/new": "new",
-    "teams/:id": "show",
+    "": "teamIndex",
+    "teams/:id": "teamShow",
     "teams/:id/edit": "edit"
   },
 
-  index: function() {
+  teamIndex: function() {
     var indexView = new Trak.Views.TeamsIndex({collection: this.collection});
     //PH - REM TeamsIndex plural
-    this._swapView(indexView);
+    this._swapRootView(indexView);
   },
 
-  new: function() {
-    var newTeam = new Trak.Models.Team();
-    var newView = new Trak.Views.TeamForm({
-      collection: this.collection,
-      model: newTeam
-    });
-
-    this._swapView(newView);
-  },
-
-  show: function(id) {
+  teamShow: function(id) {
     var showTeam = this.collection.getOrFetch(id);
     var showView = new Trak.Views.TeamShow({model: showTeam});
 
-    this._swapView(showView);
+    this._swapRootView(showView);
   },
 
-  edit: function(id) {
-    var editTeam = this.collection.getOrFetch(id);
-    var editView = new Trak.Views.TeamForm({
-      collection: this.collection,
-      model: editTeam
-    });
+  // edit: function(id) {
+  //   var editTeam = this.collection.getOrFetch(id);
+  //   var editView = new Trak.Views.TeamForm({
+  //     collection: this.collection,
+  //     model: editTeam
+  //   });
+  //
+  //   this._swapRootView(editView);
+  // },
 
-    this._swapView(editView);
+  _swapRootView: function(view) {
+    this._rootView && this._rootView.remove();
+    this._rootView = view;
+    this.$rootEl.html(this._rootView.render().$el);
   },
 
-  _swapView: function(view) {
-    this._currentView && this._currentView.remove();
-    this._currentView = view;
-    this.$rootEl.html(this._currentView.render().$el);
+  _swapCenter: function(view) {
+    this._centerView && this._centerView.remove();
+    this._centerView = view;
+    this.$("content.centerpiece").html(this._centerView.render().$el);
+  },
+
+  _swapFeature: function(view) {
+    this._featureView && this._featureView.remove();
+    this._featureView = view;
+    this.$("content.feature").html(this._featureView.render().$el);
   }
 })

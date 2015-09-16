@@ -1,6 +1,7 @@
 Trak.Views.TeamsIndex = Backbone.CompositeView.extend({
   //PH** - transform into composite view
   template: JST['teams/teams_index'],
+  className: 'teams-index group',
 
   initialize: function() {
     this.listenTo(this.collection, "sync", this.render);
@@ -18,7 +19,7 @@ Trak.Views.TeamsIndex = Backbone.CompositeView.extend({
   populateSubviews: function() {
     this.collection.each( function(team) {
       var teamItemView = new Trak.Views.TeamsIndexItem({model: team});
-      this.addSubview(".team-index-items", teamItemView);
+      this.addSubview(".teams-index-items", teamItemView);
     }.bind(this));
 
     var newTeamView = new Trak.Views.TeamForm({
