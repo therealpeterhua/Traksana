@@ -1,6 +1,6 @@
-Trak.Collections.Teams = Backbone.Collection.extend({
-  url: "/api/teams",
-  model: Trak.Models.Team,
+Trak.Collections.Tasks = Backbone.Collection.extend({
+  url: "/api/tasks",
+  model: Trak.Models.Task,
 
   getOrFetch: function(id) {
     var thisCollection = this;
@@ -9,15 +9,15 @@ Trak.Collections.Teams = Backbone.Collection.extend({
     if (getModel) {
       getModel.fetch();
     } else {
-      getModel = new Trak.Models.Team({id: id});
+      getModel = new Trak.Models.Task({ id: id });
       thisCollection.add(getModel);
       getModel.fetch({
         error: function() {
           thisCollection.remove(getModel);
         }
-      });
+      })
     }
+
     return getModel;
   }
-
 })
