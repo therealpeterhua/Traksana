@@ -17,22 +17,23 @@ Trak.Routers.Router = Backbone.Router.extend({
   teamIndex: function() {
     var indexView = new Trak.Views.TeamsIndex({ collection: this.collection });
     //PH - REM TeamsIndex plural
-    this._swapRootView(indexView);
+    this._swapView(indexView);
   },
 
   teamShow: function(id) {
     var showTeam = this.collection.getOrFetch(id);
     var showView = new Trak.Views.TeamShow({ model: showTeam });
 
-    this._swapRootView(showView);
+    this._swapView(showView);
   },
 
   projectShow: function(team_id, id) {
     var currTeam = this.collection.getOrFetch(team_id);
     var showProject = currTeam.projects().get(id);
-    var projectShowView = new Trak.Views.ProjectShow({ model: showProject })
+    projectShowView = new Trak.Views.ProjectShow({ model: showProject })
 
     this._swapCenter(projectShowView);
+
   },
 
   // edit: function(id) {
@@ -42,24 +43,29 @@ Trak.Routers.Router = Backbone.Router.extend({
   //     model: editTeam
   //   });
   //
-  //   this._swapRootView(editView);
+  //   this._swapView(editView);
   // },
 
-  _swapRootView: function(view) {
-    this._rootView && this._rootView.remove();
-    this._rootView = view;
-    this.$rootEl.html(this._rootView.render().$el);
+  _swapView: function(view) {
+    this._currentView && this._currentView.remove();
+    this._currentView = view;
+    this.$rootEl.html(this._currentView.render().$el);
   },
 
-  _swapCenter: function(view) {
-    this._centerView && this._centerView.remove();
-    this._centerView = view;
-    this.$("content.centerpiece").html(this._centerView.render().$el);
-  },
-
-  _swapFeature: function(view) {
-    this._featureView && this._featureView.remove();
-    this._featureView = view;
-    this.$("content.feature").html(this._featureView.render().$el);
-  }
+  // _swapCenter: function(view) {
+  //   this._centerView && this._centerView.remove();
+  //   this._centerView = view;
+  //   // this.$rootEl
+  //   //   .find("section.centerpiece")
+  //   //   .html( this._centerView.render().$el );
+  //   this.$rootEl.find("section.centerpiece").html(this._centerView.render().$el)
+  // },
+  //
+  // _swapFeature: function(view) {
+  //   this._featureView && this._featureView.remove();
+  //   this._featureView = view;
+  //   this.$rootEl
+  //     .find("section.feature")
+  //     .html( this._featureView.render().$el );
+  // }
 })

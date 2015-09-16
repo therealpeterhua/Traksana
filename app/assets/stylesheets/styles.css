@@ -107,7 +107,7 @@ div.new-team button:hover {
 section.sidebar {
   position: relative;
   height: 100%;
-  width: 300px;
+  width: 250px;
   background: #D9E1ED;
 }
 
@@ -120,15 +120,14 @@ ul.team-member-items {
 
 }
 
-ul.team-member-items > li{
+ul.team-member-items > li {
   display: block;
   height: 16px;
   padding: 4px 20px;
   font-size: 14px;
 }
 
-ul.project-items > li a {
-  /*PH** - team members must be pictures*/
+ul.project-items > li {
   display: block;
   height: 16px;
   padding: 4px 20px;
