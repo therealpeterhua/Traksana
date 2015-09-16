@@ -3,8 +3,8 @@ Trak.Collections.Teams = Backbone.Collection.extend({
   url: "/api/teams",
 
   getOrFetch: function(id) {
-    thisCollection = this;
-    getModel = thisCollection.get(id);
+    var thisCollection = this;
+    var getModel = thisCollection.get(id);
 
     if (getModel) {
       getModel.fetch();

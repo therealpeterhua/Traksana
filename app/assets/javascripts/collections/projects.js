@@ -1,6 +1,6 @@
-Trak.Collections.Users = Backbone.Collection.extend({
-  url: "/api/users",
-  model: Trak.Models.User,
+Trak.Collections.Projects = Backbone.Collection.extend({
+  url: "/api/projects",
+  model: Trak.Models.Project,
 
   getOrFetch: function(id) {
     var thisCollection = this;
@@ -9,7 +9,7 @@ Trak.Collections.Users = Backbone.Collection.extend({
     if (getModel) {
       getModel.fetch();
     } else {
-      getModel = new Trak.Models.User({id: id});
+      getModel = new Trak.Models.Project({id: id});
       thisCollection.add(getModel);
       getModel.fetch({
         error: function() {
@@ -17,8 +17,6 @@ Trak.Collections.Users = Backbone.Collection.extend({
         }
       });
     }
-    //PH: why do we delete from collection again?
-
     return getModel;
   }
 })

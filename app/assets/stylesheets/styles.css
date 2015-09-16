@@ -17,6 +17,67 @@ ul {
   list-style: none;
 }
 
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+body {
+  font-family: sans-serif;
+  margin: auto;
+  background: #EBF4FF;
+}
+
+div.team-index-title {
+  font-size: 24px;
+}
+
+ul.team-index-items > li a {
+  padding: 20px 10px;    /*PH -- pads inside EL,outside text, does take space */
+  margin: 10px;      /*PH -- pads outside ELEMENT */
+  text-align: center;
+  float: left;
+  display: block;
+  height: 80px;
+  width: 200px;
+  background: green;
+  font-weight: bold;
+  font-size: 18px;
+  background: #B3CFF7;
+  border-radius: 5px;
+}
+
+ul.team-index-items > li a:hover {
+  background: #9CBFF0;
+  /*border-bottom: 1px solid #7DA9E6;*/
+  border-radius: 5px;
+}
+
+div.new-team button {
+  white-space: normal;        /*PH - how is whitespace handled inside EL?*/
+  box-sizing: content-box;
+  outline: none;
+  border: none;
+  padding: 20px 10px;    /*PH -- pads inside EL,outside text, does take space */
+  margin: 10px;      /*PH -- pads outside EL */
+  text-align: center;
+  float: left;
+  display: block;
+  height: 80px;
+  width: 200px;
+  background: green;
+  font-weight: bold;
+  font-size: 18px;
+  background: #B3CFF7;
+}
+
+div.new-team button:hover {
+  background: #9CBFF0;
+  border-bottom: 1px solid #7DA9E6;
+  border-radius: 2px;
+}
+
 .hidden {
   display: none;
 }

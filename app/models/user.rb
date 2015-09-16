@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
             through: :teams,
             source: :members
 
+  has_many :projects,
+            through: :teams,
+            source: :projects
+
   validates :email, :password_hash, :session_token, presence: true
   validates :email, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
