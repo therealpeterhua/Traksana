@@ -120,7 +120,14 @@ ul.team-member-items {
 
 }
 
-ul.team-member-items, ul.project-items > li {
+ul.team-member-items > li{
+  display: block;
+  height: 16px;
+  padding: 4px 20px;
+  font-size: 14px;
+}
+
+ul.project-items > li a {
   /*PH** - team members must be pictures*/
   display: block;
   height: 16px;

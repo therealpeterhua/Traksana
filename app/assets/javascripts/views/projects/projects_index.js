@@ -17,7 +17,8 @@ Trak.Views.ProjectsIndex = Backbone.CompositeView.extend({
   populateSubviews: function() {
     this.collection.each( function(project) {
       var projectItemView = new Trak.Views.ProjectsIndexItem({
-        model: project
+        model: project,
+        teamId: this.teamId
       });
       this.addSubview("ul.project-items", projectItemView);
     }.bind(this));
