@@ -1,5 +1,5 @@
 Trak.Views.ProjectsIndex = Backbone.CompositeView.extend({
-  template: JST['projects/projects_index'],
+  template: JST['sidebar/projects/projects_index'],
 
   initialize: function(options) {
     this.teamId = options.teamId;

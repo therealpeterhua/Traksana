@@ -1,5 +1,5 @@
 Trak.Views.ProjectShow = Backbone.CompositeView.extend({
-  template: JST['projects/project_show'],
+  template: JST['centerpiece/project_show'],
 
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);

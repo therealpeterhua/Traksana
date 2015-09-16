@@ -36,7 +36,6 @@ Trak.Views.TeamForm = Backbone.View.extend({
         this.toggleInputable();
       }.bind(this),
       error: function() {
-        debugger;
       }
     });
   },
@@ -46,3 +45,5 @@ Trak.Views.TeamForm = Backbone.View.extend({
     this.$("button.reveal-form").toggleClass("hidden");
   }
 })
+
+// PH** - implement a search-bar here later to edit teams? custom ajax for the search querying

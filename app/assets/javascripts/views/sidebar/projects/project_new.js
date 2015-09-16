@@ -1,5 +1,5 @@
 Trak.Views.ProjectNew = Backbone.View.extend({
-  template: JST['projects/project_new'],
+  template: JST['sidebar/projects/project_new'],
 
   events: {
     'click button.reveal-form': 'toggleInputables',

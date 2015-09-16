@@ -1,5 +1,5 @@
 Trak.Views.TeamMemberItem = Backbone.View.extend({
-  template: JST['users/team_member_item'],
+  template: JST['sidebar/team/team_member_item'],
   tagName: 'li',
 
   initialize: function() {

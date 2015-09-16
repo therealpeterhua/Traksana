@@ -1,5 +1,5 @@
 Trak.Views.ProjectsIndexItem = Backbone.View.extend({
-  template: JST['projects/projects_index_item'],
+  template: JST['sidebar/projects/projects_index_item'],
   tagName: 'li',
 
   events: {
@@ -26,7 +26,6 @@ Trak.Views.ProjectsIndexItem = Backbone.View.extend({
       model: this.model
     });
 
-    this.$el.find(".centerpiece").html(projectShow.render().$el);
-    debugger;
+    // this.$el.find(".centerpiece").html(projectShow.render().$el);
   }
 })
