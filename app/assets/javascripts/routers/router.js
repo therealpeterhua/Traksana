@@ -9,7 +9,7 @@ Trak.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "teamIndex",
-    "teams/:id": "teamShow",
+    "teams/:id": "masterPage",
     // "teams/:id/edit": "edit",
     "teams/:team_id/projects/:id": "projectShow"
   },
@@ -20,21 +20,20 @@ Trak.Routers.Router = Backbone.Router.extend({
     this._swapView(indexView);
   },
 
-  teamShow: function(id) {
+  masterPage: function(id) {
     var showTeam = this.collection.getOrFetch(id);
-    var showView = new Trak.Views.TeamShow({ model: showTeam });
+    var showView = new Trak.Views.Master({ model: showTeam });
 
     this._swapView(showView);
   },
 
-  projectShow: function(team_id, id) {
-    var currTeam = this.collection.getOrFetch(team_id);
-    var showProject = currTeam.projects().get(id);
-    projectShowView = new Trak.Views.ProjectShow({ model: showProject })
-
-    this._swapCenter(projectShowView);
-
-  },
+  // projectShow: function(team_id, id) {
+  //   var currTeam = this.collection.getOrFetch(team_id);
+  //   var showProject = currTeam.projects().get(id);
+  //   projectShowView = new Trak.Views.ProjectShow({ model: showProject })
+  //
+  //   this._swapCenter(projectShowView);
+  // },
 
   // edit: function(id) {
   //   var editTeam = this.collection.getOrFetch(id);
