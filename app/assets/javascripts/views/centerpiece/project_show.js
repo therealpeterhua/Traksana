@@ -7,6 +7,7 @@ Trak.Views.ProjectShow = Backbone.CompositeView.extend({
   //PH** - much like the team display, we'll prolly want to extrapolate this into its own view to only re-render itself when changing the project name
 
   render: function() {
+    alert('project show render triggered');
     var content = this.template({ project: this.model });
     this.$el.html(content);
     this.populateTaskIndex();
@@ -16,7 +17,8 @@ Trak.Views.ProjectShow = Backbone.CompositeView.extend({
 
   populateTaskIndex: function() {
     var tasksIndexView = new Trak.Views.TasksIndex({
-      collection: this.model.tasks()
+      collection: this.model.tasks(),
+      projectId: this.model.id
     })
 
     this.addSubview("div.tasks-index-container", tasksIndexView);

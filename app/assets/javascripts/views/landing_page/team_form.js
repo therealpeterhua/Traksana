@@ -3,7 +3,7 @@ Trak.Views.TeamForm = Backbone.View.extend({
   addClass: "new-team",
 
   events: {
-    "click button.submit-form": "submitForm",
+    "click button.submit-form": "submitNewTeam",
     //PH may change to "submit form: " because won't have button in end
     "click button.reveal-form": "revealForm"
   },
@@ -24,7 +24,7 @@ Trak.Views.TeamForm = Backbone.View.extend({
     this.toggleInputable();
   },
 
-  submitForm: function(e) {
+  submitNewTeam: function(e) {
     e.preventDefault();
     var attributes = this.$("form").serializeJSON().team
     this.model.set(attributes);

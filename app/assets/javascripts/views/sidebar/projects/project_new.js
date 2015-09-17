@@ -3,7 +3,7 @@ Trak.Views.ProjectNew = Backbone.View.extend({
 
   events: {
     'click button.reveal-form': 'toggleInputables',
-    'click form.new-project button': 'submitForm'
+    'click form.new-project button': 'submitNewProject'
   },
 
   render: function() {
@@ -19,7 +19,7 @@ Trak.Views.ProjectNew = Backbone.View.extend({
     this.$('form.new-project').toggleClass('hidden');
   },
 
-  submitForm: function(e) {
+  submitNewProject: function(e) {
     e.preventDefault();
     var formData = this.$('form.new-project').serializeJSON().project;
     this.model.set(formData);

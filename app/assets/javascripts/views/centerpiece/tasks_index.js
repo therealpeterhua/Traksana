@@ -8,11 +8,13 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
     //Makes sense to have up here -- can select all inside <li>, attach class
   },
 
-  initialize: function() {
+  initialize: function(options) {
+    this.projectId = options.projectId;
     this.listenTo(this.collection, "change", this.render);
   },
 
   render: function() {
+    alert('tasks index render triggered');
     var content = this.template();
     this.$el.html(content);
     this.populateTaskItems();
@@ -25,5 +27,13 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
       var taskItemView = new Trak.Views.TasksIndexItem({ model: task });
       this.addSubview("ul.task-items", taskItemView);
     }.bind(this));
+
+    var newTaskView = new Trak.Views.TaskNew({
+      model: new Trak.Models.Task({ project_id: this.projectId }),
+      collection: this.collection,
+    });
+    this.addSubview("ul.task-items", newTaskView);
+
+    //PH - should I be adding this into ul.task-items as an li? I can prepend the addSubviews rather than append...
   }
 })
