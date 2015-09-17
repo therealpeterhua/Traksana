@@ -4,6 +4,7 @@ Trak.Views.ProjectsIndex = Backbone.CompositeView.extend({
   initialize: function(options) {
     this.teamId = options.teamId;
     this.listenTo(this.collection, "sync", this.render);
+    //PH** if don't have "sync" here, it doesn't update when I save new project!
   },
 
   render: function() {

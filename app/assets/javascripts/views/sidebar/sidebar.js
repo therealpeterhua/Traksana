@@ -4,7 +4,8 @@ Trak.Views.Sidebar = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);     //PH -- rem this is team
-    this.listenTo(this.model.members(), "sync", this.render);
+    //PH** Will want to abstract into its own view for name changing
+    //PH** You actually do need to listen for sync here -- after the team#show finishes fetching, you'll need to refresh this page
   },
 
   render: function() {
@@ -13,22 +14,23 @@ Trak.Views.Sidebar = Backbone.CompositeView.extend({
     //Don't I need this to refresh if the .members() changes?
     this.$el.html(content);
     this.populateSections();
+    // debugger;
 
     return this;
   },
 
   populateSections: function() {
-    var membersSubview = new Trak.Views.TeamMemberIndex({
+    var membersIndexView = new Trak.Views.TeamMemberIndex({
       collection: this.model.members()
     });
 
-    var projectsSubview = new Trak.Views.ProjectsIndex({
+    var projectsIndexView = new Trak.Views.ProjectsIndex({
       collection: this.model.projects(),
       teamId: this.model.id
     });
 
-    this.addSubview("div.members-index", membersSubview);
-    this.addSubview("div.projects-index", projectsSubview);
+    this.addSubview("div.members-index", membersIndexView);
+    this.addSubview("div.projects-index", projectsIndexView);
   }
 
 })

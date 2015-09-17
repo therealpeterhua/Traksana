@@ -3,7 +3,7 @@ Trak.Views.ProjectsIndexItem = Backbone.View.extend({
   tagName: 'li',
 
   events: {
-    "click": "displayProject"
+    //PH** if you wanna go cowboy -- listen to clicks here and render outside the $el
   },
 
   initialize: function(options) {
@@ -22,11 +22,4 @@ Trak.Views.ProjectsIndexItem = Backbone.View.extend({
     return this;
   },
 
-  displayProject: function() {
-    var projectShow = new Trak.Views.ProjectShow({
-      model: this.model
-    });
-
-    // this.$el.find(".centerpiece").html(projectShow.render().$el);
-  }
 })
