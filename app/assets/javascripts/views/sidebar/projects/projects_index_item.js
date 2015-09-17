@@ -1,6 +1,7 @@
 Trak.Views.ProjectsIndexItem = Backbone.View.extend({
   template: JST['sidebar/projects/projects_index_item'],
   tagName: 'li',
+  className: 'project-item',
 
   events: {
     //PH** if you wanna go cowboy -- listen to clicks here and render outside the $el

@@ -154,6 +154,7 @@ ul.project-items > li:hover {
   border-bottom: 1px solid #F5F5F5;
   /*box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);*/
   /* offset-x | offset-y | blur-radius | spread-radius | color */
+  /*PH** - how to prevent from adding extra borderline?*/
 }
 
 /* MAIN-CONTAINER STYLES */
@@ -187,6 +188,36 @@ h3.project-codename {
   padding: 5px;
 }
 
-ul.task-items > li {
-  outline: 1px solid #DEDEDE;
+ul.task-items {
+  outline: 1px solid #D6D6D6;
 }
+
+li.task-item {
+  height: 33px;
+  border-bottom: 1px solid #DEDEDE;
+}
+
+li.task-item .task-completion {
+  float: left;
+  display: block;
+  position: relative;
+  height: 33px;     /*PH - from source*/
+  border-bottom: 1px solid #DEDEDE;
+  width: 35px;
+  text-align: center;
+  line-height: 33px;
+}
+
+li.task-item .task-title {
+  float: left;
+  display: block;
+  position: relative;
+  width: -moz-calc(100% - 35px);
+  width: -webkit-calc(100% - 35px);
+  width: calc(100% - 35px);
+  font-size: 16px;
+
+  overflow: hidden;     /*PH - from source*/
+  margin: 7px 0px;
+}
+/* PH - make sure this text doesn't wrap!! */

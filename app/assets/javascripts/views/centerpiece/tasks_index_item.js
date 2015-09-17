@@ -1,6 +1,7 @@
 Trak.Views.TasksIndexItem = Backbone.View.extend({
   template: JST['centerpiece/tasks_index_item'],
   tagName: 'li',
+  className: 'task-item',
 
   events: {
     //PH** if you wanna go cowboy -- listen to clicks here and render outside the $el
