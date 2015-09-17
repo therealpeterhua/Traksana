@@ -1,5 +1,3 @@
-require 'byebug'
-
 class Api::TasksController < ApplicationController
   def create
     @task = current_user.created_tasks.new(task_params)
