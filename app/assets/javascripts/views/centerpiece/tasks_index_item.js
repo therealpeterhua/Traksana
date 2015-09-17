@@ -4,6 +4,9 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
 
   events: {
     //PH** if you wanna go cowboy -- listen to clicks here and render outside the $el
+
+    'click strong.task-completion': 'completeTask'
+    //PH** - keep here or put outside, where want to implement?
   },
 
   render: function() {
@@ -11,5 +14,9 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
     this.$el.html(content);
 
     return this;
-  }
+  },
+
+  completeTask: function() {
+
+  },
 })

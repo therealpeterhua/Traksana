@@ -71,6 +71,13 @@ Trak.Views.Master = Backbone.CompositeView.extend({
     this.$("section.single-pane").html(this._singleView.render().$el);
   },
 
+  // swapView: function(viewProp, view, selector) {
+  //   viewProp && viewProp.remove();
+  //   viewProp = view;
+  //   this.$(selector).html(viewProp.render().$el);
+  // },
+  // PH -- have the above and then swap out as necessary?
+
   clearMainContainer: function() {
     this._centerView && this._centerView.remove();
     this._featureView && this._featureView.remove();

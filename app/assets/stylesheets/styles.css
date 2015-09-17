@@ -23,6 +23,10 @@ ul {
   clear: both;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: sans-serif;
   background: #EBF4FF;
@@ -102,10 +106,11 @@ div.new-team button:hover {
   border-radius: 2px;
 }
 
-/*BEGIN TEAM SHOW STYLES*/
+/*SIDEBAR STYLES*/
 
 section.sidebar {
   position: relative;
+  float: left;
   height: 100%;
   width: 250px;
   background: #D9E1ED;
@@ -147,4 +152,39 @@ ul.project-items {
 
 ul.project-items > li:hover {
   background: #BFCCDF;
+}
+
+/* MAIN-CONTAINER STYLES */
+
+div.main-container {
+  float: left;
+  /*PH - need sidebar + main-container float left if want next to each other*/
+  display: block;
+  position: relative;
+  width: -moz-calc(100% - 250px);
+  width: -webkit-calc(100% - 250px);
+  width: calc(100% - 250px);
+  outline: 1px solid #DEDEDE;
+}
+
+/* CENTERPIECE STYLES */
+
+section.centerpiece {
+  min-width: 450px;
+  width: 50%;           /* PH - remember this is as % of parent element */
+  position: relative;
+  left: 20px;
+  margin: 10px;
+  outline: 1px solid #DEDEDE;
+  border-top-left-radius: 5px;
+}
+
+h3.project-codename {
+  font-size: 24px;
+  font-weight: normal;
+  padding: 5px;
+}
+
+ul.task-items > li {
+  outline: 1px solid #DEDEDE;
 }
