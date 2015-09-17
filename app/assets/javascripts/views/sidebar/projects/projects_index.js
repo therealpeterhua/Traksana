@@ -1,6 +1,10 @@
 Trak.Views.ProjectsIndex = Backbone.CompositeView.extend({
   template: JST['sidebar/projects/projects_index'],
 
+  events: {
+    'click li': 'emphasizeProject'
+  },
+
   initialize: function(options) {
     this.teamId = options.teamId;
     this.listenTo(this.collection, "sync", this.render);
@@ -32,7 +36,13 @@ Trak.Views.ProjectsIndex = Backbone.CompositeView.extend({
     });
 
     this.addSubview("div.new-project", newProjectView);
-  }
+  },
   //PH**** - sort out naming conventions here - index item, etc.
+
+  emphasizeProject: function(e) {
+    this.$('li').removeClass('clicked-project');
+    var clickedProj = $(e.currentTarget);
+    clickedProj.addClass('clicked-project');
+  }
 
 })

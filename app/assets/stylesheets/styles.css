@@ -137,21 +137,23 @@ ul.project-items > li {
   height: 16px;
   padding: 4px 20px;
   font-size: 14px;
+  /*PH** - stop turning into cursor*/
 }
 
 ul.project-items {
-
 }
-
-/*ul.project-items > li {
-  display: block;
-  height: 16px;
-  padding: 4px 20px;
-  font-size: 14px;
-}*/
 
 ul.project-items > li:hover {
   background: #BFCCDF;
+}
+
+.clicked-project {
+  padding: 0px 20px;
+  background: #B4C0D1;
+  border-top: 1px solid #9899B5;
+  border-bottom: 1px solid #F5F5F5;
+  /*box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);*/
+  /* offset-x | offset-y | blur-radius | spread-radius | color */
 }
 
 /* MAIN-CONTAINER STYLES */
