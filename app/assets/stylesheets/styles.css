@@ -119,10 +119,10 @@ section.sidebar {
 h4.sidebar-title {
   padding-left: 10px;
   font-size: 16px;
+  cursor: default;
 }
 
 ul.team-member-items {
-
 }
 
 ul.team-member-items > li {
@@ -130,6 +130,7 @@ ul.team-member-items > li {
   height: 16px;
   padding: 4px 20px;
   font-size: 14px;
+  cursor: pointer;
 }
 
 ul.project-items > li {
@@ -137,6 +138,7 @@ ul.project-items > li {
   height: 16px;
   padding: 4px 20px;
   font-size: 14px;
+  cursor: pointer;
   /*PH** - stop turning into cursor*/
 }
 
@@ -197,6 +199,12 @@ li.task-item {
   border-bottom: 1px solid #DEDEDE;
 }
 
+li.task-item:hover {
+  height: 33px;
+  border-bottom: 1px solid black;
+  /*PH** - this needs to be fixed*/
+}
+
 li.task-item .task-completion {
   float: left;
   display: block;
@@ -206,6 +214,12 @@ li.task-item .task-completion {
   width: 35px;
   text-align: center;
   line-height: 33px;
+  cursor: pointer;
+  color: #C1C1C1;
+}
+
+li.task-item .task-completion:hover {
+  color: #5999D1;
 }
 
 li.task-item .task-title {
