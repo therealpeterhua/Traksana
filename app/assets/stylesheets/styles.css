@@ -32,6 +32,10 @@ body {
   background: #EBF4FF;
   height: 100%;
 }
+
+div.backdrop, div.backdrop > div, div.master {
+  height: 100%;
+}
 /*http://stackoverflow.com/questions/8473162/how-do-i-set-height-of-container-div-to-100-of-window-height*/
 
 .hidden {
@@ -137,7 +141,7 @@ ul.project-items > li {
   display: block;
   height: 16px;
   padding: 4px 20px;
-  font-size: 14px;
+  font-size: 12px;
   cursor: pointer;
   /*PH** - stop turning into cursor*/
 }
@@ -195,12 +199,12 @@ ul.task-items {
 }
 
 li.task-item {
-  height: 33px;
+  height: 31px;
   border-bottom: 1px solid #DEDEDE;
 }
 
 li.task-item:hover {
-  height: 33px;
+  height: 31px;
   border-bottom: 1px solid black;
   /*PH** - this needs to be fixed*/
 }
@@ -209,12 +213,12 @@ li.task-item .task-completion {
   float: left;
   display: block;
   position: relative;
-  height: 33px;     /*PH - from source*/
+  height: 31px;     /*PH - from source*/
   border-bottom: 1px solid #DEDEDE;
   width: 35px;
   text-align: center;
   font-weight: 900;
-  line-height: 33px;
+  line-height: 31px;
   cursor: pointer;
   color: #C1C1C1;
 }
@@ -230,14 +234,18 @@ li.task-item .task-title {
   width: -moz-calc(100% - 35px);
   width: -webkit-calc(100% - 35px);
   width: calc(100% - 35px);
-  font-size: 16px;
+  font-size: 14px;
 
   cursor: text;
   overflow: hidden;     /*PH - from source*/
-  margin: 7px 0px;
+  margin: 8px 0px;
+}
+
+li.new-task {
+  background: green;
 }
 
 ul.task-items {
-  
+
 }
 /* PH - make sure this text doesn't wrap!! */

@@ -1,7 +1,7 @@
 Trak.Views.TaskForm = Backbone.View.extend({
   template: JST['centerpiece/task_form'],
   tagName: 'li',
-  className: 'task-form',
+  className: 'task-item',
 
   events: {
     'form submit': 'submitNewTask'
