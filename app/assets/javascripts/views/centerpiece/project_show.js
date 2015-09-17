@@ -7,7 +7,7 @@ Trak.Views.ProjectShow = Backbone.CompositeView.extend({
   //PH** - much like the team display, we'll prolly want to extrapolate this into its own view to only re-render itself when changing the project name
 
   render: function() {
-    alert('project show render triggered');
+    // alert('project show render triggered');
     var content = this.template({ project: this.model });
     this.$el.html(content);
     this.populateTaskIndex();

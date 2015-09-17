@@ -213,6 +213,7 @@ li.task-item .task-completion {
   border-bottom: 1px solid #DEDEDE;
   width: 35px;
   text-align: center;
+  font-weight: bold;
   line-height: 33px;
   cursor: pointer;
   color: #C1C1C1;
@@ -231,6 +232,7 @@ li.task-item .task-title {
   width: calc(100% - 35px);
   font-size: 16px;
 
+  cursor: text;
   overflow: hidden;     /*PH - from source*/
   margin: 7px 0px;
 }

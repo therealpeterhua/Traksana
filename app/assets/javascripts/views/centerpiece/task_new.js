@@ -14,12 +14,13 @@ Trak.Views.TaskNew = Backbone.View.extend({
     return this;
   },
 
-  submitNewTask: function() {
+  submitNewTask: function(e) {
+    e.preventDefault();
+    //PH -- default browser behavior puts formData into URL as query string
     var attributes = this.$el.serializeJSON().task;
     this.model.set(attributes);
 
-    debugger;
-    this.model.save({
+    this.model.save({}, {       //PH - REM {}
       success: function(model) {
         this.collection.add(model)
       }.bind(this),

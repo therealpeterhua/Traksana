@@ -9,7 +9,7 @@ Trak.Views.Sidebar = Backbone.CompositeView.extend({
   },
 
   render: function() {
-    alert('sidebar render triggered');
+    // alert('sidebar render triggered');
     var content = this.template({team: this.model});
     //PH** - QUESTION: should I extrapolate the title into its own view?
     //Don't I need this to refresh if the .members() changes?
