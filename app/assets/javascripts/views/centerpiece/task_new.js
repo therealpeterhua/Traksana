@@ -1,10 +1,10 @@
-Trak.Views.TaskNew = Backbone.View.extend({
-  template: JST['centerpiece/task_new'],
-  tagName: 'form',
-  className: 'new-class-form',
+Trak.Views.TaskForm = Backbone.View.extend({
+  template: JST['centerpiece/task_form'],
+  tagName: 'li',
+  className: 'task-form',
 
   events: {
-    'submit': 'submitNewTask'
+    'form submit': 'submitNewTask'
   },
 
   render: function() {
@@ -17,7 +17,7 @@ Trak.Views.TaskNew = Backbone.View.extend({
   submitNewTask: function(e) {
     e.preventDefault();
     //PH -- default browser behavior puts formData into URL as query string
-    var attributes = this.$el.serializeJSON().task;
+    var attributes = this.$('form').serializeJSON().task;
     this.model.set(attributes);
 
     this.model.save({}, {       //PH - REM {}

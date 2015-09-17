@@ -30,7 +30,7 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
       this.addSubview("ul.task-items", taskItemView);
     }.bind(this));
 
-    var newTaskView = new Trak.Views.TaskNew({
+    var newTaskView = new Trak.Views.TaskForm({
       model: new Trak.Models.Task({ project_id: this.projectId }),
       collection: this.collection,
     });

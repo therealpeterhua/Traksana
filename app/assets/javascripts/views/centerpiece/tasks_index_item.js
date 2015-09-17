@@ -5,6 +5,7 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
 
   events: {
     //PH** if you wanna go cowboy -- listen to clicks here and render outside the $el
+    'click div.task-title': 'editTaskTitle'
   },
 
   initialize: function() {
@@ -27,6 +28,10 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
       this.$('.task-completion').addClass('completed');
     }
     //PH** will probably need this for other things where completed is a different display?
+  },
+
+  editTaskTitle: function() {
+
   }
 
 })
