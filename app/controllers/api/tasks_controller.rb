@@ -1,3 +1,5 @@
+require 'byebug'
+
 class Api::TasksController < ApplicationController
   def create
     @task = current_user.created_tasks.new(task_params)
@@ -18,6 +20,19 @@ class Api::TasksController < ApplicationController
       render json: @task.errors.full_messages,
              status: :unprocessable_entity
     end
+  end
+
+  def toggle_completion
+    # PH - only need this because don't have access to current_user in javascript
+    @task = Task.find(params[:id])
+
+    if @task.completer_id
+      @task.update!(completer_id: nil)
+    else
+      @task.update!(completer_id: current_user.id)
+    end
+
+    render json: @task
   end
 
   def destroy

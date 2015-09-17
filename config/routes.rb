@@ -8,7 +8,13 @@ Rails.application.routes.draw do
     resources :teams
     resources :users, except: [:new, :create]
     resources :projects, only: [:create, :update, :destroy]
-    resources :tasks, only: [:create, :update, :destroy]
+    resources :tasks, only: [:create, :update, :destroy] do
+      member do
+        post 'toggle_completion'
+      end
+    end
+    #PH - member routes give you :id, collection routes are whole thing
+
   end
 end
 

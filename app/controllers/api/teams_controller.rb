@@ -21,7 +21,9 @@ module Api
     end
 
     def show
-      @team = Team.find(params[:id])
+      @team = Team.includes(projects: :tasks).find(params[:id])
+      # PH - include associated projects here
+      # for comments, includes a nested hash
 
       if @team
         render 'show'
