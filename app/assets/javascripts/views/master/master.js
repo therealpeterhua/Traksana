@@ -4,7 +4,7 @@ Trak.Views.Master = Backbone.CompositeView.extend({
 
   events: {
     "click ul.project-items>li": "displayProject",
-    "click ul.task-items>li": "displayTask"
+    "click ul.task-items>li": "displayTask"       //only puts on page after??
   },
 
   //PH -- NO LISTENERS HERE. can't afford to repaint whole page. Just a command center/battle station to render rest of site
@@ -30,36 +30,38 @@ Trak.Views.Master = Backbone.CompositeView.extend({
     var project = this.model.projects().get(projectId);
     this._currentProject = project
 
-    projectShowView = new Trak.Views.ProjectShow({
+    var projectShowView = new Trak.Views.ProjectShow({
       model: project
     });
 
     // this.switchToDualPane();       //PH** - should I do this implementation and just use 2 panes rather than 3 and selectively hiding?
-    this.switchToDualPane();
-    this.clearMainContainer();    //PH - how to clear all views outta main container?
+    this.switchToSinglePane(false);
+    this.clearFeature();
     this.swapCenterView(projectShowView);
     //PH - we'll probably need this to set a project so that the "feature" view will remember it!
+
+    this.delegateEvents();
   },
 
   displayTask: function(e) {
-    var taskId = $(e.currentTarget).data('task-id');
-    var task = this._currentProject.tasks().get('task-id');
-
-    taskShowView = new Trak.Views.TaskShow({
-      model: task
-    })
-  }
-
-  switchToDualPane: function() {
-    this.$("section.centerpiece").removeClass('hidden');
-    this.$("section.feature").removeClass('hidden');
-    this.$("section.single-pane").addClass('hidden');
+    alert("I'm displaying!")
+    // var taskId = $(e.currentTarget).data('task-id');
+    // var task = this._currentProject.tasks().get('task-id');
+    //
+    // var taskShowView = new Trak.Views.TaskShow({
+    //   model: task
+    // });
+    //
+    // this.switchToSinglePane(false);
+    // this.swapFeatureView(taskShowView);
   },
 
-  switchToSinglePane: function() {
-    this.$("section.centerpiece").addClass('hidden');
-    this.$("section.feature").addClass('hidden');
-    this.$("section.single-pane").removeClass('hidden');
+  switchToSinglePane: function(bool) {
+    if (bool) {
+      this.$('section.centerpiece').addClass('single-pane');
+    } else {
+      this.$('section.centerpiece').removeClass('single-pane');
+    }
   },
 
   swapCenterView: function(view) {
@@ -75,12 +77,6 @@ Trak.Views.Master = Backbone.CompositeView.extend({
     this.$("section.feature").html(this._featureView.render().$el);
   },
 
-  swapSinglePaneView: function(view) {
-    this._singleView && this._singleView.remove();
-    this._singleView = view;
-    this.$("section.single-pane").html(this._singleView.render().$el);
-  },
-
   // swapView: function(viewProp, view, selector) {
   //   viewProp && viewProp.remove();
   //   viewProp = view;
@@ -88,10 +84,15 @@ Trak.Views.Master = Backbone.CompositeView.extend({
   // },
   // PH -- have the above and then swap out as necessary?
 
-  clearMainContainer: function() {
+  clearMainContainer: function() {        //PH** isn't this part of swapView?
     this._centerView && this._centerView.remove();
     this._featureView && this._featureView.remove();
     this.$("section.centerpiece").html('');
+    this.$("section.feature").html('');
+  },
+
+  clearFeature: function() {
+    this._featureView && this._featureView.remove();
     this.$("section.feature").html('');
   },
   //PH** - Need to revamp the listeners on Sidebar -- I'll have to fetch the team to get the associated projects (and fetch this one), which will trigger a sync on the entire sidebar object right now. Maybe have just a teams handler?

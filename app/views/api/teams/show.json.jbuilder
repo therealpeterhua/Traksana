@@ -18,3 +18,5 @@ json.projects do
 
   end
 end
+
+#PH** exclude unneeded attributes here when done

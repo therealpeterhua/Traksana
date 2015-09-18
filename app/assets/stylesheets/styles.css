@@ -110,7 +110,7 @@ div.new-team button:hover {
   border-radius: 2px;
 }
 
-/*SIDEBAR STYLES*/
+/* =============== SIDEBAR STYLES =================*/
 
 section.sidebar {
   position: relative;
@@ -163,7 +163,7 @@ ul.project-items > li:hover {
   /*PH** - how to prevent from adding extra borderline?*/
 }
 
-/* MAIN-CONTAINER STYLES */
+/* ============== MAIN-CONTAINER STYLES ===============*/
 
 div.main-container {
   float: left;
@@ -176,16 +176,30 @@ div.main-container {
   outline: 1px solid #DEDEDE;
 }
 
-/* CENTERPIECE STYLES */
+/* PH -- get this here worked out */
+div.main-container .whole-screen {
+  width: 100%;
+  height: 100%;
+}
+
+/* ------------- CENTERPIECE STYLES --------------- */
 
 section.centerpiece {
+  float: left;
   min-width: 450px;
   width: 50%;           /* PH - remember this is as % of parent element */
   position: relative;
-  left: 20px;
+  left: 20px;           /* PH** - what's this do again? */
   margin: 10px;
   outline: 1px solid #DEDEDE;
   border-top-left-radius: 5px;
+  overflow: scroll;
+}
+/* PH**** - need to have this scroll on container overflow. maybe put on ul? */
+
+/* PH** - have below NOT take up whole width of page */
+section.single-pane {
+  width: 100%;
 }
 
 h3.project-codename {
@@ -193,6 +207,7 @@ h3.project-codename {
   font-weight: normal;
   padding: 5px;
 }
+
 
 ul.task-items {
   outline: 1px solid #D6D6D6;
@@ -256,5 +271,17 @@ ul.task-items li.new-task {
 ul.task-items .clicked-task {
   background: #DAECFF;
 }
-
 /* PH - make sure this text doesn't wrap!! */
+
+/* ----------- FEATURE STYLES ------------- */
+
+section.centerpiece {
+  width: 30%;           /* PH** - do these proportions work out? */
+  position: relative;
+  float: left;
+  left: 20px;
+  margin: 10px;
+  outline: 1px solid #DEDEDE;
+  border-top-left-radius: 5px;
+  overflow: scroll;
+}

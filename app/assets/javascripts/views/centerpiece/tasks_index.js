@@ -7,7 +7,8 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
     //Can have ALL by default -- have a hash to know which classes to apply "hidden" characteristic to
     //Makes sense to have up here -- can select all inside <li>, attach class
     'click .task-completion': 'toggleCompletion',
-    'click li': 'emphasizeTask'
+    'click li': 'emphasizeTask',
+    'click ul.task-items>li': 'displayTask'
   },
 
   initialize: function(options) {
@@ -63,5 +64,9 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
   emphasizeTask: function(e) {
     this.$('li').removeClass('clicked-task');
     $(e.currentTarget).addClass('clicked-task');
+  },
+
+  displayTask: function(e) {
+    alert('displayed');
   }
 })
