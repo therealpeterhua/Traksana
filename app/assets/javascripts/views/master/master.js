@@ -3,7 +3,8 @@ Trak.Views.Master = Backbone.CompositeView.extend({
   className: 'master',
 
   events: {
-    "click ul.project-items>li": "displayProject"
+    "click ul.project-items>li": "displayProject",
+    "click ul.task-items>li": "displayTask"
   },
 
   //PH -- NO LISTENERS HERE. can't afford to repaint whole page. Just a command center/battle station to render rest of site
@@ -25,12 +26,12 @@ Trak.Views.Master = Backbone.CompositeView.extend({
   //PH** - add other panes same way? Maybe not -- maybe gotta show piecemeal
 
   displayProject: function(e) {
-    e.preventDefault();
-    var projectId = $(e.currentTarget).data('project-id')
-    var proj = this.model.projects().get(projectId);
+    var projectId = $(e.currentTarget).data('project-id');
+    var project = this.model.projects().get(projectId);
+    this._currentProject = project
 
     projectShowView = new Trak.Views.ProjectShow({
-      model: proj
+      model: project
     });
 
     // this.switchToDualPane();       //PH** - should I do this implementation and just use 2 panes rather than 3 and selectively hiding?
@@ -39,6 +40,15 @@ Trak.Views.Master = Backbone.CompositeView.extend({
     this.swapCenterView(projectShowView);
     //PH - we'll probably need this to set a project so that the "feature" view will remember it!
   },
+
+  displayTask: function(e) {
+    var taskId = $(e.currentTarget).data('task-id');
+    var task = this._currentProject.tasks().get('task-id');
+
+    taskShowView = new Trak.Views.TaskShow({
+      model: task
+    })
+  }
 
   switchToDualPane: function() {
     this.$("section.centerpiece").removeClass('hidden');

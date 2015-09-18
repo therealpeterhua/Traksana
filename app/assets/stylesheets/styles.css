@@ -196,6 +196,7 @@ h3.project-codename {
 
 ul.task-items {
   outline: 1px solid #D6D6D6;
+  background: white;
 }
 
 ul.task-items > li {
@@ -230,7 +231,9 @@ li .task-completion:hover {
 
 /* Do below for both new and existing tasks... */
 /*PH** - REM input doesn't inherit font-family!!*/
+/* outline-none disables browser feedback */
 ul.task-items li input {
+  outline: none;
   font-family: inherit;
   float: left;
   display: block;
@@ -248,6 +251,10 @@ ul.task-items li input {
 
 ul.task-items li.new-task {
   color: grey;
+}
+
+ul.task-items .clicked-task {
+  background: #DAECFF;
 }
 
 /* PH - make sure this text doesn't wrap!! */
