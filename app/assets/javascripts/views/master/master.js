@@ -4,7 +4,7 @@ Trak.Views.Master = Backbone.CompositeView.extend({
 
   events: {
     "click ul.project-items>li": "displayProject",
-    "click ul.task-items>li": "displayTask"       //only puts on page after??
+    'click ul.task-items>li': 'displayTask'         //only puts on page after??
   },
 
   //PH -- NO LISTENERS HERE. can't afford to repaint whole page. Just a command center/battle station to render rest of site
@@ -34,7 +34,6 @@ Trak.Views.Master = Backbone.CompositeView.extend({
       model: project
     });
 
-    // this.switchToDualPane();       //PH** - should I do this implementation and just use 2 panes rather than 3 and selectively hiding?
     this.switchToSinglePane(false);
     this.clearFeature();
     this.swapCenterView(projectShowView);
@@ -44,16 +43,15 @@ Trak.Views.Master = Backbone.CompositeView.extend({
   },
 
   displayTask: function(e) {
-    alert("I'm displaying!")
-    // var taskId = $(e.currentTarget).data('task-id');
-    // var task = this._currentProject.tasks().get('task-id');
-    //
-    // var taskShowView = new Trak.Views.TaskShow({
-    //   model: task
-    // });
-    //
-    // this.switchToSinglePane(false);
-    // this.swapFeatureView(taskShowView);
+    var taskId = $(e.currentTarget).data('task-id');
+    var task = this._currentProject.tasks().get(taskId);
+
+    var taskShowView = new Trak.Views.TaskShow({
+      model: task
+    });
+
+    this.switchToSinglePane(false);
+    this.swapFeatureView(taskShowView);
   },
 
   switchToSinglePane: function(bool) {
@@ -94,7 +92,7 @@ Trak.Views.Master = Backbone.CompositeView.extend({
   clearFeature: function() {
     this._featureView && this._featureView.remove();
     this.$("section.feature").html('');
-  },
+  }
   //PH** - Need to revamp the listeners on Sidebar -- I'll have to fetch the team to get the associated projects (and fetch this one), which will trigger a sync on the entire sidebar object right now. Maybe have just a teams handler?
   //Remember I'll also have to keep track of which project is currently being clicked!
   //Do i have to delete subviews? I'll just keep populating the sidebar with old views here...
@@ -102,8 +100,4 @@ Trak.Views.Master = Backbone.CompositeView.extend({
   //I don't need to listen to sync EVerywhere -- can just listen for changes, to what exactly is being displayed?? Clearly not the case... try adding project
 
   //NOTE: can always write like a cowboy -- have the click reference something OUTSIDE of the element with a raw jQuery selector, within your subviews
-
-  displayTask: function(e) {
-    e.preventDefault();
-  }
 })
