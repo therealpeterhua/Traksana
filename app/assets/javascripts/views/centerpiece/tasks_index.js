@@ -6,7 +6,7 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
     //PH** - listen to the filter to get working here
     //Can have ALL by default -- have a hash to know which classes to apply "hidden" characteristic to
     //Makes sense to have up here -- can select all child <li>, attach class
-    'click .task-completion': 'toggleCompletion',
+    'click .task-completion > .completion-icon': 'toggleCompletion',
     'click li': 'emphasizeTask'
   },
 
@@ -43,7 +43,7 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
   },
 
   toggleCompletion: function(e) {
-    var taskId = $(e.currentTarget).parent().data('task-id');
+    var taskId = $(e.currentTarget).parent().parent().data('task-id');
     var task = this.collection.get(taskId); //PH** SEND CUSTOM AJAX TO MARK!
 
     $.ajax({

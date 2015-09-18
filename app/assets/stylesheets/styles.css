@@ -36,7 +36,6 @@ body {
 div.backdrop, div.backdrop > div, div.master {
   height: 100%;
 }
-/*http://stackoverflow.com/questions/8473162/how-do-i-set-height-of-container-div-to-100-of-window-height*/
 
 .hidden {
   display: none;
@@ -237,14 +236,31 @@ li .task-completion {
   height: 31px;     /*PH - from source*/
   width: 35px;
   text-align: center;
-  font-weight: 900;
-  line-height: 31px;
-  cursor: pointer;
-  color: #C1C1C1;
 }
 
-li .task-completion:hover {
-  color: ##1F8DD6;
+li div.completion-icon {
+  display: block;
+  float: left;
+  cursor: pointer;
+  border: 2px solid #C1C1C1;
+  border-radius: 2px;
+  padding: 5px;
+  margin: 9px 9px 8px 9px;
+}
+
+li div.completion-icon:hover {
+  border: 2px solid #1F8DD6;
+}
+
+li div.completion-icon.completed {
+  border: none;
+  font-size: 20px;
+  padding: 0px;
+  margin: 4px 9px 9px 9px;
+}
+
+li div.completion-icon.completed:hover {
+  color: #1F8DD6;
 }
 
 /* Do below for both new and existing tasks... */
@@ -257,7 +273,7 @@ ul.task-items li input {
   display: block;
   position: relative;
   overflow: hidden;
-  margin: 8px 0px;
+  margin: 7px 0px;
   border: 0px;
   background: transparent;
   font-size: 14px;
@@ -311,11 +327,11 @@ div.task-details textarea:hover {
   box-shadow: 1px;
 }
 
-div.task-details textarea#task-title {
+div.task-details .task-title > textarea {
   font-size: 24px;
 }
 
-div.task-details textarea#task-description {
+div.task-details .task-description > textarea {
   font-size: 14px;
 }
 

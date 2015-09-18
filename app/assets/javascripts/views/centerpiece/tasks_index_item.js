@@ -25,8 +25,8 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
 
   checkCompletion: function() {
     if (this.model.escape('completer_id')) {
-      this.$('.task-completion').text('✓') //U+2713
-      this.$('.task-completion').addClass('completed');
+      this.$('.completion-icon').text('✓') //U+2713
+      this.$('.completion-icon').addClass('completed');
     }
     //PH** will probably need this for other things where completed is a different display?
   },
