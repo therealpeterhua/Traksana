@@ -198,18 +198,19 @@ ul.task-items {
   outline: 1px solid #D6D6D6;
 }
 
-li.task-item {
+ul.task-items > li {
   height: 31px;
   border-bottom: 1px solid #DEDEDE;
 }
 
-li.task-item:hover {
+ul.task-items > li:hover {
   height: 31px;
   border-bottom: 1px solid black;
   /*PH** - this needs to be fixed*/
 }
 
-li.task-item .task-completion {
+/* Below for both new and existing... */
+li .task-completion {
   float: left;
   display: block;
   position: relative;
@@ -223,29 +224,30 @@ li.task-item .task-completion {
   color: #C1C1C1;
 }
 
-li.task-item .task-completion:hover {
+li .task-completion:hover {
   color: #5999D1;
 }
 
-li.task-item .task-title {
+/* Do below for both new and existing tasks... */
+/*PH** - REM input doesn't inherit font-family!!*/
+ul.task-items li input {
+  font-family: inherit;
   float: left;
   display: block;
   position: relative;
+  overflow: hidden;
+  margin: 8px 0px;
+  border: 0px;
+  background: transparent;
+  font-size: 14px;
   width: -moz-calc(100% - 35px);
   width: -webkit-calc(100% - 35px);
   width: calc(100% - 35px);
-  font-size: 14px;
-
-  cursor: text;
-  overflow: hidden;     /*PH - from source*/
-  margin: 8px 0px;
+  padding: 0;
 }
 
-li.new-task {
-  background: green;
+ul.task-items li.new-task {
+  color: grey;
 }
 
-ul.task-items {
-
-}
 /* PH - make sure this text doesn't wrap!! */

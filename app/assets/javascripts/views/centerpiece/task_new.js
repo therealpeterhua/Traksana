@@ -1,15 +1,16 @@
 Trak.Views.TaskForm = Backbone.View.extend({
-  template: JST['centerpiece/task_form'],
+  template: JST['centerpiece/tasks_index_item'],
   tagName: 'li',
-  className: 'task-item',
+  className: 'new-task',
 
   events: {
-    'form submit': 'submitNewTask'
+    'submit form': 'submitNewTask'
   },
 
   render: function() {
-    var content = this.template();
+    var content = this.template({ task: this.model });
     this.$el.html(content);
+    this.$('input').val('New task here, hit return to submit...')
 
     return this;
   },

@@ -12,6 +12,8 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
   initialize: function(options) {
     this.projectId = options.projectId;
     this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.collection, "clearEdits", this.clearEdits)
+    //PH**** - this is to clear out everything -- handle others INSIDE the task_index_item
   },
 
   render: function() {
@@ -55,5 +57,9 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
     //PH** grab task here, don't re-render feature pane, have master.js to that via listener
     //completion will automatically trigger a re-render here -- you want that behavior --> maybe have a slideout animation for completed tasks
     //if you want animations -- this method's the place for them
+  },
+
+  clearEdits: function() {
+
   }
 })

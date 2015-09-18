@@ -19,5 +19,9 @@ Trak.Collections.Tasks = Backbone.Collection.extend({
     }
 
     return getModel;
+  },
+
+  comparator: function(task) {
+    return task.escape('ord');
   }
 })

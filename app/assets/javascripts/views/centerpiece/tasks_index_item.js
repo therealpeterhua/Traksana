@@ -5,7 +5,8 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
 
   events: {
     //PH** if you wanna go cowboy -- listen to clicks here and render outside the $el
-    'click div.task-title': 'editTaskTitle'
+    'submit': 'commitEdits',
+    // 'blur input': 'commitEdits'     // PH - uncomment for CRAZYTOWN
   },
 
   initialize: function() {
@@ -30,8 +31,20 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
     //PH** will probably need this for other things where completed is a different display?
   },
 
-  editTaskTitle: function() {
+  commitEdits: function(e) {
+    e.preventDefault();
 
+    var attributes = this.$('form').serializeJSON().task;
+    this.model.set(attributes);
+
+    this.model.save({}, {
+      success: function() {
+        alert('successful edit!');
+      },
+      error: function() {
+        alert('ruh roh, something went wrong');
+      }
+    });
   }
 
 })
