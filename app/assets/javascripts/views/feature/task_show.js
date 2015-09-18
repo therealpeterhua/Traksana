@@ -1,4 +1,4 @@
-Trak.Views.TaskShow = Backbone.View.extend({
+Trak.Views.TaskShow = Backbone.CompositeView.extend({
   template: JST['feature/task_show'],
 
   initialize: function() {
@@ -8,12 +8,14 @@ Trak.Views.TaskShow = Backbone.View.extend({
   render: function() {
     var content = this.template({ task: this.model });
     this.$el.html(content);
-    this.populateTaskDetails();
+    this.populateTaskCommentsSubviews();
 
     return this;
   },
 
-  populateTaskDetails: function() {
+  populateTaskCommentsSubviews: function() {
+    var taskDetailsView = new Trak.Views.TaskDetails({ model: this.model });
+    this.addSubview('p.task-details-container', taskDetailsView);
     //populate TWO VIEWS:
     // 1) Description + Task name... if change here, should commit edits
     // 2) Comments index (which includes comments and new comment form)

@@ -34,12 +34,12 @@ Trak.Views.Master = Backbone.CompositeView.extend({
       model: project
     });
 
-    this.switchToSinglePane(false);
-    this.clearFeature();
+    this.reveal('section.centerpiece', true)
+      .reveal('section.feature', false)
+      .showSinglePane(false);
+
     this.swapCenterView(projectShowView);
     //PH - we'll probably need this to set a project so that the "feature" view will remember it!
-
-    this.delegateEvents();
   },
 
   displayTask: function(e) {
@@ -50,17 +50,10 @@ Trak.Views.Master = Backbone.CompositeView.extend({
       model: task
     });
 
-    this.switchToSinglePane(false);
+    this.reveal('section.feature', true).showSinglePane(false)
     this.swapFeatureView(taskShowView);
   },
 
-  switchToSinglePane: function(bool) {
-    if (bool) {
-      this.$('section.centerpiece').addClass('single-pane');
-    } else {
-      this.$('section.centerpiece').removeClass('single-pane');
-    }
-  },
 
   swapCenterView: function(view) {
     this._centerView && this._centerView.remove();
@@ -75,23 +68,30 @@ Trak.Views.Master = Backbone.CompositeView.extend({
     this.$("section.feature").html(this._featureView.render().$el);
   },
 
-  // swapView: function(viewProp, view, selector) {
-  //   viewProp && viewProp.remove();
-  //   viewProp = view;
-  //   this.$(selector).html(viewProp.render().$el);
-  // },
-  // PH -- have the above and then swap out as necessary?
-
-  clearMainContainer: function() {        //PH** isn't this part of swapView?
-    this._centerView && this._centerView.remove();
-    this._featureView && this._featureView.remove();
-    this.$("section.centerpiece").html('');
-    this.$("section.feature").html('');
+  showSinglePane: function(bool) {
+    if (bool) {
+      this.$('section.centerpiece').addClass('single-pane');
+    } else {
+      this.$('section.centerpiece').removeClass('single-pane');
+    }
+    return this;
   },
 
-  clearFeature: function() {
-    this._featureView && this._featureView.remove();
-    this.$("section.feature").html('');
+  reveal: function(selector, bool) {
+    if (bool) {
+      this.$(selector).removeClass('hidden');
+    } else {
+      this.$(selector).addClass('hidden');
+    }
+    return this;
+  },
+
+  showFeature: function(bool) {
+    if (bool) {
+      this.$('section.feature').removeClass('hidden');
+    } else {
+      this.$('section.feature').addClass('hidden');
+    }
   }
   //PH** - Need to revamp the listeners on Sidebar -- I'll have to fetch the team to get the associated projects (and fetch this one), which will trigger a sync on the entire sidebar object right now. Maybe have just a teams handler?
   //Remember I'll also have to keep track of which project is currently being clicked!

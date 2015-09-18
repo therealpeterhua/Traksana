@@ -20,7 +20,7 @@ Trak.Views.ProjectShow = Backbone.CompositeView.extend({
     var tasksIndexView = new Trak.Views.TasksIndex({
       collection: this.model.tasks(),
       projectId: this.model.id
-    })
+    });
 
     this.addSubview("div.tasks-index-container", tasksIndexView);
   }

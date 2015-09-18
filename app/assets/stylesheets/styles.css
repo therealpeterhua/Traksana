@@ -28,7 +28,7 @@ html {
 }
 
 body {
-  font-family: sans-serif;
+  font-family: '.HelveticaNeueDeskInterface-Regular';
   background: #EBF4FF;
   height: 100%;
 }
@@ -116,9 +116,11 @@ section.sidebar {
   position: relative;
   float: left;
   height: 100%;
-  width: 250px;
-  background: #D9E1ED;
+  width: 249px;
+  background: #D5DDE5;
+  border-right: 1px solid #A0AEBD
 }
+/*PH - SOURCE */
 
 h4.sidebar-title {
   padding-left: 10px;
@@ -137,27 +139,27 @@ ul.team-member-items > li {
   cursor: pointer;
 }
 
+/* Peter -- use uneven padding here, looks a bit better to da eyeballs */
 ul.project-items > li {
   display: block;
   height: 16px;
-  padding: 4px 20px;
+  padding: 4px 20px 3px 20px;
   font-size: 12px;
   cursor: pointer;
-  /*PH** - stop turning into cursor*/
-}
-
-ul.project-items {
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
 }
 
 ul.project-items > li:hover {
-  background: #BFCCDF;
+  background: #C0CAD7;
 }
+/*PH source*/
 
-.clicked-project {
-  padding: 0px 20px;
-  background: #B4C0D1;
-  border-top: 1px solid #9899B5;
-  border-bottom: 1px solid #F5F5F5;
+/*PH: BELOW ARE ALL SOURCE*/
+ul.project-items > li.clicked-project {
+  background: #B9C5D2;
+  border-top: 1px solid #8B9CAF;
+  border-bottom: 1px solid #E7ECF0;
   /*box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);*/
   /* offset-x | offset-y | blur-radius | spread-radius | color */
   /*PH** - how to prevent from adding extra borderline?*/
@@ -173,7 +175,9 @@ div.main-container {
   width: -moz-calc(100% - 250px);
   width: -webkit-calc(100% - 250px);
   width: calc(100% - 250px);
-  outline: 1px solid #DEDEDE;
+  background: #ABBCD1;
+  /*background: #4C97DC;*/
+  /*background-image: -webkit-gradient(linear, left top, left bottom, from(#DDE4EA), color-stop(100%, #CED7E0));*/
 }
 
 /* PH -- get this here worked out */
@@ -189,17 +193,19 @@ section.centerpiece {
   min-width: 450px;
   width: 50%;           /* PH - remember this is as % of parent element */
   position: relative;
-  left: 20px;           /* PH** - what's this do again? */
-  margin: 10px;
-  outline: 1px solid #DEDEDE;
+  left: 20px;           /* PH moves to the right, else right against sidebar */
+  margin: 10px 0px 10px 10px;
+  border: 1px solid #8B9CAF;      /*PH - source*/
   border-top-left-radius: 5px;
   overflow: scroll;
+  background: white;
 }
 /* PH**** - need to have this scroll on container overflow. maybe put on ul? */
 
 /* PH** - have below NOT take up whole width of page */
 section.single-pane {
   width: 100%;
+  margin: 10px;
 }
 
 h3.project-codename {
@@ -210,18 +216,16 @@ h3.project-codename {
 
 
 ul.task-items {
-  outline: 1px solid #D6D6D6;
-  background: white;
 }
 
 ul.task-items > li {
   height: 31px;
-  border-bottom: 1px solid #DEDEDE;
+  border-bottom: 1px solid #DFDFDF;     /*PH - SOURCE*/
 }
 
 ul.task-items > li:hover {
   height: 31px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #C1C1C1;
   /*PH** - this needs to be fixed*/
 }
 
@@ -231,7 +235,6 @@ li .task-completion {
   display: block;
   position: relative;
   height: 31px;     /*PH - from source*/
-  border-bottom: 1px solid #DEDEDE;
   width: 35px;
   text-align: center;
   font-weight: 900;
@@ -241,7 +244,7 @@ li .task-completion {
 }
 
 li .task-completion:hover {
-  color: #5999D1;
+  color: ##1F8DD6;
 }
 
 /* Do below for both new and existing tasks... */
@@ -275,13 +278,48 @@ ul.task-items .clicked-task {
 
 /* ----------- FEATURE STYLES ------------- */
 
-section.centerpiece {
-  width: 30%;           /* PH** - do these proportions work out? */
+section.feature {
+  /* PH** - 20px for margin, 40px for "position left", 3px for 3 line borders */
+  width: -moz-calc(50% - 63px);
+  width: -webkit-calc(50% - 63px);
+  width: calc(50% - 63px);
   position: relative;
   float: left;
   left: 20px;
-  margin: 10px;
-  outline: 1px solid #DEDEDE;
-  border-top-left-radius: 5px;
+  margin: 10px 10px 10px 0px;
+  border-top-right-radius: 5px;
+  border-top: 1px solid #8B9CAF;
+  border-right: 1px solid #8B9CAF;    /*PH - SOURCE*/
+  border-bottom: 1px solid #8B9CAF;
   overflow: scroll;
+  background: white;
 }
+
+/* resize just lets users resize the box at will -- not what we want */
+div.task-details textarea {
+  resize: none;
+  font-family: inherit;
+  border: none;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  padding: 5px;
+}
+
+/*PH - SOURCE*/
+div.task-details textarea:hover {
+  border: 1px solid #DFEDFF;
+  box-shadow: 1px;
+}
+
+div.task-details textarea#task-title {
+  font-size: 24px;
+}
+
+div.task-details textarea#task-description {
+  font-size: 14px;
+}
+
+div.task-details textarea.blank-description {
+  color: #C1C1C1;
+}
+/*PH - source*/
