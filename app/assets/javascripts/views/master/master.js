@@ -11,9 +11,34 @@ Trak.Views.Master = Backbone.CompositeView.extend({
 
   render: function() {
     this.$el.html( this.template() )
+    this.populateNavbar();
     this.populateSidebar();
-
     return this;
+  },
+
+  populateNavbar: function() {
+    this.fetchCurrentUser();
+    var navbarView = new Trak.Views.Navbar({
+      //PH** PARSE the current user you're gonna get sent down from server
+      //I'm also just going to make the current user display on the top left via a Rails thing?
+    })
+
+    this.addSubview('.navbar', navbarView);
+  },
+
+  fetchCurrentUser: function() {
+    Trak.currentUser = new Trak.Models.User();
+    //PH** remember to parse & set tracks on the user
+    $.ajax({
+      method: 'get',
+      url: '/api/users/current_user_info',
+      dataType: 'json',
+      success: function(response) {
+        Trak.currentUser.set(response);
+        Trak.currentUser.trigger('setCurrentUser');
+        //PH** remember it's a custom event!
+      }
+    })
   },
 
   populateSidebar: function() {

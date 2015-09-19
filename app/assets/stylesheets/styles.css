@@ -109,6 +109,11 @@ div.new-team button:hover {
   border-radius: 2px;
 }
 
+/* =============== NAVBAR STYLES =================*/
+div.user-container {
+  background: blue;
+}
+
 /* =============== SIDEBAR STYLES =================*/
 
 section.sidebar {
@@ -190,7 +195,7 @@ div.main-container .whole-screen {
 section.centerpiece {
   float: left;
   min-width: 450px;
-  width: 50%;           /* PH - remember this is as % of parent element */
+  width: 55%;           /* PH - remember this is as % of parent element */
   position: relative;
   left: 20px;           /* PH moves to the right, else right against sidebar */
   margin: 10px 0px 10px 10px;
@@ -296,9 +301,9 @@ ul.task-items .clicked-task {
 
 section.feature {
   /* PH** - 20px for margin, 40px for "position left", 3px for 3 line borders */
-  width: -moz-calc(50% - 63px);
-  width: -webkit-calc(50% - 63px);
-  width: calc(50% - 63px);
+  width: -moz-calc(45% - 63px);
+  width: -webkit-calc(45% - 63px);
+  width: calc(45% - 63px);
   position: relative;
   float: left;
   left: 20px;

@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do      #PH - why json here? json anyway?
     resources :teams
-    resources :users, except: [:new, :create]
+    resources :users, except: [:new, :create] do
+      collection do
+        get 'current_user_info'
+      end
+    end
     resources :projects, only: [:create, :update, :destroy]
     resources :tasks, only: [:create, :update, :destroy] do
       member do

@@ -8,6 +8,10 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def current_user_info
+    render :current_user_info
+  end
+
   private
 
   def user_params

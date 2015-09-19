@@ -9,13 +9,8 @@
 <body>
 
   <!-- have a partial for additional things to display. Can case sign-in there -->
-<% if logged_in? %>
-  <ul>
-    <li>
-      <%= button_to "Sign out", session_url, method: :delete, class: "navbar-button" %>
-    </li>
-  </ul>
-<% end %>
+
+<%= render partial: 'layouts/user' %>
 <%= yield %>
 
 </body>

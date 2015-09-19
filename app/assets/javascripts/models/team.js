@@ -29,6 +29,12 @@ Trak.Models.Team = Backbone.Model.extend({
       delete response.projects;
     }
 
+    if (response.current_user) {
+      Trak.currentUser = response.current_user
+      delete response.current_user
+    }
+    //PH** QUESTION - is this ok to do?
+
     return response;
   }
 })

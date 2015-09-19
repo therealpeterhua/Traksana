@@ -13,6 +13,10 @@ Trak.Routers.Router = Backbone.Router.extend({
   },
 
   teamIndex: function() {
+    if (!Trak.currentUser) {
+      this.fetchCurrentUser();
+      return;
+    }
     var indexView = new Trak.Views.TeamsIndex({ collection: this.collection });
     //PH - REM TeamsIndex plural
     this._swapView(indexView);
@@ -24,6 +28,10 @@ Trak.Routers.Router = Backbone.Router.extend({
     var showView = new Trak.Views.Master({ model: showTeam });
 
     this._swapView(showView);
+  },
+
+  fetchCurrentUser: function() {
+
   },
 
   _swapView: function(view) {
