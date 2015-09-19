@@ -4,9 +4,8 @@ Trak.Views.Master = Backbone.CompositeView.extend({
 
   events: {
     "click ul.project-items>li": "displayProject",
-    'click ul.task-items>li': 'displayTask'         //only puts on page after??
+    'click ul.task-items>li': 'displayTask'
   },
-
   //PH -- NO LISTENERS HERE. can't afford to repaint whole page. Just a command center/battle station to render rest of site
 
   render: function() {
@@ -17,28 +16,9 @@ Trak.Views.Master = Backbone.CompositeView.extend({
   },
 
   populateNavbar: function() {
-    this.fetchCurrentUser();
-    var navbarView = new Trak.Views.Navbar({
-      //PH** PARSE the current user you're gonna get sent down from server
-      //I'm also just going to make the current user display on the top left via a Rails thing?
-    })
+    var navbarView = new Trak.Views.Navbar()
 
     this.addSubview('.navbar', navbarView);
-  },
-
-  fetchCurrentUser: function() {
-    Trak.currentUser = new Trak.Models.User();
-    //PH** remember to parse & set tracks on the user
-    $.ajax({
-      method: 'get',
-      url: '/api/users/current_user_info',
-      dataType: 'json',
-      success: function(response) {
-        Trak.currentUser.set(response);
-        Trak.currentUser.trigger('setCurrentUser');
-        //PH** remember it's a custom event!
-      }
-    })
   },
 
   populateSidebar: function() {
@@ -64,7 +44,6 @@ Trak.Views.Master = Backbone.CompositeView.extend({
       .showSinglePane(false);
 
     this.swapCenterView(projectShowView);
-    //PH - we'll probably need this to set a project so that the "feature" view will remember it!
   },
 
   displayTask: function(e) {

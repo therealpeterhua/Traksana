@@ -14,7 +14,7 @@ Trak.Routers.Router = Backbone.Router.extend({
 
   teamIndex: function() {
     if (!Trak.currentUser) {
-      this.fetchCurrentUser();
+      this.fetchCurrentUser( this.teamIndex.bind(this) );
       return;
     }
     var indexView = new Trak.Views.TeamsIndex({ collection: this.collection });
@@ -23,6 +23,10 @@ Trak.Routers.Router = Backbone.Router.extend({
   },
 
   masterShow: function(id) {
+    if (!Trak.currentUser) {
+      this.fetchCurrentUser( this.masterShow.bind(this, id) );
+      return;
+    }
     var showTeam = this.collection.getOrFetch(id);
     this._currentTeam = showTeam;
     var showView = new Trak.Views.Master({ model: showTeam });
@@ -30,9 +34,19 @@ Trak.Routers.Router = Backbone.Router.extend({
     this._swapView(showView);
   },
 
-  fetchCurrentUser: function() {
-
+  fetchCurrentUser: function(callback) {
+    Trak.currentUser = new Trak.Models.User();
+    $.ajax({
+      method: 'get',
+      url: '/api/users/current_user_info',
+      dataType: 'json',
+      success: function(response) {
+        Trak.currentUser.set( Trak.currentUser.parse(response) );
+        callback();
+      }
+    })
   },
+  // remember that Trak.currentUser.parse() returns the response itself. Here the manual ajax def won't parse FOR us, so..
 
   _swapView: function(view) {
     this._currentView && this._currentView.remove();
