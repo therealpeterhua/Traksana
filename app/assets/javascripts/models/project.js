@@ -7,7 +7,6 @@ Trak.Models.Project = Backbone.Model.extend({
 
   tasks: function() {
     this._tasks = this._tasks || new Trak.Collections.Tasks();
-
     return this._tasks
   },
 

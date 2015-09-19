@@ -7,13 +7,11 @@ Trak.Models.Team = Backbone.Model.extend({
 
   members: function() {
     this._members = this._members || new Trak.Collections.Users();
-
     return this._members;
   },
 
   projects: function() {
     this._projects = this._projects || new Trak.Collections.Projects();
-
     return this._projects;
   },
 
@@ -29,12 +27,6 @@ Trak.Models.Team = Backbone.Model.extend({
       delete response.projects;
     }
 
-    if (response.current_user) {
-      Trak.currentUser = response.current_user
-      delete response.current_user
-    }
-    //PH** QUESTION - is this ok to do?
-
     return response;
-  }
+  },
 })
