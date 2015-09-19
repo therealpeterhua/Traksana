@@ -28,7 +28,7 @@ Trak.Views.TaskDetails = Backbone.View.extend({
     var currAttrValue = this.model.escape(chgAttr);
 
     if (chgAttr === 'description' && !attributes[chgAttr]) {
-      this.checkShowGuide({ forceShow: true })
+      this.checkShowGuide(true)
     }
     //PH - need do this before, because success callback not reached if model is already blank
     //PH**** this the right way to handle the current attribute? doesn't make sense to do after save
@@ -49,8 +49,8 @@ Trak.Views.TaskDetails = Backbone.View.extend({
     }
   },
 
-  checkShowGuide: function(options) {
-    if ( !this.model.escape('description') || options.forceShow) {
+  checkShowGuide: function(forceShow) {
+    if ( forceShow || !this.model.escape('description') ) {
       this.$('textarea#feature-task-description')
         .addClass('blank-description')
         .text('Description...');
