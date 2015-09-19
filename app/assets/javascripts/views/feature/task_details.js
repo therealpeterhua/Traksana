@@ -25,18 +25,20 @@ Trak.Views.TaskDetails = Backbone.View.extend({
     var form = $(e.currentTarget).parent();
     var attributes = form.serializeJSON().task;
     var chgAttr = Object.keys(attributes)[0];
+    var currAttrValue = this.model.escape(chgAttr);
 
     if (chgAttr === 'description' && !attributes[chgAttr]) {
       this.checkShowGuide({ forceShow: true })
     }
     //PH - need do this before, because success callback not reached if model is already blank
-
+    //PH**** this the right way to handle the current attribute? doesn't make sense to do after save
     if (this.model.escape(chgAttr) !== attributes[chgAttr]) {
-      this.model.set(attributes);
+      this.model.set(attributes)
       this.model.save({}, {
-        success: function() {
-          alert('Edits successful');
-        }
+        error: function() {
+          alert("Sorry, invalid field");
+          $(e.currentTarget).val( currAttrValue );
+        }.bind(this)
       });;
     }
   },
