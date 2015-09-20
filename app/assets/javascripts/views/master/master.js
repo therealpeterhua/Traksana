@@ -3,8 +3,9 @@ Trak.Views.Master = Backbone.CompositeView.extend({
   className: 'master',
 
   events: {
+    'click li.team-select-item': 'switchTeam',
     "click ul.project-items>li": "displayProject",
-    'click ul.task-items>li': 'displayTask'
+    'click ul.task-items>li': 'displayTask',
   },
   //PH -- NO LISTENERS HERE. can't afford to repaint whole page. Just a command center/battle station to render rest of site
 
@@ -39,6 +40,13 @@ Trak.Views.Master = Backbone.CompositeView.extend({
     });
     //PH** have a thing here that tells it to put the title as "Peter's Regular Joe tasks"!
     this.swapTitlebar(titlebarView);
+  },
+
+  switchTeam: function(e) {
+    var teamId = $(e.currentTarget).data('team-id');
+    this._currentTeam = Trak.teams.getOrFetch(teamId);
+    //PH** call this.render again, or set the sidebar, titlebar, and main content here manually
+    //PH** how to initialize? Have every user start with their PERSONAL workspace? And always log into that one?
   },
 
   displayProject: function(e) {

@@ -5,6 +5,7 @@ Trak.Views.TeamSelectItem = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);
+    this.$el.data('team-id', this.model.id);
   },
 
   render: function() {

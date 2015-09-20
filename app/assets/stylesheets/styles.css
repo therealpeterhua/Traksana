@@ -337,14 +337,19 @@ section.navbar li.team-selection {
 }
 
 section.navbar ul.team-select-items {
+  background: white;
   position: absolute;
   z-index: 5;
+  border-left: 1px solid #CCCCCC;
+  border-right: 1px solid #CCCCCC;
 }
 
 ul.team-select-items > li.team-select-item {
+  width: 200px;
   display: block;
-  width: 100px;
-
+  margin: 0px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #CCCCCC;
 }
 
 
