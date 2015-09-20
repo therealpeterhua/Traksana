@@ -126,6 +126,7 @@ div.modal-cover {
   height: 100%;
   background: #5C6E81;
   opacity: 0.6;
+  transition: opacity 1s;
   position: relative;        /* need relative position for Z-index to show */
   z-index: 25;
 }
@@ -334,22 +335,50 @@ section.navbar button.sign-out {
 
 section.navbar li.team-selection {
   position: relative;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+}
+
+section.navbar li.team-selection.active {
+  border-left: 1px solid #CCCCCC;
+  border-right: 1px solid #CCCCCC;
+  background: #E1F1FF;
+}
+
+/*li.team-selection.active:hover ul.team-select-items {
+  background: yellow;
+}*/
+
+section.navbar ul.team-select-items.hidder {
+  max-height: 0px;
 }
 
 section.navbar ul.team-select-items {
   background: white;
   position: absolute;
+  top: 45px;
+  left: -1px;
   z-index: 5;
+  border-top: 1px solid #CCCCCC;
   border-left: 1px solid #CCCCCC;
   border-right: 1px solid #CCCCCC;
+  border-radius: 0px 0px 5px 5px;
+  max-height: 500px;
+  transition: max-height 0.35s ease-out;
+  overflow: scroll;
 }
+/* need overflow: scroll, else everything will appear before container does */
 
 ul.team-select-items > li.team-select-item {
-  width: 200px;
+  width: 175px;
   display: block;
   margin: 0px;
   padding: 8px 12px;
-  border-bottom: 1px solid #CCCCCC;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+ul.team-select-items > li.team-select-item:hover {
+  background: #E1F1FF;
 }
 
 
