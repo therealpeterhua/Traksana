@@ -10,15 +10,10 @@ Trak.Views.Master = Backbone.CompositeView.extend({
 
   render: function() {
     this.$el.html( this.template() )
-    this.populateNavbar();
     this.populateSidebar();
+    this.populateNavbar();
+    this.displayTitlebar();       //display not populate b/c swap out views here
     return this;
-  },
-
-  populateNavbar: function() {
-    var navbarView = new Trak.Views.Navbar()
-
-    this.addSubview('.navbar', navbarView);
   },
 
   populateSidebar: function() {
@@ -28,12 +23,30 @@ Trak.Views.Master = Backbone.CompositeView.extend({
     this.addSubview('.sidebar', sidebarView);
   },
   //PH - we have the team as model here
-  //PH** - add other panes same way? Maybe not -- maybe gotta show piecemeal
+
+  populateNavbar: function() {
+    var navbarView = new Trak.Views.Navbar()
+    this.addSubview('.navbar', navbarView);
+  },
+
+  displayTitlebar: function() {
+    var titlebarView = new Trak.Views.Titlebar({
+      currTeamMoniker: this.model.escape('moniker'),
+      //PH**** - change this when you switch around the team view
+      model: this._currentProject
+      //PH** - case currProj - if non-existent, just give it the current team name
+      //PH**** - you have to clear this._currentProject when you CLICK my_tasks!, AND you gotta render this again at that time
+    });
+    //PH** have a thing here that tells it to put the title as "Peter's Regular Joe tasks"!
+    this.swapTitlebar(titlebarView);
+  },
 
   displayProject: function(e) {
+    //PH** display the titlebar with
     var projectId = $(e.currentTarget).data('project-id');
     var project = this.model.projects().get(projectId);
     this._currentProject = project
+    this.displayTitlebar();
 
     var projectShowView = new Trak.Views.ProjectShow({
       model: project
@@ -58,6 +71,11 @@ Trak.Views.Master = Backbone.CompositeView.extend({
     this.swapFeatureView(taskShowView);
   },
 
+  swapTitlebar: function(view) {
+    this._titlebarView && this._titlebarView.remove();
+    this._titlebarView = view;
+    this.$("section.titlebar").html(this._titlebarView.render().$el);
+  },
 
   swapCenterView: function(view) {
     this._centerView && this._centerView.remove();

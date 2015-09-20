@@ -1,6 +1,6 @@
 Trak.Views.Navbar = Backbone.CompositeView.extend({
   template: JST['navbar/navbar'],
-  className: 'navbar',
+  className: 'navigation',
 
   render: function() {
     this.$el.html(this.template());
