@@ -182,7 +182,6 @@ div.main-container {
   height: -webkit-calc(100% - 107px);
   height: calc(100% - 107px);
   background: #C8D8E8;
-
   /*background: #4C97DC;*/
   /*background-image: -webkit-gradient(linear, left top, left bottom, from(#DDE4EA), color-stop(100%, #CED7E0));*/
 }

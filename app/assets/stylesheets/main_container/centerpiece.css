@@ -21,9 +21,6 @@ h3.project-codename {
   padding: 5px;
 }
 
-ul.task-items {
-}
-
 ul.task-items > li {
   height: 31px;
   border-bottom: 1px solid #DFDFDF;     /*PH - SOURCE*/
@@ -33,41 +30,6 @@ ul.task-items > li:hover {
   height: 31px;
   border-bottom: 1px solid #C1C1C1;
   /*PH** - this needs to be fixed*/
-}
-
-/* Below for both new and existing... */
-li .task-completion {
-  float: left;
-  display: block;
-  position: relative;
-  height: 31px;     /*PH - from source*/
-  width: 35px;
-  text-align: center;
-}
-
-li div.completion-icon {
-  display: block;
-  float: left;
-  cursor: pointer;
-  border: 2px solid #C1C1C1;
-  border-radius: 2px;
-  padding: 5px;
-  margin: 9px 9px 8px 9px;
-}
-
-li div.completion-icon:hover {
-  border: 2px solid #1F8DD6;
-}
-
-li div.completion-icon.completed {
-  border: none;
-  font-size: 20px;
-  padding: 0px;
-  margin: 4px 9px 9px 9px;
-}
-
-li div.completion-icon.completed:hover {
-  color: #1F8DD6;
 }
 
 /* Do below for both new and existing tasks... */
@@ -80,13 +42,13 @@ ul.task-items li input {
   display: block;
   position: relative;
   overflow: hidden;
-  margin: 7px 0px;
+  margin: 7px 10px 7px 15px;
   border: 0px;
   background: transparent;
   font-size: 14px;
-  width: -moz-calc(100% - 35px);
-  width: -webkit-calc(100% - 35px);
-  width: calc(100% - 35px);
+  width: -moz-calc(100% - 120px);
+  width: -webkit-calc(100% - 120px);
+  width: calc(100% - 120px);
   padding: 0;
 }
 
@@ -98,3 +60,85 @@ ul.task-items .clicked-task {
   background: #DAECFF;
 }
 /* PH - make sure this text doesn't wrap!! */
+
+
+/* ---------- ICONS -----------*/
+
+ul.task-items strong {
+  display: block;
+  position: relative;
+  height: 31px;
+  width: 30px;
+  text-align: center;
+}
+
+ul.task-items strong > div{
+  cursor: pointer;
+  display: block;
+}
+
+ul.task-items .task-completion, ul.task-items .task-assignment {
+  float: left;
+}
+
+/* ------- COMPLETION --------- */
+/* Below for both new and existing... */
+
+ul.task-items div.completion-icon {
+  float: left;
+  border: 3px solid #CCCCCC;
+  border-radius: 2px;
+  padding: 5px;
+  margin: 8px 8px 7px 8px;
+}
+
+ul.task-items div.completion-icon:hover {
+  border: 3px solid #1F8DD6;
+  transition: border 0.15s;
+}
+
+ul.task-items div.completion-icon.completed {
+  border: none;
+  font-size: 20px;
+  padding: 0px;
+  margin: 4px 9px 9px 9px;
+}
+
+ul.task-items div.completion-icon.completed:hover {
+  color: #1F8DD6;
+  transition: color 0.15s;
+}
+
+/* --------- ASSIGNMENT AND DELETION, SHARED ---------- */
+ul.task-items div.assignment-icon,
+ul.task-items div.deletion-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  font-size: 17px;
+  color: #7E8995;
+}
+
+ul.task-items div.assignment-icon:hover,
+ul.task-items div.deletion-icon:hover {
+  color: #114D97;
+  transition: color 0.25s;
+}
+
+/* -------- ASSIGNMENT --------- */
+
+ul.task-items div.assignment-icon {
+  padding: 2px 2px 2px 0px;
+  top: 3px;
+  left: 5px;
+}
+
+/* -------- DELETION ---------- */
+
+ul.task-items strong.task-deletion {
+  float: right;
+}
+
+ul.task-items div.deletion-icon {
+  top: 7px;
+}
