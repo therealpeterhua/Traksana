@@ -4,12 +4,18 @@ Trak.Views.Navbar = Backbone.CompositeView.extend({
 
   render: function() {
     this.$el.html(this.template());
-    this.addUserCornerView();
+    this.addUserCorner();
+    this.addTeamSelect();
     return this;
   },
 
-  addUserCornerView: function() {
+  addUserCorner: function() {
     var userCornerView = new Trak.Views.UserCorner();
     this.addSubview('div.user-container', userCornerView);
+  },
+
+  addTeamSelect: function() {
+    var teamSelect = new Trak.Views.TeamSelect();
+    this.addSubview('div.team-select', teamSelect);
   }
 })

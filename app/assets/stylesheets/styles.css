@@ -69,18 +69,6 @@ div.teams-index-title {
   font-size: 24px;
 }
 
-/*div.teams-index-list {      PH** do we want this to be centered? prolly not
-  float: left;
-  position: relative;
-  left: 50%;
-}
-
-div.teams-index-list-style {
-  float: left;
-  position: relative;
-  left: -50%;
-}*/
-
 ul.teams-index-items > li a {
   padding: 20px 10px;    /*PH -- pads inside EL,outside text, does take space */
   margin: 10px;      /*PH -- pads outside ELEMENT */
@@ -177,9 +165,37 @@ section.sidebar .sidebar-body {
 }
 
 h4.sidebar-title {
-  padding-left: 10px;
-  font-size: 16px;
+  padding: 6px 20px 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #8199B5;
   cursor: default;  /*https://developer.mozilla.org/en-US/docs/Web/CSS/cursor*/
+}
+
+/* PH**** - REMEMBER you always clear the PARENT of the floated element!*/
+h4.sidebar-title.projects {
+  padding: 6px 10px;
+  position: relative;
+  display: block;
+  width: 60px;
+}
+
+div.new-project {
+  position: absolute;
+  left: 75px;
+  top: 0px;
+  height: 19px;
+  color: #8199B5;
+  padding: 2px;
+  width: 16px;
+  border-radius: 4px;
+}
+
+div.new-project:hover {
+  border: 1px solid #AFBCC8;
+  color: #114D97;
+  background: #F7F8FA;
+  /*background: yellow;*/
 }
 
 ul.team-member-items {
@@ -193,15 +209,25 @@ ul.team-member-items > li {
   cursor: pointer;
 }
 
-/* Peter -- use uneven padding here, looks a bit better to da eyeballs */
+ul.project-items {
+}
+
 ul.project-items > li {
   display: block;
   height: 16px;
-  padding: 4px 20px 3px 20px;
-  font-size: 12px;
+  padding: 3px 20px 3px 20px;
+  font-size: 13px;
   cursor: pointer;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
+}
+
+ul.project-items div.new-project {
+  display: block;
+  height: 16px;
+  padding: 4px 20px;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 ul.project-items > li:hover {
@@ -364,10 +390,8 @@ section.single-pane {
 
 h3.project-codename {
   font-size: 24px;
-  font-weight: normal;
   padding: 5px;
 }
-
 
 ul.task-items {
 }

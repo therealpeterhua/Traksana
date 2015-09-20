@@ -26,12 +26,19 @@ Trak.Views.Sidebar = Backbone.CompositeView.extend({
     });
 
     var projectsIndexView = new Trak.Views.ProjectsIndex({
-      collection: this.model.projects(),
-      teamId: this.model.id
+      collection: this.model.projects()
+    });
+
+    var newProjectView = new Trak.Views.ProjectNew({
+      model: new Trak.Models.Project({
+        team_id: this.model.id
+      }),
+      collection: this.collection
     });
 
     this.addSubview("div.members-index", membersIndexView);
     this.addSubview("div.projects-index", projectsIndexView);
+    this.addSubview("div.new-project", newProjectView);
   }
 
 })

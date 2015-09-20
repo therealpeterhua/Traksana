@@ -27,15 +27,6 @@ Trak.Views.ProjectsIndex = Backbone.CompositeView.extend({
       });
       this.addSubview("ul.project-items", projectItemView);
     }.bind(this));
-
-    var newProjectView = new Trak.Views.ProjectNew({
-      model: new Trak.Models.Project({
-        team_id: this.teamId
-      }),
-      collection: this.collection
-    });
-
-    this.addSubview("div.new-project", newProjectView);
   },
   //PH**** - sort out naming conventions here - index item, etc.
 

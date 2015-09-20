@@ -19,7 +19,6 @@ Trak.Views.TeamMemberIndex = Backbone.CompositeView.extend({
         model: member
       });
 
-      debugger;
       this.addSubview("ul.team-member-items", teamMemberView);
     }.bind(this) );
   }

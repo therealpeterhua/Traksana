@@ -7,7 +7,6 @@ Trak.Views.TeamMemberItem = Backbone.View.extend({
   },
 
   render: function() {
-    debugger;
     var content = this.template({member: this.model});
     this.$el.html(content);
 
