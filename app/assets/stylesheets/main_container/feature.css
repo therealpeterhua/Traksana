@@ -1,0 +1,43 @@
+/* ----------- FEATURE STYLES ------------- */
+
+section.feature {
+  /* PH** - 20px for margin, 40px for "position left", 3px for 3 line borders */
+  width: -moz-calc(45% - 63px);
+  width: -webkit-calc(45% - 63px);
+  width: calc(45% - 63px);
+  left: 20px;
+  margin: 10px 10px 10px 0px;
+  border-top-right-radius: 5px;
+  border-top: 1px solid #8B9CAF;
+  border-right: 1px solid #8B9CAF;    /*PH - SOURCE*/
+  border-bottom: 1px solid #8B9CAF;
+}
+
+/* resize just lets users resize the box at will -- not what we want */
+div.task-details textarea {
+  resize: none;
+  font-family: inherit;
+  border: none;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  padding: 5px;
+}
+
+/*PH - SOURCE*/
+div.task-details textarea:hover {
+  border: 1px solid #DFEDFF;
+  box-shadow: 1px;
+}
+
+div.task-details .task-title > textarea {
+  font-size: 24px;
+}
+
+div.task-details .task-description > textarea {
+  font-size: 14px;
+}
+
+div.task-details textarea.blank-description {
+  color: #C1C1C1;
+}
+/*PH - source*/

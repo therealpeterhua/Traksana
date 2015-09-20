@@ -2,10 +2,17 @@
   <div class="completion-icon">
   </div>
 </strong>
-<!-- U+25A2 -->
+
+<strong class='task-assignment'>
+  <div class="assignment-icon">☻</div>
+</strong>
 
 <form class="task-form">
   <input class="task-title-input"
          type="text" name="task[title]"
          value="<%= task.escape('title') %>">
 </form>
+
+<strong class='task-deletion'>
+  <div class="deletion-icon">✘</div>
+</strong>

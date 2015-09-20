@@ -1,0 +1,114 @@
+/* =============== NAVBAR STYLES =================*/
+section.navbar {
+  float: left;
+  display: block;
+  width: 100%;
+  height: 45px;
+  border-bottom: 1px solid #C8CCD0;
+  color: #818B92;
+}
+
+div.navigation {
+  height: 39px;
+  padding: 0px;
+}
+
+div.navigation input.search-box {
+  float: left;            /* PH** - comment out */
+  display: block;
+  font-family: inherit;
+  font-size: 12px;
+  padding: 6px 15px;
+  /*margin: 5px auto 5px auto;*/        /* PH** - comment in */
+  margin: 8px 30px 7px 30px;
+  color: inherit;
+  border: 1px solid #CFD2D4;
+  border-radius: 20px;
+  width: 30%;
+  min-width: 300px;
+  max-width: 510px;
+}
+
+ul.tasks-teams-container, div.user-container, div.user-corner {
+  height: 100%;
+}
+
+section.navbar .tasks-teams-container {
+  float: left;
+}
+
+section.navbar li {
+  display: block;
+  font-size: 12px;
+}
+
+section.navbar .tasks-teams-container li {
+  float: left;
+  padding: 16px 4px 15px 4px;
+  margin: 0px 4px 0px 16px; /* give margin here to provide non-clickable spaces */
+  cursor: pointer;
+}
+
+section.navbar ul.user-container-items {
+  float: right;
+  display: block;
+}
+
+section.navbar ul.user-container-items li {
+  float: right;
+  padding: 16px 4px 15px 4px;
+  margin: 0px 16px 0px 4px;
+}
+
+section.navbar button.sign-out {
+  /*all button styles are on the reset above*/
+}
+
+section.navbar li.team-selection {
+  position: relative;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+}
+
+section.navbar li.team-selection.active {
+  border-left: 1px solid #CCCCCC;
+  border-right: 1px solid #CCCCCC;
+  background: #E1F1FF;
+  color: #212F40;
+}
+
+section.navbar ul.team-select-items.hidder {
+  max-height: 0px;
+}
+
+section.navbar ul.team-select-items {
+  position: absolute;
+  top: 45px;
+  left: -1px;
+  z-index: 5;
+
+  background: white;
+  border-top: 1px solid #CCCCCC;
+  border-left: 1px solid #CCCCCC;
+  border-right: 1px solid #CCCCCC;
+  border-radius: 0px 0px 5px 5px;
+  color: #818B92;
+
+  max-height: 500px;
+  transition: max-height 0.35s ease-out;
+  overflow: scroll;
+}
+/* need overflow: scroll, else everything will appear before container does */
+
+ul.team-select-items > li.team-select-item {
+  width: 175px;
+  display: block;
+  margin: 0px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+ul.team-select-items > li.team-select-item:hover {
+  background: #E1F1FF;
+  color: #212F40;
+}
