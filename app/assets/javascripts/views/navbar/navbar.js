@@ -16,6 +16,6 @@ Trak.Views.Navbar = Backbone.CompositeView.extend({
 
   addTeamSelect: function() {
     var teamSelect = new Trak.Views.TeamSelect();
-    this.addSubview('div.team-select', teamSelect);
+    this.addSubview('div.team-select-container', teamSelect);
   }
 })
