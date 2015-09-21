@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :tasks, only: [:create, :update, :destroy] do
       member do
         post 'toggle_completion'
+        post 'edit_assigned_users'
       end
     end
     #PH - member routes give you :id, collection routes are whole thing

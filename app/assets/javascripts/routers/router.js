@@ -1,10 +1,8 @@
 Trak.Routers.Router = Backbone.Router.extend({
   initialize: function(options) {
     this.collection = options.collection;
-    //use generic names because that's what BB give u for free
     this.$rootEl = options.$rootEl;
     this.collection.fetch();
-    //good place to have fetch, could also have in beginning
   },
 
   routes: {
@@ -30,9 +28,9 @@ Trak.Routers.Router = Backbone.Router.extend({
     var showTeam = this.collection.getOrFetch(id);
     this._currentTeam = showTeam;
     //PH**** how we gonna show when there IS no team, huh?
-    var showView = new Trak.Views.Master({ model: showTeam });
+    Trak.masterView = new Trak.Views.Master({ model: showTeam });
 
-    this._swapView(showView);
+    this._swapView(Trak.masterView);
   },
 
   fetchCurrentUser: function(callback) {

@@ -4,8 +4,10 @@ Trak.Views.Master = Backbone.CompositeView.extend({
 
   events: {
     'click li.team-select-item': 'switchTeam',
-    "click ul.project-items>li": "displayProject",
-    'click ul.task-items>li': 'displayTask',
+    'click ul.project-items>li': 'displayProject',
+    'click input.task-title-input': 'displayTask',
+    'click div.modal': 'toggleModal',
+    'click .close-modal': 'toggleModal'
   },
   //PH -- NO LISTENERS HERE. can't afford to repaint whole page. Just a command center/battle station to render rest of site
 
@@ -122,7 +124,21 @@ Trak.Views.Master = Backbone.CompositeView.extend({
     } else {
       this.$('section.feature').addClass('hidden');
     }
+  },
+
+  toggleModal: function() {
+    this.$('.modal-cover').toggleClass('hidden');
+    this.$('.modal').toggleClass('hidden');
+  },
+
+  showAndSwapModal(view) {
+    this.toggleModal();
+    this._modalView && this._modalView.remove();
+    this._modalView = view;
+    this.$('.modal').html( this._modalView.render().$el );
+    //PH** - refactor this into separate method later. Shouldn't have to add/remove 2 separate things, or type this here.
   }
+
   //PH** - Need to revamp the listeners on Sidebar -- I'll have to fetch the team to get the associated projects (and fetch this one), which will trigger a sync on the entire sidebar object right now. Maybe have just a teams handler?
   //Remember I'll also have to keep track of which project is currently being clicked!
   //Do i have to delete subviews? I'll just keep populating the sidebar with old views here...

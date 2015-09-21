@@ -13,6 +13,13 @@ json.projects do
     json.tasks do               #PH - includes tasks for each project
       json.array!(project.tasks) do |task|
         json.extract!(task, *task.attributes.keys)
+
+        json.assigned_users do
+          json.array!(task.assigned_users) do |assigned_user|
+            json.extract!(assigned_user, :id, :email, :name)
+          end
+        end
+
       end
     end
 

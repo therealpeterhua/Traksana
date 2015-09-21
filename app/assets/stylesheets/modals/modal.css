@@ -1,0 +1,32 @@
+div.modal-cover.hidden {
+  opacity: 0;
+}
+
+div.modal-cover {
+  position: absolute;     /* need relative position for Z-index to show */
+  width: 100%;
+  height: 100%;
+  background: #506070;
+  opacity: 0.35;
+  -moz-transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+  z-index: 25;
+}
+
+div.modal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  margin: auto;
+  background: transparent;
+  z-index: 30;
+}
+
+/* ------ TASK ASSIGNMENT ------- */
+
+div.modal div.task-assignment {
+  background: blue;
+  margin: auto;
+}

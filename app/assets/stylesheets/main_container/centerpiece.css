@@ -21,6 +21,11 @@ h3.project-codename {
   padding: 5px;
 }
 
+ul.task-items {
+  max-height: 100%;
+  overflow: scroll;
+}
+
 ul.task-items > li {
   height: 31px;
   border-bottom: 1px solid #DFDFDF;     /*PH - SOURCE*/
@@ -42,14 +47,14 @@ ul.task-items li input {
   display: block;
   position: relative;
   overflow: hidden;
-  margin: 7px 10px 7px 15px;
   border: 0px;
   background: transparent;
   font-size: 14px;
   width: -moz-calc(100% - 120px);
   width: -webkit-calc(100% - 120px);
   width: calc(100% - 120px);
-  padding: 0;
+  margin: 0px 3px 0px 8px;
+  padding: 8px 7px 7px 7px;
 }
 
 ul.task-items li.new-task {

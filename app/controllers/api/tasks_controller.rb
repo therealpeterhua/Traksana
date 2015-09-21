@@ -33,6 +33,12 @@ class Api::TasksController < ApplicationController
     render json: @task
   end
 
+  def edit_assigned_users
+    @task = Task.find(params[:id])
+    @task.assigned_user_ids = params[:task][:assigned_user_ids].map(&:to_i)
+    render json: @task
+  end
+
   def destroy
     @task = Task.find(params[:id])
     @task.destroy!
@@ -43,7 +49,7 @@ class Api::TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(
-      :project_id, :title, :description, :completer_id,
+      :project_id, :title, :description, :completer_id, :assigned_user_ids
     )
   end
 end

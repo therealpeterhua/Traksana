@@ -1,18 +1,19 @@
 <strong class='task-completion'>
-  <div class="completion-icon">
+  <div class="completion-icon" data-task-id="<%= task.id %>">
   </div>
 </strong>
 
 <strong class='task-assignment'>
-  <div class="assignment-icon">☻</div>
+  <div class="assignment-icon" data-task-id="<%= task.id %>">☻</div>
 </strong>
 
 <form class="task-form">
   <input class="task-title-input"
          type="text" name="task[title]"
-         value="<%= task.escape('title') %>">
+         value="<%= task.escape('title') %>"
+         data-task-id="<%= task.id %>">
 </form>
 
 <strong class='task-deletion'>
-  <div class="deletion-icon">✘</div>
+  <div class="deletion-icon" data-task-id="<%= task.id %>">✘</div>
 </strong>
