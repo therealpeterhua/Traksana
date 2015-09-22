@@ -1,7 +1,6 @@
 class Api::UsersController < ApplicationController
-
   wrap_parameters false
-  
+
   def index
     @users = current_user.coworkers
     render json: @users
@@ -18,6 +17,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email)
+    params.require(:user).permit(:email, :name, :avatar)
   end
 end

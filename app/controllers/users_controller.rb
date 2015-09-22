@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  wrap_parameters false
+
   def new
     render 'new'
   end
@@ -7,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in(@user)
-      render json: @user
+      redirect_to root_url
     else
       render json: @user.errors.full_messages, status: :unprocessable_entity
     end
@@ -21,7 +23,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :name, :password, :avatar)
   end
 
   #PH - need to have email, invite takes place via email.
