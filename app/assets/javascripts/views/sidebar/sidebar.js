@@ -32,7 +32,7 @@ Trak.Views.Sidebar = Backbone.CompositeView.extend({
       model: new Trak.Models.Project({
         team_id: this.model.id
       }),
-      collection: this.collection
+      collection: this.model.projects()
     });
 
     this.addSubview("div.members-index", membersIndexView);
