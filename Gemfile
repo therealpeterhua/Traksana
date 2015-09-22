@@ -30,11 +30,11 @@ gem 'newrelic_rpm'
 
 gem 'backbone-on-rails'
 
-gem 'paperclip'
+gem 'paperclip', '~> 4.3'
 
-gem 'figaro'
+gem 'figaro', '~> 1.0.0'
 
-gem 'aws-sdk'#, '<2.0'
+gem 'aws-sdk', '<2.0'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
