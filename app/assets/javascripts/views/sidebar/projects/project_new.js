@@ -35,6 +35,7 @@ Trak.Views.ProjectNew = Backbone.View.extend({
     });
 
     this.$('form.new-project').trigger('refreshProjNewView');
-    //NEED TO REFRESH THIS VIEW SO IT'LL HAVE A NEW MODELLL -- CAN SAVE MORE THAN ONCE at a time then.
-  }
+    //PH NEED TO REFRESH THIS VIEW SO IT'LL HAVE A NEW MODELLL -- CAN SAVE MORE THAN ONCE at a time then.
+    //PH - check out that CUSTOM TRIGGER ON PAGE ELEMENT
+  },
 })

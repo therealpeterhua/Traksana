@@ -23,7 +23,7 @@ Trak.Views.ProjectShow = Backbone.CompositeView.extend({
     });
 
     this.addSubview("div.tasks-index-container", tasksIndexView);
-  }
+  },
 })
 
 /* PH*****************

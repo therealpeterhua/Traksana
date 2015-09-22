@@ -20,5 +20,5 @@ Trak.Views.TeamSelect = Backbone.CompositeView.extend({
       var teamSelectItem = new Trak.Views.TeamSelectItem({ model: team });
       this.addSubview('ul.team-select-items', teamSelectItem);
     }.bind(this) );
-  }
+  },
 })

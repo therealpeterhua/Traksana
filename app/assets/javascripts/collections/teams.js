@@ -18,6 +18,5 @@ Trak.Collections.Teams = Backbone.Collection.extend({
       });
     }
     return getModel;
-  }
-
+  },
 })

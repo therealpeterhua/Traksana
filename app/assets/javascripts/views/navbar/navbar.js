@@ -28,5 +28,5 @@ Trak.Views.Navbar = Backbone.CompositeView.extend({
   toggleTeamSelectDisplay: function(e) {
     this.$('ul.team-select-items').toggleClass('hidder');
     this.$('li.team-selection').toggleClass('active');
-  }
+  },
 })

@@ -6,6 +6,10 @@ Trak.Models.User = Backbone.Model.extend({
     return this._teams;
   },
 
+  toJSON: function() {
+    return { user: this.attributes };
+  },
+
   coworkers: function() {
     this._coworkers = this._coworkers || new Trak.Collections.Users();
     return this._coworkers;
@@ -29,5 +33,5 @@ Trak.Models.User = Backbone.Model.extend({
       assocFunc.apply(this).set( respObj[attr] );
       delete respObj[attr];
     }
-  }
+  },
 })

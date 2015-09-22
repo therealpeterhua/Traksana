@@ -28,5 +28,5 @@ Trak.Views.TeamsIndex = Backbone.CompositeView.extend({
     });
 
     this.addSubview("div.new-team", newTeamView);
-  }
+  },
 })

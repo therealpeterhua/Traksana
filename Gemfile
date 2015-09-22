@@ -30,6 +30,8 @@ gem 'newrelic_rpm'
 
 gem 'backbone-on-rails'
 
+gem 'paperclip'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

@@ -59,5 +59,5 @@ Trak.Views.TaskDetails = Backbone.View.extend({
 
   disableDefaultSubmit: function(e) {
     e.preventDefault();
-  }
+  },
 })

@@ -18,5 +18,5 @@ Trak.Collections.Projects = Backbone.Collection.extend({
       });
     }
     return getModel;
-  }
+  },
 })

@@ -23,5 +23,5 @@ Trak.Collections.Tasks = Backbone.Collection.extend({
 
   comparator: function(task) {
     return task.escape('ord');
-  }
+  },
 })

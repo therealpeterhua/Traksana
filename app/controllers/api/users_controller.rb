@@ -1,4 +1,7 @@
 class Api::UsersController < ApplicationController
+
+  wrap_parameters false
+  
   def index
     @users = current_user.coworkers
     render json: @users

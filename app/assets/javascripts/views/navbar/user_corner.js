@@ -11,5 +11,5 @@ Trak.Views.UserCorner = Backbone.View.extend({
     this.$el.html(content);
 
     return this;
-  }
+  },
 })

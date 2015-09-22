@@ -17,5 +17,5 @@ Trak.Models.Task = Backbone.Model.extend({
     }
 
     return response;
-  }
+  },
 })

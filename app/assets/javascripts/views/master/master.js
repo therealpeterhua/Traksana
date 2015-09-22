@@ -142,7 +142,7 @@ Trak.Views.Master = Backbone.CompositeView.extend({
     this._modalView = view;
     this.$('.modal').html( this._modalView.render().$el );
     //PH** - refactor this into separate method later. Shouldn't have to add/remove 2 separate things, or type this here.
-  }
+  },
 
   //PH** - Need to revamp the listeners on Sidebar -- I'll have to fetch the team to get the associated projects (and fetch this one), which will trigger a sync on the entire sidebar object right now. Maybe have just a teams handler?
   //Remember I'll also have to keep track of which project is currently being clicked!

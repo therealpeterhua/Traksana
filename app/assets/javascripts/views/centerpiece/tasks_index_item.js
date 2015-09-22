@@ -45,6 +45,6 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
         alert('ruh roh, something went wrong');
       }
     });
-  }
+  },
 
 })

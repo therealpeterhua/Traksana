@@ -31,5 +31,5 @@ Trak.Views.TaskForm = Backbone.View.extend({
       }
       //PH**** remember when there's a error you get sent back a JSON of the errors.full_messages from the controller server-side. Can display those?
     })
-  }
+  },
 })

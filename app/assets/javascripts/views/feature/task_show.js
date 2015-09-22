@@ -19,5 +19,5 @@ Trak.Views.TaskShow = Backbone.CompositeView.extend({
     //populate TWO VIEWS:
     // 1) Description + Task name... if change here, should commit edits
     // 2) Comments index (which includes comments and new comment form)
-  }
+  },
 })
