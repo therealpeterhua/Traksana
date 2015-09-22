@@ -1,6 +1,9 @@
 <h1>Sign Up</h1>
 
-<form class="user-registration" action="<%= users_url %>" method="post">
+<form class="user-registration"
+      action="<%= users_url %>"
+      method="post"
+      enctype="multipart/form-data">
   <%= auth_token %>
 
   <label for="name">Name</label>

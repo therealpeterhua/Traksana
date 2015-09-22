@@ -2,6 +2,12 @@
   <li class="sign-out">
     <button class="sign-out">Sign out</button>
   </li>
+
+  <figure class="avatar">
+    <img src="<%= currentUser.escape('avatar') %>"
+         alt="<%= Trak.Utils.imageName(currentUser) %>" />
+  </figure>
+  
   <li class="user-name">
     <div class="user-name-display"><%= currentUser.escape('email') %></div>
   </li>

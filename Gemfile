@@ -32,6 +32,8 @@ gem 'backbone-on-rails'
 
 gem 'paperclip'
 
+gem 'figaro'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

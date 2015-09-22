@@ -16,6 +16,7 @@ end
 json.coworkers do
   json.array!(current_user.coworkers) do |coworker|
     json.extract!(coworker, :email, :name)
+    json.avatar asset_path(coworker.avatar.url)
   end
 end
 #PH** - use this for fuzzy searching for team members to add

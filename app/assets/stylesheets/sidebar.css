@@ -8,7 +8,6 @@ section.sidebar {
   background: #DDE4EA;
   border-right: 1px solid #A0AEBD;
 }
-/*PH - SOURCE */
 
 section.sidebar div.app-sidebar-header {
   display: block;
@@ -42,19 +41,22 @@ section.sidebar .sidebar-body {
 }
 
 h4.sidebar-title {
-  padding: 6px 20px 6px 10px;
   font-size: 12px;
   font-weight: 700;
   color: #8199B5;
   cursor: default;  /*https://developer.mozilla.org/en-US/docs/Web/CSS/cursor*/
 }
 
-/* PH**** - REMEMBER you always clear the PARENT of the floated element!*/
+
 h4.sidebar-title.projects {
   padding: 6px 10px;
   position: relative;
   display: block;
   width: 60px;
+}
+
+h4.sidebar-title.team {
+  padding: 12px 20px 5px 10px
 }
 
 div.new-project {
@@ -87,17 +89,6 @@ div.new-project button {
   -o-transform: rotate(-45deg);
 }
 
-ul.team-member-items {
-}
-
-ul.team-member-items > li {
-  display: block;
-  height: 16px;
-  padding: 4px 20px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
 ul.project-items {
 }
 
@@ -122,9 +113,7 @@ ul.project-items div.new-project {
 ul.project-items > li:hover {
   background: #C0CAD7;
 }
-/*PH source*/
 
-/*PH: BELOW ARE ALL SOURCE*/
 ul.project-items > li.clicked-project {
   background: #B9C5D2;
   border-top: 1px solid #8B9CAF;

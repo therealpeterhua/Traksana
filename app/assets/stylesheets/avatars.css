@@ -1,0 +1,41 @@
+figure.avatar {
+  position: relative;
+  display: block;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid white;
+}
+
+figure.avatar > img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 50%;
+}
+
+ul.team-member-items {
+  display: block;
+  margin-bottom: 5px;
+  width: 234px;
+  margin-left: 15px;
+}
+
+ul.team-member-items > li {
+  float: left;
+  display: block;
+  font-size: 10px;
+  cursor: pointer;
+  padding: 0px 10px 5px 0px;
+}
+
+ul.team-member-items figure.avatar {
+  margin: 0px;
+  width: 33px;
+  height: 33px;
+  float: left;
+}
+
+section.navbar figure.avatar {
+  width: 33px;
+  height: 33px;
+}
