@@ -34,6 +34,6 @@ Trak.Views.ProjectsIndex = Backbone.CompositeView.extend({
     this.$('li').removeClass('clicked-project');
     var clickedProj = $(e.currentTarget);
     clickedProj.addClass('clicked-project');
-  }
+  },
 
 })

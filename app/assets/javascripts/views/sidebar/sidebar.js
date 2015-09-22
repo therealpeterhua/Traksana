@@ -2,6 +2,10 @@ Trak.Views.Sidebar = Backbone.CompositeView.extend({
   template: JST['sidebar/sidebar'],
   addClass: 'sidebar',
 
+  events: {
+    'refreshProjNewView form.new-project': 'refreshProjNewView'
+  },
+
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);     //PH -- rem this is team
     //PH** Will want to abstract into its own view for name changing
@@ -28,16 +32,23 @@ Trak.Views.Sidebar = Backbone.CompositeView.extend({
       collection: this.model.projects()
     });
 
-    var newProjectView = new Trak.Views.ProjectNew({
+    this.addSubview("div.members-index", membersIndexView);
+    this.addSubview("div.projects-index", projectsIndexView);
+    this.refreshProjNewView();      //add in a projNewView
+  },
+
+  refreshProjNewView: function() {
+    this._newProjectView &&
+        this.removeSubview('div.new-project', this._newProjectView);
+
+    this._newProjectView = new Trak.Views.ProjectNew({
       model: new Trak.Models.Project({
         team_id: this.model.id
       }),
       collection: this.model.projects()
     });
 
-    this.addSubview("div.members-index", membersIndexView);
-    this.addSubview("div.projects-index", projectsIndexView);
-    this.addSubview("div.new-project", newProjectView);
-  }
+    this.addSubview('div.new-project', this._newProjectView);
+  },
 
 })

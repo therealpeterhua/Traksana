@@ -33,5 +33,8 @@ Trak.Views.ProjectNew = Backbone.View.extend({
         alert("Ruh roh, something went wrong!");
       }
     });
+
+    this.$('form.new-project').trigger('refreshProjNewView');
+    //NEED TO REFRESH THIS VIEW SO IT'LL HAVE A NEW MODELLL -- CAN SAVE MORE THAN ONCE at a time then.
   }
 })
