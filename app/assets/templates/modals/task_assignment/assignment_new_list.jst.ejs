@@ -1,0 +1,11 @@
+<% users.each( function(user) { %>
+  <li class="new-assigned-user-item" data-user-id="<%= user.id %>">
+    <div class="user-name">
+      <%= user.escape('name') %>
+    </div>
+
+    <div class="user-email">
+      <%= user.escape('email') %>
+    </div>
+  </li>
+<% }) %>

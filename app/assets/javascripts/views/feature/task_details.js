@@ -53,7 +53,7 @@ Trak.Views.TaskDetails = Backbone.View.extend({
     if ( forceShow || !this.model.escape('description') ) {
       this.$('textarea#feature-task-description')
         .addClass('blank-description')
-        .text('Description...');
+        .text("Description...");
     }
   },
 

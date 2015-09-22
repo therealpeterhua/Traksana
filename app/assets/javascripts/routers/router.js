@@ -26,7 +26,7 @@ Trak.Routers.Router = Backbone.Router.extend({
       return;
     }
     var showTeam = this.collection.getOrFetch(id);
-    this._currentTeam = showTeam;
+    Trak.currentTeam = showTeam;
     //PH**** how we gonna show when there IS no team, huh?
     Trak.masterView = new Trak.Views.Master({ model: showTeam });
 

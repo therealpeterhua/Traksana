@@ -7,7 +7,7 @@ Trak.Views.Master = Backbone.CompositeView.extend({
     'click ul.project-items>li': 'displayProject',
     'click input.task-title-input': 'displayTask',
     'click div.modal': 'toggleModal',
-    'click .close-modal': 'toggleModal'
+    'click div.modal > div': 'stopPropagation'
   },
   //PH -- NO LISTENERS HERE. can't afford to repaint whole page. Just a command center/battle station to render rest of site
 
@@ -129,6 +129,11 @@ Trak.Views.Master = Backbone.CompositeView.extend({
   toggleModal: function() {
     this.$('.modal-cover').toggleClass('hidden');
     this.$('.modal').toggleClass('hidden');
+  },
+
+  stopPropagation: function(e) {
+    console.log('stopping propagation!');
+    e.stopPropagation();
   },
 
   showAndSwapModal(view) {

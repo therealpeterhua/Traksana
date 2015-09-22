@@ -21,7 +21,8 @@ module Api
     end
 
     def show
-      @team = Team.includes(projects: :tasks).find(params[:id])
+      @team = Team.includes(
+        projects: {tasks: :assigned_users}).find(params[:id])
       # PH - include associated projects here
       # for comments, includes a nested hash
 

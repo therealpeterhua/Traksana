@@ -34,8 +34,17 @@ class Api::TasksController < ApplicationController
   end
 
   def edit_assigned_users
+    # empty arrays aren't sent -- conditional to account for that
+    # if ( params.include?(:task) &&
+    #      params[:task].include?(:assigned_user_ids) )
     @task = Task.find(params[:id])
-    @task.assigned_user_ids = params[:task][:assigned_user_ids].map(&:to_i)
+
+    if params[:task][:assigned_user_ids] == [""]
+      @task.assigned_user_ids = []
+    else
+      @task.assigned_user_ids = params[:task][:assigned_user_ids].map(&:to_i)
+    end
+
     render json: @task
   end
 

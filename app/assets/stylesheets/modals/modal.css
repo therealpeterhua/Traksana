@@ -18,8 +18,6 @@ div.modal {
   position: absolute;
   width: 100%;
   height: 100%;
-  padding: 30px;
-  margin: auto;
   background: transparent;
   z-index: 30;
 }
@@ -27,6 +25,9 @@ div.modal {
 /* ------ TASK ASSIGNMENT ------- */
 
 div.modal div.task-assignment {
-  background: blue;
+  display: block;
+  width: 500px;
+  background: lightblue;
   margin: auto;
+  /*PH** - how to vertically align??*/
 }
