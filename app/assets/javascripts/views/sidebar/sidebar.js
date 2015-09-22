@@ -15,7 +15,6 @@ Trak.Views.Sidebar = Backbone.CompositeView.extend({
     //Don't I need this to refresh if the .members() changes?
     this.$el.html(content);
     this.populateSections();
-    // debugger;
 
     return this;
   },

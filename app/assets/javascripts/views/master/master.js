@@ -136,7 +136,7 @@ Trak.Views.Master = Backbone.CompositeView.extend({
     e.stopPropagation();
   },
 
-  showAndSwapModal(view) {
+  showAndSwapModal: function(view) {
     this.toggleModal();
     this._modalView && this._modalView.remove();
     this._modalView = view;

@@ -23,7 +23,6 @@ Trak.Views.TaskForm = Backbone.View.extend({
 
     this.model.save({}, {       //PH - REM {}
       success: function(model) {
-        debugger;
         this.collection.add(model);
         // this.collection.trigger('sync');
       }.bind(this),
