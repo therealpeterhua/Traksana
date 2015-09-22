@@ -1,4 +1,5 @@
 json.extract!(current_user, :email, :name)
+json.avatar asset_path(current_user.avatar.url)
 
 json.assigned_tasks do
   json.array!(current_user.assigned_tasks) do |task|
