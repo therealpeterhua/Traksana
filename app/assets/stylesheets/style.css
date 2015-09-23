@@ -181,5 +181,5 @@ div.main-container > section {
   float: left;
   background: white;
   position: relative;
-  overflow: scroll;
+  overflow-y: auto;
 }

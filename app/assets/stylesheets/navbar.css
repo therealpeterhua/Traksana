@@ -96,7 +96,7 @@ section.navbar ul.team-select-items {
 
   max-height: 500px;
   transition: max-height 0.35s ease-out;
-  overflow: scroll;
+  overflow-y: auto;
 }
 /* need overflow: scroll, else everything will appear before container does */
 

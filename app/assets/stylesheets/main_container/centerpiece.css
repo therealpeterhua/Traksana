@@ -23,7 +23,7 @@ h3.project-codename {
 
 ul.task-items {
   max-height: 100%;
-  overflow: scroll;
+  overflow-y: auto;
 }
 
 ul.task-items > li {
