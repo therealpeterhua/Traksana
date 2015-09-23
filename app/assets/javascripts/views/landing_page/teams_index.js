@@ -8,7 +8,6 @@ Trak.Views.TeamsIndex = Backbone.CompositeView.extend({
   },
 
   render: function() {
-    debugger;
     var content = this.template({teams: this.collection});
     this.$el.html(content);
     this.populateSubviews();

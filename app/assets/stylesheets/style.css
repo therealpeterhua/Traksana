@@ -23,9 +23,6 @@ ul {
   clear: both;
 }
 
-
-
-
 button {
   padding: 0px;
   font-family: inherit;
@@ -100,11 +97,6 @@ div.backdrop > form.button_to input {
   margin-right: 10px;
 }
 
-/* =============== TOP-LEVEL STYLES =================*/
-
-div.backdrop {
-  border-top: 1px solid #A3A3A3;
-}
 
 /* ============== PRIMARY-SECTIONS STYLES ===============*/
 div.primary-sections {
