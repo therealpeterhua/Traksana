@@ -3,7 +3,8 @@ Trak.Views.ProjectNew = Backbone.View.extend({
 
   events: {
     'click button.reveal-form': 'toggleInputables',
-    'click form.new-project button': 'submitNewProject'
+    'click div.close-form': 'toggleInputables',
+    'click form.new-project button': 'submitNewProject',
   },
 
   render: function() {
@@ -13,10 +14,16 @@ Trak.Views.ProjectNew = Backbone.View.extend({
     return this;
   },
 
+  initialize: function() {
+    this._active = false;
+  },
+
   toggleInputables: function(e) {
     e.preventDefault();
     this.$('button.reveal-form').toggleClass('hidden');
+    this.$('div.new-project-reveal').toggleClass('activated');
     this.$('form.new-project').toggleClass('hidden');
+    this._active = this._active ? false : true
   },
 
   submitNewProject: function(e) {

@@ -61,7 +61,7 @@ h4.sidebar-title.team {
   padding: 12px 20px 5px 10px
 }
 
-div.new-project {
+div.new-project-reveal {
   position: absolute;
   left: 75px;
   top: -1px;
@@ -71,7 +71,7 @@ div.new-project {
   border-radius: 4px;
 }
 
-div.new-project:hover {
+div.new-project-reveal:hover {
   border: 1px solid #AFBCC8;
   color: #114D97;
   background: #F7F8FA;
@@ -91,12 +91,46 @@ div.new-project button.reveal-form {
   -o-transform: rotate(-45deg);
 }
 
+div.new-project div.new-project-reveal.activated {
+  border: 1px solid #AFBCC8;
+  color: #114D97;
+  background: #D7DCE6;
+}
+
 div.new-project form.new-project {
   position: absolute;
-  left: 22px;
+  left: 100px;
+  width: 250px;
   top: 0px;
   padding: 5px 10px;
-  border: 1px solid #CCCCCC;
+  background: #EBEBEB;
+
+  border: 1px solid #8E949B;
+  box-shadow: 0px 0px 5px 0px #8E949B;
+  z-index: 2;
+
+  border-radius: 3px;
+}
+/*box-shadow: first 2 args are offsets. 3rd arg smudges. 4th smudge strength */
+
+div.new-project form.new-project div.close-form {
+  float: right;
+  display: absolute;
+  display: block;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+div.new-project form.new-project input {
+  width: 175px;
+  font-size: 13px;
+}
+
+div.new-project form.new-project div.hide-new-project:hover {
+  float: right;
+  display: block;
+  font-size: 10px;
+  cursor: pointer;
 }
 
 ul.project-items {
