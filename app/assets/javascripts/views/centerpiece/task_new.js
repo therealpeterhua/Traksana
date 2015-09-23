@@ -10,7 +10,6 @@ Trak.Views.TaskForm = Backbone.View.extend({
   render: function() {
     var content = this.template({ task: this.model });
     this.$el.html(content);
-    this.$('input').val('New task here, hit return to submit...')
 
     return this;
   },
