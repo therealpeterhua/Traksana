@@ -21,12 +21,18 @@ div.task-details textarea {
   border-radius: 5px;
   border: 1px solid transparent;
   padding: 5px;
+  outline: none;
 }
 
 /*PH - SOURCE*/
 div.task-details textarea:hover {
-  border: 1px solid #DFEDFF;
-  box-shadow: 1px;
+  border: 1px solid #DDD;
+  box-shadow: 0px 0px 5px 0px #DDD;
+}
+
+div.task-details textarea:focus {
+  border: 1px solid #60B2EB;
+  box-shadow: 0px 0px 5px 0px #60B2EB;
 }
 
 div.task-details .task-title > textarea {

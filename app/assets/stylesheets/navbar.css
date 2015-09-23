@@ -60,7 +60,7 @@ section.navbar ul.user-container-items li {
   margin: 0px 16px 0px 4px;
 }
 
-section.navbar button.sign-out {
+section.navbar a.sign-out {
   /*all button styles are on the reset above*/
 }
 
@@ -73,16 +73,18 @@ section.navbar li.team-selection {
 section.navbar li.team-selection.active {
   border-left: 1px solid #CCCCCC;
   border-right: 1px solid #CCCCCC;
+  box-shadow: 0px 0px 5px 1px #CCCCCC;
   background: #E1F1FF;
   color: #212F40;
-  display: inline-block;
 }
 
-section.navbar ul.team-select-items.hidder {
+section.navbar ul.team-select-items.zero-height {
   max-height: 0px;
+  box-shadow: none;
 }
 
 section.navbar ul.team-select-items {
+  position: absolute;
   top: 45px;
   left: -1px;
   z-index: 5;
@@ -92,13 +94,18 @@ section.navbar ul.team-select-items {
   border-left: 1px solid #CCCCCC;
   border-right: 1px solid #CCCCCC;
   border-radius: 0px 0px 5px 5px;
+  box-shadow: 0px 0px 5px 1px #CCCCCC;
   color: #818B92;
 
   max-height: 500px;
-  transition: max-height 0.35s ease-out;
-  overflow-y: auto;
+  transition: max-height 0.35s ease-in-out;
+  overflow: hidden;
 }
 /* need overflow: scroll, else everything will appear before container does */
+
+section.navbar ul.team-select-items.overflow-fix {
+  overflow-y: auto;
+}
 
 ul.team-select-items > li.team-select-item {
   width: 175px;

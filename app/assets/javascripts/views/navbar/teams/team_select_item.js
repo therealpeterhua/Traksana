@@ -3,6 +3,10 @@ Trak.Views.TeamSelectItem = Backbone.View.extend({
   className: 'team-select-item',
   tagName: 'li',
 
+  events: {
+    'click': 'navigateToTeamView'
+  },
+
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);
     this.$el.data('team-id', this.model.id);
@@ -13,5 +17,9 @@ Trak.Views.TeamSelectItem = Backbone.View.extend({
     this.$el.html(content);
 
     return this;
+  },
+
+  navigateToTeamView: function(e) {
+    Backbone.history.navigate('#/teams/' + this.model.id, { trigger: true });
   },
 })

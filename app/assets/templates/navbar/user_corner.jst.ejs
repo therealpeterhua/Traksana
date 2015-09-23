@@ -1,13 +1,17 @@
 <ul class="user-container-items">
   <li class="sign-out">
-    <button class="sign-out">Sign out</button>
+    <form class="sign-out-form" action="/session" method="post">
+      <input type="hidden" name="authenticity_token" value="">
+      <input type="hidden" name="_method" value="DELETE">
+      <button class="sign-out">Sign out</button>
+    </form>
   </li>
 
   <figure class="avatar">
     <img src="<%= currentUser.escape('avatar') %>"
          alt="<%= Trak.Utils.imageName(currentUser) %>" />
   </figure>
-  
+
   <li class="user-name">
     <div class="user-name-display"><%= currentUser.escape('email') %></div>
   </li>

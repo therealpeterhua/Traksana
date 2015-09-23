@@ -57,6 +57,13 @@ ul.task-items li input {
   padding: 8px 7px 7px 7px;
 }
 
+/* this is here to override reset */
+ul.task-items li input:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
 ul.task-items li.new-task {
   color: grey;
 }

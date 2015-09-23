@@ -43,6 +43,18 @@ html {
   height: 100%;
 }
 
+input {
+  border: 1px solid transparent;
+  outline: none;
+  padding: 5px;
+  margin: 0;
+}
+
+input:focus {
+  border: 1px solid #60B2EB;
+  box-shadow: 0px 0px 5px 0px #60B2EB;
+}
+
 body {
   /*.HelveticaNeueDeskInterface-Regular*/
   /*Helvetica Neue*/
@@ -60,6 +72,32 @@ div.backdrop, div.backdrop > div, div.master {
 
 .hidden {
   display: none;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+div.backdrop > form.button_to {
+  background: transparent;
+  position: absolute;
+  right: 0px;
+  top: 5px;
+}
+
+div.backdrop > form.button_to input {
+  background: transparent;
+  color: #818B92;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 10px;
+  margin-right: 10px;
 }
 
 /*BEGIN TEAMS INDEX STYLES*/

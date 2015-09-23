@@ -17,7 +17,8 @@ Trak.Views.ProjectNew = Backbone.View.extend({
   toggleInputables: function(e) {
     e.preventDefault();
     this.$('div.new-project-reveal').toggleClass('activated');
-    this.$('form.new-project').toggleClass('hidden');
+    // this.$('form.new-project').toggleClass('hidden');
+    this.$('form.new-project').toggleClass('zero-width');
 
     // if ( this.$('form.new-project').hasClass('hidden') ) {
     //   $('body').on('click', ":not('.new-project')", this.handleClickOut.bind(this));      //PH*** SHOULD BE ONE, NOT ON...

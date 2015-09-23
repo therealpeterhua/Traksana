@@ -4,7 +4,8 @@ Trak.Views.Navbar = Backbone.CompositeView.extend({
 
   events: {
     'mouseenter li.team-selection': 'toggleTeamSelectDisplay',
-    'mouseleave li.team-selection': 'toggleTeamSelectDisplay'
+    'mouseleave li.team-selection': 'toggleTeamSelectDisplay',
+    'transitionend': 'applyMouseScrollFix',
     //PH - QUESTION: way to consolidate these two?
   },
 
@@ -26,7 +27,15 @@ Trak.Views.Navbar = Backbone.CompositeView.extend({
   },
 
   toggleTeamSelectDisplay: function(e) {
-    this.$('ul.team-select-items').toggleClass('hidder');
+    this.$('ul.team-select-items').toggleClass('zero-height');
     this.$('li.team-selection').toggleClass('active');
+  },
+
+  applyMouseScrollFix: function(e) {
+    if ( this.$('ul.team-select-items').hasClass('zero-height') ) {
+      this.$('ul.team-select-items').removeClass('overflow-fix');
+    } else {
+      this.$('ul.team-select-items').addClass('overflow-fix');
+    }
   },
 })
