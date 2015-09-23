@@ -14,16 +14,20 @@ Trak.Views.ProjectNew = Backbone.View.extend({
     return this;
   },
 
-  initialize: function() {
-    this._active = false;
-  },
-
   toggleInputables: function(e) {
     e.preventDefault();
-    this.$('button.reveal-form').toggleClass('hidden');
     this.$('div.new-project-reveal').toggleClass('activated');
     this.$('form.new-project').toggleClass('hidden');
-    this._active = this._active ? false : true
+
+    // if ( this.$('form.new-project').hasClass('hidden') ) {
+    //   $('body').on('click', ":not('.new-project')", this.handleClickOut.bind(this));      //PH*** SHOULD BE ONE, NOT ON...
+    // }
+  },
+
+  handleClickOut: function(e) {
+    // console.log("handling click out!");
+    // // this.toggleInputables();
+    // $('body').off();      //PH**** off("click")
   },
 
   submitNewProject: function(e) {
