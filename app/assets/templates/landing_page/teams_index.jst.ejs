@@ -1,4 +1,13 @@
-<div class="teams-index-title">Select Workspace</div>
+<h1 class="teams-index-title">Team Selection</h1>
+<p>
+  <% if (teams.models.length === 0) {%>
+    <%= "Hello, young grasshopper. Why not make a team to start?" %>
+  <% } else { %>
+    <%= "Welcome back, good lookin'. Looks like you already have some teams." %>
+    <%= Pick one and let's get rollin'... %>
+  <% } %>
+</p>
+
 <div class="teams-index-list ">
   <div class="teams-index-list-style group">
     <ul class="teams-index-items group">
