@@ -43,7 +43,4 @@ Trak.Views.DesignationNewList = Backbone.View.extend({
   removeFromCollection: function(user) {
     this.collection.remove(user);     //triggers re-render
   },
-
-  //PH** - if you add from the collection, re-render HERE, rather than at the top-level -- you want the search thing to stay in there. Of course you'll have to parse it somewhere TOO.
-  //If you don't change the input, the other event won't fire.
 })
