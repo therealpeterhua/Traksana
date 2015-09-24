@@ -19,4 +19,3 @@ json.coworkers do
     json.avatar asset_path(coworker.avatar.url)
   end
 end
-#PH** - use this for fuzzy searching for team members to add

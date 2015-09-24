@@ -1,13 +1,21 @@
 <ul class="current-member-items">
-  <<% users.each( function(user) { %>
-    <li class="current-member-item">
+  <% users.each( function(user) { %>
+    <li class="current-member-item" data-user-id="<%= user.id %>">
+
       <figure class="avatar">
         <img src="<%= user.escape('avatar') %>"
              alt="<%= Trak.Utils.imageName(user) %>" />
       </figure>
+
       <div class="user-name">
         <%= user.escape('name') %>
       </div>
+
+      <strong class="delete-designation"
+              data-user-id="<%= user.id %>">
+        ✖
+      </strong>
+
     </li>
   <% }) %>
 </ul>

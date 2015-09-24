@@ -22,12 +22,36 @@ div.modal {
   z-index: 30;
 }
 
+/*div.modal > div {
+  margin: auto;
+  background: white;
+  display: block;
+  margin-top: 100px;
+  max-height: -moz-calc(100% - 200px);
+  max-height: -webkit-calc(100% - 200px);
+  max-height: calc(100% - 200px);
+}*/
+
+div.modal > div {
+  margin: auto;
+  display: block;
+  background: white;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  max-height: -moz-calc(100% - 125px);
+  max-height: -webkit-calc(100% - 125px);
+  max-height: calc(100% - 125px);
+}
+/* top moves your top to 50% height of parent, transformY moves element up so it only overlaps with 50% of its original self */
+
 /* ------ TASK ASSIGNMENT ------- */
 
 div.modal div.task-assignment {
-  display: block;
   width: 500px;
-  background: lightblue;
-  margin: auto;
   /*PH** - how to vertically align??*/
+}
+
+div.modal div.team-designation {
+  width: 500px;
 }

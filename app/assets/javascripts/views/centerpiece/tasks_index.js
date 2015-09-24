@@ -85,9 +85,6 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
 
   assignTask: function(e) {
     var taskId = $(e.currentTarget).data('task-id');
-    // $('div.modal-cover').removeClass('hidden');
-    // $('div.modal-cover').addClass('active');
-    //PH** - refactor this into separate method later. Shouldn't have to add/remove 2 separate things, or type this here.
     var task = this.collection.get(taskId);
 
     var assignmentModal = new Trak.Views.Assignment({

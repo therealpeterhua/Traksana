@@ -3,6 +3,10 @@ Trak.Views.TeamMemberItem = Backbone.View.extend({
   tagName: 'li',
   className: 'team-member-item group',
 
+  events: {
+    'click': 'editTeamDesignations',
+  },
+
   initialize: function() {
     this.listenTo(this.model, "sync", this.render)
   },
@@ -12,5 +16,10 @@ Trak.Views.TeamMemberItem = Backbone.View.extend({
     this.$el.html(content);
 
     return this;
+  },
+
+  editTeamDesignations: function() {
+    var designationModal = new Trak.Views.Designation();
+    Trak.masterView.showAndSwapModal(designationModal);
   },
 })
