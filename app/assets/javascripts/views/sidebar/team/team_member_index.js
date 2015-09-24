@@ -2,7 +2,7 @@ Trak.Views.TeamMemberIndex = Backbone.CompositeView.extend({
   template: JST['sidebar/team/team_member_index'],
 
   initialize: function() {
-    this.listenTo(this.collection, "sync", this.render)     //** "change"?
+    this.listenTo(this.collection, "sync add remove", this.render)
   },
 
   render: function() {
@@ -21,6 +21,6 @@ Trak.Views.TeamMemberIndex = Backbone.CompositeView.extend({
 
       this.addSubview("ul.team-member-items", teamMemberView);
     }.bind(this) );
-  }
+  },
 
 })

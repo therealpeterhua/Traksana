@@ -1,2 +1,8 @@
-<%= user.escape('name') %>
+<figure class="avatar">
+  <img src="<%= user.escape('avatar') %>"
+       alt="<%= Trak.Utils.imageName(user) %>" />
+</figure>
+<div class="user-name">
+  <%= user.escape('name') %>
+</div>
 <strong class='delete-user-assignment' data-user-id="<%= user.id %>">✖</strong>

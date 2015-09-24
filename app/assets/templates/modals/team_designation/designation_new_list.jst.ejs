@@ -1,0 +1,16 @@
+<% users.each( function(user) { %>
+
+  <figure class="avatar">
+    <img src="<%= user.escape('avatar') %>"
+         alt="<%= Trak.Utils.imageName(user) %>" />
+  </figure>
+
+  <div class="user-name">
+    <%= user.escape('name') %>
+  </div>
+
+  <div class="user-email">
+    <%= user.escape('email') %>
+  </div>
+
+<% }) %>

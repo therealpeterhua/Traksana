@@ -96,6 +96,7 @@ ul.teams-index-items a {
 
 ul.teams-index-items li.hovered {
   font-size: 18px;
+  font-weight: normal;
   padding: 5px 10px;
   border-radius: 3px;
   border: 1px solid transparent;

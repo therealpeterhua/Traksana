@@ -4,6 +4,9 @@ figure.avatar {
   border-radius: 50%;
   background: transparent;
   border: 1px solid white;
+
+  width: 33px;
+  height: 33px;
 }
 
 figure.avatar > img {
@@ -30,12 +33,9 @@ ul.team-member-items > li {
 
 ul.team-member-items figure.avatar {
   margin: 0px;
-  width: 33px;
-  height: 33px;
   float: left;
 }
 
 section.navbar figure.avatar {
-  width: 33px;
-  height: 33px;
+  float: left;
 }

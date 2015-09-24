@@ -22,12 +22,12 @@ Trak.Views.TeamsIndexItem = Backbone.View.extend({
   },
 
   toggleHovered: function(e) {
-    this.$el.toggleClass('emphasized');
+    this.$el.toggleClass('hovered');
   },
 
   toggleClicked: function(e) {
     console.log('got me');
     this.$el.toggleClass('clicked');
-  }
+  },
 
 })

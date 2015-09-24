@@ -14,6 +14,10 @@ Rails.application.routes.draw do
       collection do
         get 'current_user_info'
       end
+
+      member do
+        get 'search'
+      end
     end
     resources :projects, only: [:create, :update, :destroy]
     resources :tasks, only: [:create, :update, :destroy] do
