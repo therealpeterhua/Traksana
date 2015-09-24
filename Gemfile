@@ -36,6 +36,10 @@ gem 'figaro', '~> 1.0.0'
 
 gem 'aws-sdk', '<2.0'
 
+gem 'omniauth'
+
+gem 'omniauth-facebook'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
