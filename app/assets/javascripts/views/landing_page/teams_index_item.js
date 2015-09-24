@@ -4,6 +4,10 @@ Trak.Views.TeamsIndexItem = Backbone.View.extend({
 
   events: {
     //PH** if you wanna go cowboy -- listen to clicks here and render outside the $el, *can make the team show ON the actual page itself!*
+    "mouseenter": "toggleHovered",
+    "mouseleave": "toggleHovered",
+    "mouseDown a": "toggleClicked",
+    "mouseUp a": "toggleClicked",
   },
 
   initialize: function() {
@@ -16,4 +20,14 @@ Trak.Views.TeamsIndexItem = Backbone.View.extend({
 
     return this;
   },
+
+  toggleHovered: function(e) {
+    this.$el.toggleClass('emphasized');
+  },
+
+  toggleClicked: function(e) {
+    console.log('got me');
+    this.$el.toggleClass('clicked');
+  }
+
 })

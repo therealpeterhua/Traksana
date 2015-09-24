@@ -4,7 +4,9 @@ Trak.Views.TeamSelectItem = Backbone.View.extend({
   tagName: 'li',
 
   events: {
-    'click': 'navigateToTeamView'
+    'click': 'navigateToTeamView',
+    'mouseenter': 'toggleHovered',
+    'mouseleave': 'toggleHovered',
   },
 
   initialize: function() {
@@ -21,5 +23,9 @@ Trak.Views.TeamSelectItem = Backbone.View.extend({
 
   navigateToTeamView: function(e) {
     Backbone.history.navigate('#/teams/' + this.model.id, { trigger: true });
+  },
+
+  toggleHovered: function(e) {
+    this.$el.toggleClass('hovered');
   },
 })

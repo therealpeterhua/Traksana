@@ -35,10 +35,22 @@ module Api
       end
     end
 
+    def assign_members
+      @team = Team.find(params[:id])
+
+      if params[:team][:member_ids] == [""]
+        @team.member_ids = []
+      else
+        @team.member_ids = params[:team][:member_ids].map(&:to_i)
+      end
+
+      render json: @team
+    end
+
     private
 
     def team_params
-      params.require(:team).permit(:leader_id, :moniker)
+      params.require(:team).permit(:leader_id, :moniker, :team_member_ids)
     end
   end
 end

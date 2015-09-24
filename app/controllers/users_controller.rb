@@ -20,6 +20,10 @@ class UsersController < ApplicationController
     # PH** - should send down all associated projects, tasks, comments, etc. with this user -- so can show them the tabulated view of all their To-Dos
   end
 
+  def search
+    
+  end
+
   private
 
   def user_params

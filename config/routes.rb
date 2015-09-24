@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   root to: "static_pages#root"
 
   namespace :api, defaults: { format: :json } do      #PH - why json here? json anyway?
-    resources :teams
+    resources :teams do
+      member do
+        post 'assign_members'
+      end
+    end
     resources :users, except: [:new, :create] do
       collection do
         get 'current_user_info'

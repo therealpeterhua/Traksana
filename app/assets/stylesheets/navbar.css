@@ -113,9 +113,12 @@ ul.team-select-items > li.team-select-item {
   margin: 0px;
   padding: 8px 12px;
   border-bottom: 1px solid #E5E5E5;
+  transition: background 0.25s, padding 0.15s;
 }
 
-ul.team-select-items > li.team-select-item:hover {
+ul.team-select-items > li.team-select-item.hovered {
   background: #E1F1FF;
   color: #212F40;
+  padding: 15px 12px;
+  font-weight: bold;
 }
