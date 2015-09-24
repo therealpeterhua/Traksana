@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
             through: :user_tasks,
             source: :task
 
+  has_many :authored_comments,
+            class_name: 'Comment',
+            foreign_key: :author_id
+
   validates :name, :password_hash, :session_token, presence: true
   validates :password, length: {minimum: 6, allow_nil: true}
   validate :has_email_or_uid
@@ -87,7 +91,8 @@ class User < ActiveRecord::Base
   end
 
   def has_unique_email
-    return if email.blank?
+    return if email.blank? || self.id
+    
     if User.where("email != ''").exists?(email: email)
       errors[:base] << "That email has already been taken."
     end

@@ -26,6 +26,7 @@ Rails.application.routes.draw do
         post 'edit_assigned_users'
       end
     end
+    resources :comments
     #PH - member routes give you :id, collection routes are whole thing
 
   end

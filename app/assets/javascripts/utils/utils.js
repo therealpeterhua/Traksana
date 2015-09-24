@@ -9,4 +9,5 @@ Trak.Utils.imageName = function(user) {
 
   return user.escape('name').slice(0, 2).toUpperCase();
 }
+
 }) ();
