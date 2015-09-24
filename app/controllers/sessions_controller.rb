@@ -3,6 +3,14 @@ class SessionsController < ApplicationController
     render 'new'
   end
 
+  def omniauth
+    byebug
+    user = User.find_or_create_by_auth_hash(omniauth_hash)
+
+    log_in(user)
+    redirect_to root_url
+  end
+
   def create
     user = User.find_by_credentials(
       params[:user][:email],
@@ -21,5 +29,11 @@ class SessionsController < ApplicationController
   def destroy
     log_out
     redirect_to new_session_url
+  end
+
+  private
+
+  def omniauth_hash
+    request.env['omniauth.auth']        # get the request for free?
   end
 end

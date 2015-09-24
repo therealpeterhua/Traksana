@@ -20,9 +20,10 @@ class User < ActiveRecord::Base
             through: :user_tasks,
             source: :task
 
-  validates :email, :password_hash, :session_token, presence: true
-  validates :email, uniqueness: true
+  validates :name, :password_hash, :session_token, presence: true
   validates :password, length: {minimum: 6, allow_nil: true}
+  validate :has_email_or_uid
+  validate :has_unique_email
 
   has_attached_file :avatar, default_url: "missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
@@ -36,6 +37,25 @@ class User < ActiveRecord::Base
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     return user if user.try(:is_password?, password)
+  end
+
+  def self.find_or_create_by_auth_hash(auth_hash)
+    user = User.find_by(
+      uid: auth_hash[:uid],
+      provider: auth_hash[:provider]
+    )
+
+    unless user
+      user = User.create!(
+        uid: auth_hash[:uid],
+        provider: auth_hash[:provider],
+        name: auth_hash[:info][:name],
+        # avatar_url: auth_hash[:info][:image],
+        password: SecureRandom.urlsafe_base64(16)
+      )
+    end
+
+    user
   end
 
   attr_reader :password
@@ -58,5 +78,18 @@ class User < ActiveRecord::Base
 
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)
+  end
+
+  def has_email_or_uid
+    if email.blank? && uid.blank?
+      errors[:base] << "Please provide an email, or sign in with Facebook."
+    end
+  end
+
+  def has_unique_email
+    return if email.blank?
+    if User.where("email != ''").exists?(email: email)
+      errors[:base] << "That email has already been taken."
+    end
   end
 end

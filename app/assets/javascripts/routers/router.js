@@ -7,6 +7,7 @@ Trak.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "teamIndex",
+    "_=_": "teamIndex",
     "teams/:id": "masterShow",
   },
 

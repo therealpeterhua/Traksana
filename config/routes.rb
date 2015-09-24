@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   root to: "static_pages#root"
 
+  get 'auth/:provider/callback', to: 'sessions#omniauth'
+  # this routes to the omniauth method in api/sessions_controller.rb
+
   namespace :api, defaults: { format: :json } do      #PH - why json here? json anyway?
     resources :teams do
       member do
