@@ -105,11 +105,11 @@ div.new-project form.new-project {
   position: absolute;
   overflow: hidden;
   left: 100px;
-  width: 250px;
   top: 0px;
   padding: 5px 10px;
   background: #EBEBEB;
-  max-width: 200px;
+  width: 255px;
+  max-width: 255px;
   transition: max-width 1s ease-in-out;
 
   border: 1px solid #8E949B;
@@ -123,12 +123,17 @@ div.new-project form.new-project {
 div.new-project form.new-project div.close-form {
   float: right;
   display: absolute;
-  display: block;
   font-size: 18px;
   cursor: pointer;
+  padding-top: 2px;
+}
+
+div.new-project form.new-project div.close-form:hover {
+  color: #023470;
 }
 
 div.new-project form.new-project input {
+  padding: 3px;
   width: 175px;
   font-size: 13px;
 }
@@ -138,6 +143,16 @@ div.new-project form.new-project div.hide-new-project:hover {
   display: block;
   font-size: 10px;
   cursor: pointer;
+}
+
+div.new-project form.new-project button {
+  padding: 5px;
+  font-size: 12px;
+}
+
+div.new-project form.new-project button:hover {
+  padding: 5px;
+  color: #023470;
 }
 
 ul.project-items {

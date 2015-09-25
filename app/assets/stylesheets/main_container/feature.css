@@ -5,6 +5,11 @@ section.feature.zero-height {
   border: 0px;
 }
 
+section.feature.transitioning {
+  max-height: 0px;
+  transition: max-height 0.5s cubic-bezier(0.92, 0.06, 0.86, 0.84);
+}
+
 section.feature {
   /* PH** - 20px for margin, 40px for "position left", 3px for 3 line borders */
   width: -moz-calc(50% - 63px);
@@ -15,7 +20,7 @@ section.feature {
   max-height: -webkit-calc(100% - 30px);
   max-height: calc(100% - 30px);
 
-  transition: max-height 0.5s ease-in-out;
+  transition: max-height 0.5s cubic-bezier(0.86, 0.04, 0.21, 1.01);
 
   left: 20px;
   margin: 10px 10px 10px 0px;
@@ -118,17 +123,28 @@ li.comments-index-item small {
   margin-top: 2px;
 }
 
-div.task-comments form {
+div.task-comments form.new-comment {
   background: #F5F9FC;
+  padding: 15px;
+}
+
+form.new-comment figure {
+  float: left;
 }
 
 div.task-comments textarea {
+  float: left;
   background: white;
-  border: 2px #eee;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: normal;
 }
 
 div.task-comments form button {
+  display: inline-block;
   font-size: 12px;
   padding: 5px 10px;
   display: block;
+  border-radius: 4px;
 }

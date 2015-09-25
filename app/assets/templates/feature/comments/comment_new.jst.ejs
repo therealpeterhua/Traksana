@@ -1,6 +1,11 @@
 <h4 class='new-comment-title'></h4>
 
-<form class="new-comment">
+<form class="new-comment group">
+  <figure class="avatar">
+    <img src="<%= Trak.currentUser.escape('avatar') %>"
+         alt="<%= Trak.Utils.imageName(Trak.currentUser) %>" />
+  </figure>
+
   <textarea name="comment[content]" placeholder="Write a comment..."></textarea>
   <button class="submit-new-comment green-button">Submit</button>
 </form>

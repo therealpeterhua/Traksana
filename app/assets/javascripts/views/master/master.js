@@ -112,21 +112,28 @@ Trak.Views.Master = Backbone.CompositeView.extend({
   },
 
   revealFeature: function(bool) {
+    var that = this;
+    var $feature = that.$('section.feature');
+
     if (bool) {
-      this.$('section.feature').removeClass('zero-height');
+      $feature.off('transitionend');
+
+      $feature.removeClass('zero-height');
+      $feature.removeClass('transitioning');
+      $feature.one('transitionend', function() {
+
+        $feature.one('transitionend', function() {
+          $feature.addClass('zero-height');
+        });
+        //set another listener once you hear a transitionEnd!
+
+      })
     } else {
-      this.$('section.feature').addClass('zero-height')
+      $feature.addClass('transitioning');
+        // can't do a 1-time listener because initializes to false, so you'll have an outstanding listener...
     }
 
     return this;
-  },
-
-  showFeature: function(bool) {
-    if (bool) {
-      this.$('section.feature').removeClass('hidden');
-    } else {
-      this.$('section.feature').addClass('hidden');
-    }
   },
 
   toggleModal: function() {

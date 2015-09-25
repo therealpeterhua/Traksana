@@ -2,13 +2,14 @@
   <button class="reveal-form">×</button>
 </div>
 
+<div class="new-project-transition-container">
+  <form class="new-project zero-width">
+    <input type="text"
+           name="project[code_name]"
+           value="<%= project.escape('code_name') %>"
+           placeholder="New project name...">
+    <div class="close-form">×</div>
 
-<form class="new-project zero-width">
-  <input type="text"
-         name="project[code_name]"
-         value="<%= project.escape('code_name') %>"
-         placeholder="New project name...">
-  <div class="close-form">×</div>
-
-  <button>Submit</button>
-</form>
+    <button>Submit</button>
+  </form>
+</div>
