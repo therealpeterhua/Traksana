@@ -80,6 +80,17 @@ div.backdrop, div.backdrop > div, div.master {
   user-select: none;
 }
 
+.green-button {
+  color: white;
+  background: #38C800;
+  border: 1px solid transparent;
+}
+
+.green-button:hover {
+  background: #34B501;
+  border: 1px solid #aaa;
+}
+
 div.backdrop > form.button_to {
   background: transparent;
   position: absolute;
@@ -144,9 +155,9 @@ div.main-container {
   display: block;
   position: relative;
   width: 100%;
-  height: -moz-calc(100% - 107px);
-  height: -webkit-calc(100% - 107px);
-  height: calc(100% - 107px);
+  height: -moz-calc(100% - 106px);
+  height: -webkit-calc(100% - 106px);
+  height: calc(100% - 106px);
   background: #BECEDE;
   /*C8D8E8*/
 }

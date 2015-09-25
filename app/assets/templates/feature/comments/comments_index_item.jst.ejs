@@ -1,10 +1,10 @@
-
 <figure class="avatar">
   <img src="<%= author.escape('avatar') %>"
        alt="<%= Trak.Utils.imageName(author) %>" />
 </figure>
 
-<p>
-  <strong><%= author.name %></strong>
-  <%= comment.escape('content') %>
-</p>
+<div class="comment-item-text-container">
+  <strong><%= author.escape('name') %></strong>
+  <p><%= comment.escape('content') %></p>
+  <small><%= comment.escape('created_at') %></small>
+</div>

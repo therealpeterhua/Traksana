@@ -1,6 +1,6 @@
 Trak.Views.CommentsIndexItem = Backbone.View.extend({
   template: JST['feature/comments/comments_index_item'],
-  className: 'comments-index-item',
+  className: 'comments-index-item group',
   tagName: 'li',
 
   initialize: function() {
@@ -11,6 +11,9 @@ Trak.Views.CommentsIndexItem = Backbone.View.extend({
     var content = this.template({
       comment: this.model,
       author: this.model.author(),
-    })
+    });
+    this.$el.html(content);
+
+    return this;
   },
 })

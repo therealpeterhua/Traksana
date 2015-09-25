@@ -5,7 +5,7 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
 
   events: {
     //PH** if you wanna go cowboy -- listen to clicks here and render outside the $el
-    'submit': 'commitEdits',
+    'blur': 'commitEdits',
     // 'blur input': 'commitEdits'     // PH - uncomment for CRAZYTOWN
     'click': 'showTask',
   },
@@ -20,16 +20,23 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
     var content = this.template({ task: this.model });
     this.$el.html(content);
     this.checkCompletion();
+    this.checkClicked();
 
     return this;
   },
 
   checkCompletion: function() {
     if (this.model.escape('completer_id')) {
-      this.$('.completion-icon').text('✓') //U+2713
+      this.$('.completion-icon').text('✓');
       this.$('.completion-icon').addClass('completed');
     }
     //PH** will probably need this for other things where completed is a different display?
+  },
+
+  checkClicked: function() {
+    if (this.$el.hasClass('clicked-task')) {
+      this.$('input').caret(this._caretPosition)
+    }
   },
 
   commitEdits: function(e) {
@@ -49,7 +56,13 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
   },
 
   showTask: function(e) {
-    Trak.masterView.displayTask(this.model);
+    this._caretPosition = this.$('input').caret();
+    this.model.fetch({
+      success: function() {
+        Trak.masterView.displayTask(this.model);
+        this.$el.trigger('taskClicked');
+      }.bind(this)
+    })
   },
 
 })

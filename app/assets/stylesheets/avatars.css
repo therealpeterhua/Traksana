@@ -5,8 +5,8 @@ figure.avatar {
   background: transparent;
   border: 1px solid white;
 
-  width: 33px;
-  height: 33px;
+  width: 28px;
+  height: 28px;
 }
 
 figure.avatar > img {

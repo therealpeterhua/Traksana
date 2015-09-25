@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       member do
         post 'toggle_completion'
         post 'edit_assigned_users'
+        get 'fetch_comments'
       end
     end
 

@@ -57,8 +57,8 @@ Trak.Views.Master = Backbone.CompositeView.extend({
       model: project
     });
 
-    this.reveal('section.centerpiece', true)
-      .reveal('section.feature', false)
+    this.revealCenter(true)
+      .revealFeature(false)
       .showSinglePane(false);
 
     this.swapCenterView(projectShowView);
@@ -69,7 +69,7 @@ Trak.Views.Master = Backbone.CompositeView.extend({
       model: task
     });
 
-    this.reveal('section.feature', true).showSinglePane(false)
+    this.revealFeature(true).showSinglePane(false)
     this.swapFeatureView(taskShowView);
   },
 
@@ -101,12 +101,23 @@ Trak.Views.Master = Backbone.CompositeView.extend({
     return this;
   },
 
-  reveal: function(selector, bool) {
+  revealCenter: function(bool) {
     if (bool) {
-      this.$(selector).removeClass('hidden');
+      this.$('section.centerpiece').removeClass('hidden');
     } else {
-      this.$(selector).addClass('hidden');
+      this.$('section.centerpiece').addClass('hidden');
     }
+
+    return this;
+  },
+
+  revealFeature: function(bool) {
+    if (bool) {
+      this.$('section.feature').removeClass('zero-height');
+    } else {
+      this.$('section.feature').addClass('zero-height')
+    }
+
     return this;
   },
 

@@ -1,11 +1,19 @@
 /* ------------- CENTERPIECE STYLES --------------- */
 
 section.centerpiece {
+  height: -moz-calc(100% - 11px);
+  height: -webkit-calc(100% - 11px);
+  height: calc(100% - 11px);
+  max-height: -moz-calc(100% - 11px);
+  max-height: -webkit-calc(100% - 11px);
+  max-height: calc(100% - 11px);
   min-width: 450px;
-  width: 55%;           /* PH - remember this is as % of parent element */
+  width: 50%;           /* PH - remember this is as % of parent element */
   left: 20px;           /* PH moves to the right, else right against sidebar */
-  margin: 10px 0px 10px 10px;
-  border: 1px solid #8B9CAF;      /*PH - source*/
+  margin: 10px 0px 0px 10px;
+  border-top: 1px solid #8B9CAF;      /*PH - source*/
+  border-left: 1px solid #8B9CAF;
+  border-right: 1px solid #8B9CAF;
   border-top-left-radius: 5px;
 }
 /* PH**** - need to have this scroll on container overflow. maybe put on ul? */

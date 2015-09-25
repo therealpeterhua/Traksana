@@ -23,11 +23,7 @@ Trak.Views.TaskShow = Backbone.CompositeView.extend({
     var commentsView = new Trak.Views.Comments({
       model: this.model
     });
-    this.addSubview('div.task-comments-container', commentsView);
-    // this.model.fetch({
-    //   success: function() {
-    //     
-    //   }.bind(this)
-    // });
-  }
+
+    this.addSubview('div.task-comments', commentsView);
+  },
 })

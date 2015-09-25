@@ -3,7 +3,8 @@ Trak.Views.CommentsIndex = Backbone.CompositeView.extend({
   className: 'comments-index',
 
   initialize: function() {
-    this.listenTo(this.collection, "sync add remove change", this.render);
+    this.listenTo(this.collection, "add remove change", this.render);
+    //PH - don't need sync here -- we only render this *after* fetching from server anyway
   },
 
   render: function() {
@@ -15,7 +16,6 @@ Trak.Views.CommentsIndex = Backbone.CompositeView.extend({
   },
 
   addIndexItems: function() {
-    debugger;
     this.collection.each( function(comment) {
       var commentItemView = new Trak.Views.CommentsIndexItem({
         model: comment

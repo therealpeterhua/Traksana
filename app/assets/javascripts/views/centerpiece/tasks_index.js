@@ -6,18 +6,16 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
     //PH** - listen to the filter to get working here
     //Can have ALL by default -- have a hash to know which classes to apply "hidden" characteristic to
     //Makes sense to have up here -- can select all child <li>, attach class
-    'click input.task-title-input': 'emphasizeTask',
+    'taskClicked li': 'emphasizeTask',
     'click .task-completion > .completion-icon': 'toggleCompletion',
     'click .task-deletion > .deletion-icon': 'deleteTask',
-    'click .task-assignment > .assignment-icon': 'assignTask'
+    'click .task-assignment > .assignment-icon': 'assignTask',
   },
 
   initialize: function(options) {
     this.projectId = options.projectId;
-    this.listenTo(this.collection, "sync remove", this.render);
-    //PH - remember NEED the remove listener here, else doesn't sync with deleting new items you just added
-    this.listenTo(this.collection, "clearEdits", this.clearEdits)
-    //PH**** - this is to clear out everything -- handle others INSIDE the task_index_item
+    this.listenTo(this.collection, "add remove", this.render);
+    //PH - I've removed sync here.. we only fetch from the server at loadup of the team master page anyway -- all this does is catch bubbled-up events from the feature fetch, which re-renders the section and kills focus/emphasized elements.
   },
 
   render: function() {
@@ -46,8 +44,9 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
   },
 
   emphasizeTask: function(e) {
+    var $currentTarget = $(e.currentTarget);
     this.$('li').removeClass('clicked-task');
-    $(e.currentTarget).parent().parent().addClass('clicked-task');
+    $currentTarget.addClass('clicked-task');
   },
 
   toggleCompletion: function(e) {
@@ -94,4 +93,5 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
 
     Trak.masterView.showAndSwapModal(assignmentModal);
   },
+
 })

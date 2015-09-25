@@ -1,19 +1,39 @@
 /* ----------- FEATURE STYLES ------------- */
 
-section.feature {
-  /* PH** - 20px for margin, 40px for "position left", 3px for 3 line borders */
-  width: -moz-calc(45% - 63px);
-  width: -webkit-calc(45% - 63px);
-  width: calc(45% - 63px);
-  left: 20px;
-  margin: 10px 10px 10px 0px;
-  border-top-right-radius: 5px;
-  border-top: 1px solid #8B9CAF;
-  border-right: 1px solid #8B9CAF;    /*PH - SOURCE*/
-  border-bottom: 1px solid #8B9CAF;
+section.feature.zero-height {
+  max-height: 0px;
+  border: 0px;
 }
 
+section.feature {
+  /* PH** - 20px for margin, 40px for "position left", 3px for 3 line borders */
+  width: -moz-calc(50% - 63px);
+  width: -webkit-calc(50% - 63px);
+  width: calc(50% - 63px);
+
+  max-height: -moz-calc(100% - 30px);
+  max-height: -webkit-calc(100% - 30px);
+  max-height: calc(100% - 30px);
+
+  transition: max-height 0.5s ease-in-out;
+
+  left: 20px;
+  margin: 10px 10px 10px 0px;
+
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top: 1px solid #8B9CAF;
+  border-right: 1px solid #8B9CAF;
+  border-bottom: 1px solid #8B9CAF;
+}
+/* PH** - this transition needs to work! */
+
 /* resize just lets users resize the box at will -- not what we want */
+div.task-details {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+
 div.task-details textarea {
   resize: none;
   font-family: inherit;
@@ -47,3 +67,68 @@ div.task-details textarea.blank-description {
   color: #C1C1C1;
 }
 /*PH - source*/
+
+div.comments-index-container {
+  padding: 15px 45px 15px 15px;
+}
+
+div.task-comments figure {
+  margin-right: 10px;
+  margin-top: 2.5px;
+  float: left;
+}
+
+div.task-comments li div.comment-item-text-container {
+  display: block;
+  float: left;
+  width: -moz-calc(100% - 50px);
+  width: -webkit-calc(100% - 50px);
+  width: calc(100% - 50px);
+  line-height: 1.4;
+}
+
+li.comments-index-item {
+  margin-bottom: 15px;
+}
+
+li.comments-index-item p {
+  float: left;
+  display: block;
+  width: 100%;
+  float: left;
+  font-size: 14px;
+}
+/* width: 30px avatar (1px border, 28px width), 10px avatar-margin */
+
+li.comments-index-item strong {
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+li.comments-index-item small {
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 2px;
+}
+
+div.task-comments form {
+  background: #F5F9FC;
+}
+
+div.task-comments textarea {
+  background: white;
+  border: 2px #eee;
+}
+
+div.task-comments form button {
+  font-size: 12px;
+  padding: 5px 10px;
+  display: block;
+}
