@@ -3,7 +3,6 @@ Trak.Views.Sidebar = Backbone.CompositeView.extend({
   addClass: 'sidebar',
 
   events: {
-    'refreshProjNewView form.new-project': 'refreshProjNewView',
     'resize div.sidebar-body': 'setSizeAndListener'
   },
 
@@ -34,23 +33,16 @@ Trak.Views.Sidebar = Backbone.CompositeView.extend({
       collection: this.model.projects()
     });
 
-    this.addSubview("div.members-index", membersIndexView);
-    this.addSubview("div.projects-index", projectsIndexView);
-    this.refreshProjNewView();      //add in a projNewView
-  },
-
-  refreshProjNewView: function() {
-    this._newProjectView &&
-        this.removeSubview('div.new-project', this._newProjectView);
-
-    this._newProjectView = new Trak.Views.ProjectNew({
+    var projectNewView = new Trak.Views.ProjectNew({
       model: new Trak.Models.Project({
         team_id: this.model.id
       }),
       collection: this.model.projects()
     });
 
-    this.addSubview('div.new-project', this._newProjectView);
+    this.addSubview("div.members-index", membersIndexView);
+    this.addSubview("div.projects-index", projectsIndexView);
+    this.addSubview('div.new-project', projectNewView);
   },
 
   setSizeAndListener: function() {

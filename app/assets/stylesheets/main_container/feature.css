@@ -7,7 +7,7 @@ section.feature.zero-height {
 
 section.feature.transitioning {
   max-height: 0px;
-  /*transition: max-height 0.42 cubic-bezier(0.92, 0.06, 0.86, 0.84);*/
+  /*transition: max-height 0.42 cubic-bezier(0.92, 0.06, 0.86, 0.84);presentationfy*/
 }
 
 section.feature {
@@ -20,7 +20,7 @@ section.feature {
   max-height: -webkit-calc(100% - 30px);
   max-height: calc(100% - 30px);
 
-  /*transition: max-height 0.42 cubic-bezier(0.86, 0.04, 0.21, 1.01);*/
+  /*transition: max-height 0.42 cubic-bezier(0.86, 0.04, 0.21, 1.01);presentationfy*/
 
   left: 20px;
   margin: 10px 10px 10px 0px;
@@ -39,16 +39,12 @@ div.task-details {
 }
 
 div.task-details textarea {
-  resize: none;
   font-family: inherit;
-  border: none;
   border-radius: 5px;
   border: 1px solid transparent;
   padding: 5px;
-  outline: none;
 }
 
-/*PH - SOURCE*/
 div.task-details textarea:hover {
   border: 1px solid #DDD;
   box-shadow: 0px 0px 5px 0px #DDD;
@@ -56,7 +52,6 @@ div.task-details textarea:hover {
 
 div.task-details textarea:focus {
   border: 1px solid #60B2EB;
-  box-shadow: 0px 0px 5px 0px #60B2EB;
 }
 
 div.task-details .task-title > textarea {
@@ -70,7 +65,6 @@ div.task-details .task-description > textarea {
 div.task-details textarea.blank-description {
   color: #C1C1C1;
 }
-/*PH - source*/
 
 div.comments-index-container {
   padding: 15px 45px 15px 15px;
@@ -104,7 +98,7 @@ li.comments-index-item p {
 }
 /* width: 30px avatar (1px border, 28px width), 10px avatar-margin */
 
-li.comments-index-item strong {
+li.comments-index-item strong.author-name {
   float: left;
   display: block;
   width: 100%;
@@ -113,13 +107,28 @@ li.comments-index-item strong {
   margin-bottom: 2px;
 }
 
-li.comments-index-item small {
+li.comments-index-item small.timestamp {
   float: left;
   display: block;
   width: 100%;
   font-size: 12px;
   color: #aaa;
   margin-top: 2px;
+}
+
+li.comments-index-item div.comment-deletion {
+  display: block;
+  position: absolute;
+  right: 30px;
+  font-size: 24px;
+  width: 15px;
+  text-align: center;
+  cursor: pointer;
+  color: #ccc;
+}
+
+li.comments-index-item div.comment-deletion:hover {
+  color: darkblue;
 }
 
 div.task-comments form.new-comment {
@@ -133,17 +142,25 @@ form.new-comment figure {
 
 div.task-comments textarea {
   float: left;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 14px;
   font-weight: normal;
+  height: 40px;
+  width: 270px;
+  padding: 10px;
+}
+
+div.task-comments textarea:focus {
+  border: 1px solid #60B2EB;
 }
 
 div.task-comments form button {
-  display: inline-block;
+  float: left;
+  display: block;
   font-size: 12px;
   padding: 5px 10px;
   display: block;
   border-radius: 4px;
+  margin-left: 10px;
 }

@@ -14,8 +14,7 @@ Trak.Views.ProjectNew = Backbone.View.extend({
     return this;
   },
 
-  toggleInputables: function(e) {
-    e.preventDefault();
+  toggleInputables: function() {
     this.$('div.new-project-reveal').toggleClass('activated');
     // this.$('form.new-project').toggleClass('hidden');
     var $transitionEl = this.$('div.new-project-transition')
@@ -46,15 +45,15 @@ Trak.Views.ProjectNew = Backbone.View.extend({
     this.model.save({}, {
       success: function(model) {
         this.collection.add(model, {merge: true});
-        this.toggleInputables;
+        this.toggleInputables();
+
+        this.model = new Trak.Models.Project({
+          team_id: model.escape('team_id')
+        })      //PH - refresh model for consecutive adds
       }.bind(this),
       error: function() {
         alert("Ruh roh, something went wrong!");
       }
     });
-
-    this.$('form.new-project').trigger('refreshProjNewView');
-    //PH NEED TO REFRESH THIS VIEW SO IT'LL HAVE A NEW MODELLL -- CAN SAVE MORE THAN ONCE at a time then.
-    //PH - check out that CUSTOM TRIGGER ON PAGE ELEMENT
   },
 })

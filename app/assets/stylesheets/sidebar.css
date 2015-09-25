@@ -173,7 +173,6 @@ div.new-project form.new-project button:hover {
 div.projects-index {
   display: block;
   overflow-y: auto;
-  /* get the */
 }
 
 ul.project-items {

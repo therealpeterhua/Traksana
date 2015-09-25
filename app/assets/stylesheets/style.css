@@ -38,6 +38,7 @@ button {
 
 html {
   height: 100%;
+  overflow: hidden;       /*PH - completely prevents scrolling of page*/
 }
 
 input {
@@ -67,8 +68,25 @@ div.backdrop, div.backdrop > div, div.master {
   height: 100%;
 }
 
+textarea {
+  background: white;
+  outline: none;
+  padding: 5px;
+  resize: none;
+}
+
+textarea:focus {
+  border: 1px solid #60B2EB;
+  box-shadow: 0px 0px 5px 0px #60B2EB;
+}
+
 .hidden {
   display: none;
+}
+
+.transparent {
+  opacity: 0;
+  transition: opacity 1s ease-in;
 }
 
 .noselect {

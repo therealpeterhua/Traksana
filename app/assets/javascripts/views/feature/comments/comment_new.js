@@ -22,7 +22,9 @@ Trak.Views.CommentNew = Backbone.CompositeView.extend({
       success: function(model) {
         model.author().set(Trak.currentUser.attributes);
         this.collection.add(model);
-        console.log("Comment successfully added!");
+        this.model = new Trak.Models.Comment({
+          task_id: model.escape('task_id')
+        });
       }.bind(this)
     });
 

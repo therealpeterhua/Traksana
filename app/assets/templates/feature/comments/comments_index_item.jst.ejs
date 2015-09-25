@@ -4,7 +4,10 @@
 </figure>
 
 <div class="comment-item-text-container">
-  <strong><%= author.escape('name') %></strong>
+  <strong class="author-name"><%= author.escape('name') %></strong>
+  <% if (author.id === Trak.currentUser.id) { %>
+    <div class="comment-deletion transparent">×</div>
+  <% } %>
   <p><%= comment.escape('content') %></p>
-  <small><%= comment.escape('created_at') %></small>
+  <small class="timestamp"><%= comment.escape('created_at') %></small>
 </div>

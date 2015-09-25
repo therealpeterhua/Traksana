@@ -8,6 +8,8 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
     'blur': 'commitEdits',
     // 'blur input': 'commitEdits'     // PH - uncomment for CRAZYTOWN
     'click': 'showTask',
+    'mouseenter': 'toggleIcons',
+    'mouseleave': 'toggleIcons',
   },
 
   initialize: function() {
@@ -35,7 +37,8 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
 
   checkClicked: function() {
     if (this.$el.hasClass('clicked-task')) {
-      this.$('input').caret(this._caretPosition)
+      this.$('input').caret(this._caretPosition);
+      this.$('.icon').removeClass('transparent');
     }
   },
 
@@ -61,8 +64,16 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
       success: function() {
         Trak.masterView.displayTask(this.model);
         this.$el.trigger('taskClicked');
+        //check out dat CUSTOM TRIGGER DOH
       }.bind(this)
-    })
+    });
+  },
+
+  toggleIcons: function(e) {
+    if ( $(e.currentTarget).hasClass('clicked-task') ) {
+      return;
+    }
+    this.$('.icon').toggleClass('transparent');
   },
 
 })
