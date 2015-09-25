@@ -8,25 +8,29 @@ Rails.application.routes.draw do
   # this routes to the omniauth method in api/sessions_controller.rb
 
   namespace :api, defaults: { format: :json } do      #PH - why json here? json anyway?
-    resources :teams do
+    resources :teams, only: [:index, :create, :show] do
       member do
         post 'assign_members'
       end
     end
+
     resources :users, except: [:new, :create] do
       collection do
         get 'current_user_info'
         get 'search'
       end
     end
+
     resources :projects, only: [:create, :update, :destroy]
-    resources :tasks, only: [:create, :update, :destroy] do
+
+    resources :tasks, only: [:create, :update, :destroy, :show] do
       member do
         post 'toggle_completion'
         post 'edit_assigned_users'
       end
     end
-    resources :comments
+
+    resources :comments, only: [:create, :destroy]
     #PH - member routes give you :id, collection routes are whole thing
 
   end

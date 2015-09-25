@@ -13,7 +13,7 @@ Trak.Models.Project = Backbone.Model.extend({
   parse: function(response) {
     if (response.tasks) {
       this.tasks().set(response.tasks, { parse: true });
-      delete response.tasks
+      delete response.tasks;
     }
 
     return response;

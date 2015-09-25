@@ -8,16 +8,26 @@ Trak.Views.TaskShow = Backbone.CompositeView.extend({
   render: function() {
     var content = this.template({ task: this.model });
     this.$el.html(content);
-    this.populateTaskCommentsSubviews();
+    this.populateTaskSubviews();
+    this.populateCommentsSubviews();
 
     return this;
   },
 
-  populateTaskCommentsSubviews: function() {
+  populateTaskSubviews: function() {
     var taskDetailsView = new Trak.Views.TaskDetails({ model: this.model });
     this.addSubview('p.task-details-container', taskDetailsView);
-    //populate TWO VIEWS:
-    // 1) Description + Task name... if change here, should commit edits
-    // 2) Comments index (which includes comments and new comment form)
   },
+
+  populateCommentsSubviews: function() {
+    var commentsView = new Trak.Views.Comments({
+      model: this.model
+    });
+    this.addSubview('div.task-comments-container', commentsView);
+    // this.model.fetch({
+    //   success: function() {
+    //     
+    //   }.bind(this)
+    // });
+  }
 })

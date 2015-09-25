@@ -20,6 +20,17 @@ class Api::TasksController < ApplicationController
     end
   end
 
+  def show
+    @task = Task.find(params[:id])
+
+    if @task
+      render :show
+    else
+      render json: @task.errors.full_messages,
+             status: :unprocessable_entity
+    end
+  end
+
   def toggle_completion
     # PH - only need this because don't have access to current_user in javascript
     @task = Task.find(params[:id])

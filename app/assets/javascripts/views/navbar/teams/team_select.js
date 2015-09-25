@@ -16,7 +16,6 @@ Trak.Views.TeamSelect = Backbone.CompositeView.extend({
   },
 
   populateTeamItems: function() {
-    debugger
     this.collection.each( function(team) {
       var teamSelectItem = new Trak.Views.TeamSelectItem({ model: team });
       this.addSubview('ul.team-select-items', teamSelectItem);
