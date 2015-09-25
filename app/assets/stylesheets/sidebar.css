@@ -9,6 +9,10 @@ section.sidebar {
   border-right: 1px solid #A0AEBD;
 }
 
+section.sidebar > div {
+  height: 100%;
+}
+
 section.sidebar div.app-sidebar-header {
   display: block;
   height: 45px;
@@ -40,6 +44,9 @@ div.symbol {
 section.sidebar .sidebar-body {
   display: block;
   width: 100%;
+  max-height: -moz-calc(100% - 46px);
+  max-height: -webkit-calc(100% - 46px);
+  max-height: calc(100% - 46px);
 }
 
 h4.sidebar-title {
@@ -97,25 +104,33 @@ div.new-project div.new-project-reveal.activated {
   background: #D7DCE6;
 }
 
-div.new-project form.new-project.zero-width {
+div.new-project-transition.zero-width {
   max-width: 0px;
+  border: 1px solid transparent;
+  box-shadow: none;
 }
 
-div.new-project form.new-project {
+div.new-project-transition {
   position: absolute;
-  overflow: hidden;
   left: 100px;
   top: 0px;
-  padding: 5px 10px;
-  background: #EBEBEB;
-  width: 255px;
-  max-width: 255px;
-  transition: max-width 1s ease-in-out;
+
+  height: 33px;
+
+  width: 265px;
+  max-width: 265px;
+  transition: max-width 0.35s ease-in;
+  overflow: hidden;
 
   border: 1px solid #8E949B;
   box-shadow: 0px 0px 5px 0px #8E949B;
   z-index: 2;
+}
 
+div.new-project form.new-project {
+  display: block;
+  padding: 5px 10px;
+  background: #EBEBEB;
   border-radius: 3px;
 }
 /*box-shadow: first 2 args are offsets. 3rd arg smudges. 4th smudge strength */
@@ -155,7 +170,15 @@ div.new-project form.new-project button:hover {
   color: #023470;
 }
 
+div.projects-index {
+  display: block;
+  height: -moz-calc(100% - 138px);
+  height: -webkit-calc(100% - 138px);
+  height: calc(100% - 138px);
+}
+
 ul.project-items {
+  max-height: 100%;
 }
 
 ul.project-items > li {

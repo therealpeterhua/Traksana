@@ -18,13 +18,13 @@ Trak.Views.ProjectNew = Backbone.View.extend({
     e.preventDefault();
     this.$('div.new-project-reveal').toggleClass('activated');
     // this.$('form.new-project').toggleClass('hidden');
-    var $form = this.$('form.new-project')
+    var $transitionEl = this.$('div.new-project-transition')
 
-    if ( $form.hasClass('zero-width') ) {
-      $form.removeClass('zero-width')
-      $form.find('input').focus();
+    if ( $transitionEl.hasClass('zero-width') ) {
+      $transitionEl.removeClass('zero-width')
+      $transitionEl.find('input').focus();
     } else {
-      $form.addClass('zero-width')
+      $transitionEl.addClass('zero-width')
     }
 
     // if ( this.$('form.new-project').hasClass('hidden') ) {
