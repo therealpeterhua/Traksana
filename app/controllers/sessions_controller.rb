@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
   end
 
   def omniauth
-    byebug
     user = User.find_or_create_by_auth_hash(omniauth_hash)
 
     log_in(user)

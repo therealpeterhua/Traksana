@@ -55,7 +55,8 @@ class User < ActiveRecord::Base
         provider: auth_hash[:provider],
         name: auth_hash[:info][:name],
         # avatar_url: auth_hash[:info][:image],
-        password: SecureRandom.urlsafe_base64(16)
+        password: SecureRandom.urlsafe_base64(16),
+        avatar: URI.parse(auth_hash[:info][:image])
       )
     end
 
@@ -92,7 +93,7 @@ class User < ActiveRecord::Base
 
   def has_unique_email
     return if email.blank? || self.id
-    
+
     if User.where("email != ''").exists?(email: email)
       errors[:base] << "That email has already been taken."
     end
