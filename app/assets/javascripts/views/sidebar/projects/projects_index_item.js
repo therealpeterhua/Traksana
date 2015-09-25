@@ -4,7 +4,7 @@ Trak.Views.ProjectsIndexItem = Backbone.View.extend({
   className: 'project-item',
 
   events: {
-    //PH** if you wanna go cowboy -- listen to clicks here and render outside the $el
+    'click': 'showProject',
   },
 
   initialize: function(options) {
@@ -21,6 +21,10 @@ Trak.Views.ProjectsIndexItem = Backbone.View.extend({
     this.$el.html(content);       //PH NOTE #html doesn't wipe jQuery data
 
     return this;
+  },
+
+  showProject: function(e) {
+    Trak.masterView.displayProject(this.model);
   },
 
 })

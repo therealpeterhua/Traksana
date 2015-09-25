@@ -4,8 +4,6 @@ Trak.Views.Master = Backbone.CompositeView.extend({
 
   events: {
     'click li.team-select-item': 'switchTeam',
-    'click ul.project-items>li': 'displayProject',
-    'click input.task-title-input': 'displayTask',
     'click div.modal': 'toggleModal',
     'click div.modal > div': 'stopPropagation'
   },
@@ -51,10 +49,7 @@ Trak.Views.Master = Backbone.CompositeView.extend({
     //PH** how to initialize? Have every user start with their PERSONAL workspace? And always log into that one?
   },
 
-  displayProject: function(e) {
-    //PH** display the titlebar with
-    var projectId = $(e.currentTarget).data('project-id');
-    var project = this.model.projects().get(projectId);
+  displayProject: function(project) {
     this._currentProject = project
     this.displayTitlebar();
 
@@ -69,10 +64,7 @@ Trak.Views.Master = Backbone.CompositeView.extend({
     this.swapCenterView(projectShowView);
   },
 
-  displayTask: function(e) {
-    var taskId = $(e.currentTarget).data('task-id');
-    var task = this._currentProject.tasks().get(taskId);
-
+  displayTask: function(task) {
     var taskShowView = new Trak.Views.TaskShow({
       model: task
     });

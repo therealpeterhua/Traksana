@@ -7,6 +7,7 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
     //PH** if you wanna go cowboy -- listen to clicks here and render outside the $el
     'submit': 'commitEdits',
     // 'blur input': 'commitEdits'     // PH - uncomment for CRAZYTOWN
+    'click': 'showTask',
   },
 
   initialize: function() {
@@ -45,6 +46,10 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
         alert('ruh roh, something went wrong');
       }
     });
+  },
+
+  showTask: function(e) {
+    Trak.masterView.displayTask(this.model);
   },
 
 })
