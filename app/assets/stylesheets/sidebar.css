@@ -41,12 +41,12 @@ div.symbol {
   cursor: default;
 }
 
-section.sidebar .sidebar-body {
+section.sidebar div.sidebar-body {
   display: block;
   width: 100%;
-  max-height: -moz-calc(100% - 46px);
-  max-height: -webkit-calc(100% - 46px);
-  max-height: calc(100% - 46px);
+  height: -moz-calc(100% - 46px);
+  height: -webkit-calc(100% - 46px);
+  height: calc(100% - 46px);
 }
 
 h4.sidebar-title {
@@ -172,9 +172,8 @@ div.new-project form.new-project button:hover {
 
 div.projects-index {
   display: block;
-  height: -moz-calc(100% - 138px);
-  height: -webkit-calc(100% - 138px);
-  height: calc(100% - 138px);
+  overflow-y: auto;
+  /* get the */
 }
 
 ul.project-items {

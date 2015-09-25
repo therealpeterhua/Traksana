@@ -98,7 +98,7 @@ section.navbar ul.team-select-items {
   color: #818B92;
 
   max-height: 500px;
-  transition: max-height 0.35s ease-in-out;
+  /*transition: max-height 0.35s ease-in-out;presentationfy*/
   overflow: hidden;
 }
 /* need overflow: scroll, else everything will appear before container does */
@@ -111,9 +111,9 @@ ul.team-select-items > li.team-select-item {
   width: 175px;
   display: block;
   margin: 0px;
-  padding: 8px 12px;
+  /*padding: 8px 12px; presentationfy*/
   border-bottom: 1px solid #E5E5E5;
-  transition: background 0.25s, padding 0.15s;
+  /*transition: background 0.25s, padding 0.15s; presentationfy*/
 }
 
 ul.team-select-items > li.team-select-item.hovered {

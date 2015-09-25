@@ -7,7 +7,7 @@ section.feature.zero-height {
 
 section.feature.transitioning {
   max-height: 0px;
-  transition: max-height 0.5s cubic-bezier(0.92, 0.06, 0.86, 0.84);
+  /*transition: max-height 0.42 cubic-bezier(0.92, 0.06, 0.86, 0.84);*/
 }
 
 section.feature {
@@ -20,7 +20,7 @@ section.feature {
   max-height: -webkit-calc(100% - 30px);
   max-height: calc(100% - 30px);
 
-  transition: max-height 0.5s cubic-bezier(0.86, 0.04, 0.21, 1.01);
+  /*transition: max-height 0.42 cubic-bezier(0.86, 0.04, 0.21, 1.01);*/
 
   left: 20px;
   margin: 10px 10px 10px 0px;
@@ -31,7 +31,6 @@ section.feature {
   border-right: 1px solid #8B9CAF;
   border-bottom: 1px solid #8B9CAF;
 }
-/* PH** - this transition needs to work! */
 
 /* resize just lets users resize the box at will -- not what we want */
 div.task-details {

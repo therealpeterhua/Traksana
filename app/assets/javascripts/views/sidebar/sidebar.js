@@ -3,7 +3,8 @@ Trak.Views.Sidebar = Backbone.CompositeView.extend({
   addClass: 'sidebar',
 
   events: {
-    'refreshProjNewView form.new-project': 'refreshProjNewView'
+    'refreshProjNewView form.new-project': 'refreshProjNewView',
+    'resize div.sidebar-body': 'setSizeAndListener'
   },
 
   initialize: function() {
@@ -19,6 +20,7 @@ Trak.Views.Sidebar = Backbone.CompositeView.extend({
     //Don't I need this to refresh if the .members() changes?
     this.$el.html(content);
     this.populateSections();
+    this.setSizeAndListener();
 
     return this;
   },
@@ -49,6 +51,16 @@ Trak.Views.Sidebar = Backbone.CompositeView.extend({
     });
 
     this.addSubview('div.new-project', this._newProjectView);
+  },
+
+  setSizeAndListener: function() {
+    this.resizeProjIndex();
+    $(window).on("resize",this.resizeProjIndex.bind(this));
+  },
+
+  resizeProjIndex: function() {
+    var parentLength = this.$('div.sidebar-body').height();
+    this.$('div.projects-index').height(parentLength - 117);
   },
 
 })

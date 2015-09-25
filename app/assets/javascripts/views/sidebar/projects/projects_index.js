@@ -2,7 +2,8 @@ Trak.Views.ProjectsIndex = Backbone.CompositeView.extend({
   template: JST['sidebar/projects/projects_index'],
 
   events: {
-    'click li': 'emphasizeProject'
+    'click li': 'emphasizeProject',
+    'resize': 'resizeProjIndex',
   },
 
   initialize: function(options) {
