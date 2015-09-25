@@ -6,49 +6,21 @@ div.sign-in-cover {
   background-size: 100% 100%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
 div.sign-in-background {
   position: absolute;
   width: 100%;
   height: 100%;
   background: #7F7F7F;
-  opacity: .45;
+  opacity: 0.25;
 }
 
 div.sign-in-container {
   position: relative;
   display: block;
   margin: auto;
-  opacity: 0.75;
+  // opacity: 0.75;
   background: white;
-  font-weight: 300;
+  // font-weight: 300;
 
   border-radius: 5px;
 
@@ -116,4 +88,4 @@ div.sign-in-content p > a {
 div.sign-in-content p > a:hover {
   color: darkblue;
   font-weight: 400;
-}*/
+}
