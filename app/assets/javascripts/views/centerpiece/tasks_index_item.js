@@ -14,7 +14,7 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
 
   initialize: function() {
     this.$el.data('task-id', this.model.id);
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync change", this.render);
   },
 
   render: function() {
@@ -57,6 +57,15 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
       }
     });
   },
+
+  switchCompletion: function() {
+    if (this.model.escape('completer_id')) {
+      this.model.set({ completer_id: null });
+    } else {
+      this.model.set({ completer_id: Trak.currentUser.id });
+    }
+  },
+  //PH**** NEED TO MOVE EDITS HERE!!!!
 
   showTask: function(e) {
     this._caretPosition = this.$('input').caret();

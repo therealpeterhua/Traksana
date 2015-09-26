@@ -31,8 +31,8 @@ Trak.Views.TeamForm = Backbone.View.extend({
     //PH check if this is all OK
     this.model.save({}, {
       success: function(model) {
-        this.collection.add(model, {merge: true});
-        //PH QUESTION why need merge: true again?
+        this.collection.add(model);
+        Trak.currentUser.teams().add(model);
         this.toggleInputable();
       }.bind(this),
       error: function() {

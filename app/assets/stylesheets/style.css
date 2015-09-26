@@ -86,7 +86,7 @@ textarea:focus {
 
 .transparent {
   opacity: 0;
-  /*transition: opacity 0.5s ease-out;presentationfy*/
+  transition: opacity 0.5s ease-out;
 }
 
 .noselect {

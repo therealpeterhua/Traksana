@@ -7,7 +7,7 @@ section.feature.zero-height {
 
 section.feature.transitioning {
   max-height: 0px;
-  /*transition: max-height 0.42 cubic-bezier(0.92, 0.06, 0.86, 0.84);presentationfy*/
+  transition: max-height 0.42 cubic-bezier(0.92, 0.06, 0.86, 0.84);
 }
 
 section.feature {
@@ -20,7 +20,7 @@ section.feature {
   max-height: -webkit-calc(100% - 30px);
   max-height: calc(100% - 30px);
 
-  /*transition: max-height 0.42 cubic-bezier(0.86, 0.04, 0.21, 1.01);presentationfy*/
+  transition: max-height 0.42 cubic-bezier(0.86, 0.04, 0.21, 1.01);
 
   left: 20px;
   margin: 10px 10px 10px 0px;

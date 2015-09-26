@@ -1,13 +1,13 @@
 Trak.Models.User = Backbone.Model.extend({
   urlRoot: "/api/users",
 
+  toJSON: function() {
+    return { user: this.attributes };
+  },
+
   teams: function() {
     this._teams = this._teams || new Trak.Collections.Teams();
     return this._teams;
-  },
-
-  toJSON: function() {
-    return { user: this.attributes };
   },
 
   coworkers: function() {
