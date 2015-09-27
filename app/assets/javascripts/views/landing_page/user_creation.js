@@ -1,0 +1,16 @@
+Trak.Views.UserCreation = Backbone.View.extend({
+  template: JST['landing_page/user_creation'],
+  //PH** - i don't have any listeners on submit here -- is this ok?
+
+  initialize: function() {
+    this.model = new Trak.Models.User();
+  },
+
+  render: function() {
+    var content = this.template({user: this.model});
+    this.$el.html(content);
+
+    return this;
+  },
+
+})

@@ -1,0 +1,25 @@
+<p>
+  Buckle up!
+</p>
+
+<form class="user-registration"
+      action="/users"
+      method="post"
+      enctype="multipart/form-data">
+
+  <input type="hidden" name="authenticity_token">
+
+  <label for="name">Name</label>
+  <input id="name" type="text" name="user[name]" autocomplete="off">
+
+  <label for="email">Email</label>
+  <input id="email" type="text" name="user[email]" autocomplete="off">
+
+  <label for="password">Password</label>
+  <input id="password" type="password" name="user[password]" autocomplete="off">
+
+  <label for="input-post-image">Avatar</label>
+  <input type="file" name="user[avatar]" id="input-post-image">
+
+  <button>Sign Up</button>
+</form>
