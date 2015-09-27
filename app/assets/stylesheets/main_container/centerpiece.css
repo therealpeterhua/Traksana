@@ -1,0 +1,164 @@
+/* ------------- CENTERPIECE STYLES --------------- */
+
+section.centerpiece {
+  height: -moz-calc(100% - 11px);
+  height: -webkit-calc(100% - 11px);
+  height: calc(100% - 11px);
+  max-height: -moz-calc(100% - 11px);
+  max-height: -webkit-calc(100% - 11px);
+  max-height: calc(100% - 11px);
+  min-width: 450px;
+  width: 50%;           /* PH - remember this is as % of parent element */
+  left: 20px;           /* PH moves to the right, else right against sidebar */
+  margin: 10px 0px 0px 10px;
+  border-top: 1px solid #8B9CAF;      /*PH - source*/
+  border-left: 1px solid #8B9CAF;
+  border-right: 1px solid #8B9CAF;
+  border-top-left-radius: 5px;
+}
+/* PH**** - need to have this scroll on container overflow. maybe put on ul? */
+
+/* PH** - have below NOT take up whole width of page */
+section.single-pane {
+  width: 100%;
+  margin: 10px;
+}
+
+h3.project-codename {
+  font-size: 24px;
+  padding: 5px;
+}
+
+ul.task-items {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+ul.task-items > li {
+  height: 31px;
+  border-bottom: 1px solid #DFDFDF;     /*PH - SOURCE*/
+}
+
+ul.task-items > li:hover {
+  height: 31px;
+  border-bottom: 1px solid #C1C1C1;
+  /*PH** - this needs to be fixed*/
+}
+
+/* Do below for both new and existing tasks... */
+/*PH** - REM input doesn't inherit font-family!!*/
+/* outline-none disables browser feedback */
+ul.task-items li input {
+  outline: none;
+  font-family: inherit;
+  float: left;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border: 0px;
+  background: transparent;
+  font-size: 14px;
+  width: -moz-calc(100% - 120px);
+  width: -webkit-calc(100% - 120px);
+  width: calc(100% - 120px);
+  margin: 0px 3px 0px 8px;
+  padding: 8px 7px 7px 7px;
+}
+
+/* this is here to override reset */
+ul.task-items li input:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+ul.task-items li.new-task {
+  color: grey;
+}
+
+ul.task-items .clicked-task {
+  background: #DAECFF;
+}
+/* PH - make sure this text doesn't wrap!! */
+
+
+/* ---------- ICONS -----------*/
+
+ul.task-items strong {
+  display: block;
+  position: relative;
+  height: 31px;
+  width: 30px;
+  text-align: center;
+}
+
+ul.task-items strong > div{
+  cursor: pointer;
+  display: block;
+}
+
+ul.task-items .task-completion, ul.task-items .task-assignment {
+  float: left;
+}
+
+/* ------- COMPLETION --------- */
+/* Below for both new and existing... */
+
+ul.task-items div.completion-icon {
+  float: left;
+  border: 3px solid #CCCCCC;
+  border-radius: 2px;
+  padding: 5px;
+  margin: 8px 8px 7px 8px;
+}
+
+ul.task-items div.completion-icon:hover {
+  border: 3px solid #1F8DD6;
+  transition: border 0.15s;
+}
+
+ul.task-items div.completion-icon.completed {
+  border: none;
+  font-size: 20px;
+  padding: 0px;
+  margin: 4px 9px 9px 9px;
+}
+
+ul.task-items div.completion-icon.completed:hover {
+  color: #1F8DD6;
+  transition: color 0.15s;
+}
+
+/* --------- ASSIGNMENT AND DELETION, SHARED ---------- */
+ul.task-items div.assignment-icon,
+ul.task-items div.deletion-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  font-size: 17px;
+  color: #7E8995;
+}
+
+ul.task-items div.assignment-icon:hover,
+ul.task-items div.deletion-icon:hover {
+  color: #114D97;
+  transition: color 0.25s;
+}
+
+/* -------- ASSIGNMENT --------- */
+
+ul.task-items div.assignment-icon {
+  padding: 3px 2px 1px 0px;
+  top: 3px;
+  left: 5px;
+}
+
+/* -------- DELETION ---------- */
+
+ul.task-items strong.task-deletion {
+  float: right;
+}
+
+ul.task-items div.deletion-icon {
+  top: 7px;
+}
