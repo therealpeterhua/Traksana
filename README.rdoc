@@ -5,11 +5,10 @@ user_creation.js
 user_creation.jst.ejs
 landing_page.jst.ejs
 
-extract modal_hook
-div: modal
-div: modal-cover
+BUGS
+Fix team index message - it doesn't always display
 
-make displaying modal a global function! You do this everywhere now -- user creation, team creation, editing, etc.
+Extend modal display into global function extended into each View
 
 Make a tooltip top-level style that displays it on hover of anything with id=whatever and class tooltip
 Maybe can make a tooltip partial that just takes a "content" input?

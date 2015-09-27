@@ -14,3 +14,16 @@ Trak.Utils.imageName = function(user) {
 Trak.Utils.userAvatar = function(user) {
   return JST['partials/user_avatar']({ user: user });
 };
+
+Trak.Utils.modalHook = function() {
+  return JST['partials/modal_hook']();
+};
+
+Trak.Utils.extend = function(parent_obj, target_obj) {
+  Object.keys(parent_obj).forEach( function(key) {
+    if (!target_obj.hasOwnProperty(key)) {
+      target_obj[key] = parent_obj[key];
+    }
+  });
+};
+//PH -- use this to extend the basic MODAL VIEW functions everywhere!

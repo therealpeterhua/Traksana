@@ -3,7 +3,7 @@ Trak.Views.LandingPage = Backbone.View.extend({
 
   events: {
     'click a.create-new-user': 'showUserCreationModal',
-    'click div.modal-cover': 'hideModals',
+    'click div.modal': 'toggleModals',
   },
 
   render: function() {
@@ -28,6 +28,7 @@ Trak.Views.LandingPage = Backbone.View.extend({
   },
 
   toggleModals: function() {
+    console.log('Toggling modal!');
     this.$('.modal').toggleClass('hidden');
     this.$('.modal-cover').toggleClass('hidden');
   },
