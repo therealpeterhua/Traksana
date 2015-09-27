@@ -1,7 +1,1 @@
-<div class="backdrop">
-  <% if logged_in? %>
-    <%= button_to "Sign out", session_url, method: :delete%>
-  <% end %>
-  <div id="main">
-  </div>
-</div>
+<%= render partial: 'partials/backbone_hook' %>

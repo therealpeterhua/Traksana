@@ -7,8 +7,15 @@ Trak.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "teamIndex",
+    "there": "landingPage",
     "_=_": "teamIndex",
     "teams/:id": "masterShow",
+  },
+
+  landingPage: function() {
+    var landingPageView = new Trak.Views.LandingPage();
+    this._swapView(landingPageView);
+    $.rails.refreshCSRFTokens();
   },
 
   teamIndex: function() {
@@ -32,6 +39,7 @@ Trak.Routers.Router = Backbone.Router.extend({
     Trak.masterView = new Trak.Views.Master({ model: showTeam });
 
     this._swapView(Trak.masterView);
+    $.rails.refreshCSRFTokens();
   },
 
   fetchCurrentUser: function(callback) {
@@ -42,6 +50,7 @@ Trak.Routers.Router = Backbone.Router.extend({
       dataType: 'json',
       success: function(response) {
         Trak.currentUser.set( Trak.currentUser.parse(response) );
+        console.log("Fetching current user...");
         callback();
       }
     })

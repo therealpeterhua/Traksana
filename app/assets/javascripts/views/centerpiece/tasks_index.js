@@ -39,8 +39,6 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
       collection: this.collection,
     });
     this.addSubview('ul.task-items', newTaskView);
-
-    //PH - should I be adding this into ul.task-items as an li? I can prepend the addSubviews rather than append...
   },
 
   emphasizeTask: function(e) {
@@ -81,6 +79,7 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
       }
     });
     //see if you can find out what the model is after deletion, so you can remove it from the collection AND from the view(find subview by model);
+    //PH****** - do we HAVE to do this every time we delete something?? I think so...
   },
 
   assignTask: function(e) {

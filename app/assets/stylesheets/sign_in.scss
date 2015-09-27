@@ -18,7 +18,7 @@ div.sign-in-container {
   position: relative;
   display: block;
   margin: auto;
-  opacity: 0.75;
+  opacity: 0.87;
   background: white;
   font-weight: 300;
 
@@ -36,10 +36,12 @@ div.sign-in-container {
 }
 
 div.sign-in-content > h1 {
+  font-family: 'Michroma', 'Roboto', 'Helvetica', sans-serif;
   font-size: 36px;
   display: block;
-  text-align: left;
+  margin: 0 auto 10px auto;
   margin-bottom: 10px;
+  color: #218FD7;
 }
 
 form.user-sign-in input {

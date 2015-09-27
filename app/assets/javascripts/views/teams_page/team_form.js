@@ -1,5 +1,5 @@
 Trak.Views.TeamForm = Backbone.View.extend({
-  template: JST['landing_page/team_form'],
+  template: JST['teams_page/team_form'],
   addClass: "new-team",
 
   events: {

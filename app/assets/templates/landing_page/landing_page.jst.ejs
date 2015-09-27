@@ -1,0 +1,35 @@
+<div class="sign-in-cover"></div>
+
+<div class="sign-in-background"></div>
+
+<div class="sign-in-container">
+  <div class="sign-in-content">
+
+    <h1 class="noselect">Traksana</h1>
+
+    <form class="user-sign-in" action="/session" method="post">
+      <input type="hidden" name="authenticity_token">
+      <label for="email">Email</label>
+      <input id="email"
+             type="text"
+             name="user[email]"
+             autocomplete="off">
+      <label for="password">Password</label>
+      <input id="password"
+             type="password"
+             name="user[password]"
+             autocomplete="off">
+      <button>Sign In</button>
+    </form>
+
+    <p>
+      Not a member yet? Git good.
+      <a href="/users/new">Register New User</a>
+    </p>
+
+    <p>
+      Or <a href="/auth/facebook">Log in with Facebook</a>
+    </p>
+
+  </div>
+</div>

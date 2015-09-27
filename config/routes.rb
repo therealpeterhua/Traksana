@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root to: "static_pages#root"
 
+  get '/hello', to: 'sessions#new'
   get 'auth/:provider/callback', to: 'sessions#omniauth'
   # this routes to the omniauth method in api/sessions_controller.rb
 

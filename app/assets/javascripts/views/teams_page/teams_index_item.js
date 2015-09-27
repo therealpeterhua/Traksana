@@ -1,5 +1,5 @@
 Trak.Views.TeamsIndexItem = Backbone.View.extend({
-  template: JST['landing_page/teams_index_item'],
+  template: JST['teams_page/teams_index_item'],
   tagName: 'li',
 
   events: {
