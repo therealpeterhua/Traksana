@@ -7,10 +7,7 @@
     </form>
   </li>
 
-  <figure class="avatar">
-    <img src="<%= currentUser.escape('avatar') %>"
-         alt="<%= Trak.Utils.imageName(currentUser) %>" />
-  </figure>
+  <%= Trak.Utils.userAvatar(currentUser) %>
 
   <li class="user-name">
     <div class="user-name-display"><%= currentUser.escape('name') %></div>

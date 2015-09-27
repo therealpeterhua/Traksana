@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   validate :has_email_or_uid
   validate :has_unique_email
 
-  has_attached_file :avatar, default_url: "missing.png"
+  has_attached_file :avatar, default_url: "user.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   after_initialize :ensure_session_token

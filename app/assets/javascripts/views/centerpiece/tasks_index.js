@@ -88,7 +88,6 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
 
     var assignmentModal = new Trak.Views.Assignment({
       model: task,
-      collection: task.assignedUsers()
     });
 
     Trak.masterView.showAndSwapModal(assignmentModal);

@@ -1,0 +1,19 @@
+div.main-container {
+  float: left;
+  /*PH - need sidebar + main-container float left if want next to each other*/
+  display: block;
+  position: relative;
+  width: 100%;
+  height: -moz-calc(100% - 106px);
+  height: -webkit-calc(100% - 106px);
+  height: calc(100% - 106px);
+  background: #BECEDE;
+  /*C8D8E8*/
+}
+
+div.main-container > section {
+  float: left;
+  background: white;
+  position: relative;
+  overflow-y: auto;
+}

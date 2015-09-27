@@ -1,7 +1,4 @@
-<figure class="avatar">
-  <img src="<%= user.escape('avatar') %>"
-       alt="<%= Trak.Utils.imageName(user) %>" />
-</figure>
+<%= Trak.Utils.userAvatar(user) %>
 <div class="user-name">
   <%= user.escape('name') %>
 </div>

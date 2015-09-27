@@ -1,14 +1,3 @@
-<% if ( member.escape('name') ) { %>
-  <% member.escape('name') %>
-<% } else { %>
-  <% member.escape('email') %>
-<% } %>
-
-<!-- PH** - fix dat imageeee -->
-
-<figure class="avatar">
-  <img src="<%= member.escape('avatar') %>"
-       alt="<%= Trak.Utils.imageName(member) %>"/>
-</figure>
+<%= Trak.Utils.userAvatar(member) %>
 
 <!-- PH** if u really wanna just do name, then only have that -->

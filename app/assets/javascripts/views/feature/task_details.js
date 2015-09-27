@@ -1,4 +1,4 @@
-Trak.Views.TaskDetails = Backbone.View.extend({
+Trak.Views.TaskDetails = Backbone.CompositeView.extend({
   template: JST['feature/task_details'],
   className: 'task-details',
 
@@ -17,8 +17,14 @@ Trak.Views.TaskDetails = Backbone.View.extend({
     var content = this.template({ task: this.model });
     this.$el.html(content);
     this.checkShowGuide();
+    this.addUserAssignments();
 
     return this;
+  },
+
+  addUserAssignments: function() {
+    var assignmentsView = new Trak.Views.AssignedUsers({ model: this.model });
+    this.addSubview('div.task-assignments', assignmentsView);
   },
 
   commitEdits: function(e) {
