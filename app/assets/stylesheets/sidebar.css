@@ -119,7 +119,7 @@ div.new-project-transition {
 
   width: 265px;
   max-width: 265px;
-  transition: max-width 0.35s ease-in;
+  transition: max-width 0.25s ease-in;
   overflow: hidden;
 
   border: 1px solid #8E949B;

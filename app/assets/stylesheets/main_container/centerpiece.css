@@ -148,7 +148,7 @@ ul.task-items div.deletion-icon:hover {
 /* -------- ASSIGNMENT --------- */
 
 ul.task-items div.assignment-icon {
-  padding: 2px 2px 2px 0px;
+  padding: 3px 2px 1px 0px;
   top: 3px;
   left: 5px;
 }

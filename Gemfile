@@ -40,6 +40,8 @@ gem 'omniauth'
 
 gem 'omniauth-facebook'
 
+gem 'font-awesome-rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
