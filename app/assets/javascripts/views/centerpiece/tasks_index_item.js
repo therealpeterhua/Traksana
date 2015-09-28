@@ -93,11 +93,16 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
 
   toggleIcons: function(e) {
     var $ct = $(e.currentTarget);
-    this.$('div.completion-icon').toggleClass('transparent');
-    if (this.$('div.assignment-icon').hasClass('has-assigned')) {
+
+    if ($ct.hasClass('clicked-task')) {
       return;
+    } else {
+      this.$('div.completion-icon').toggleClass('transparent');
+      if (this.$('div.assignment-icon').hasClass('has-assigned')) {
+        return;
+      }
+      this.$('div.assignment-icon').toggleClass('transparent');
     }
-    this.$('div.assignment-icon').toggleClass('transparent');
   },
 
 })

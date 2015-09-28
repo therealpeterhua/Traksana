@@ -6,7 +6,8 @@ Trak.Views.TaskDetails = Backbone.CompositeView.extend({
     //PH** - handle blank description here
     'blur textarea': 'commitEdits',
     'submit': 'disableDefaultSubmit',
-    'click #feature-task-description': 'hideGuide'
+    'click #feature-task-description': 'hideGuide',
+    'input .task-title > textarea': 'resizeTextArea',
   },
 
   initialize: function() {
@@ -53,6 +54,10 @@ Trak.Views.TaskDetails = Backbone.CompositeView.extend({
     if ( $(e.currentTarget).hasClass('blank-description') ) {
       $(e.currentTarget).text('').removeClass('blank-description');
     }
+  },
+
+  resizeTextArea: function(e) {
+    e.currentTarget.scrollHeight;
   },
 
   checkShowGuide: function(forceShow) {

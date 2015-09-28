@@ -8,7 +8,6 @@ section.feature.zero-height {
 section.feature.transitioning {
   max-height: 0px;
   transition: max-height 0.42s cubic-bezier(0.92, 0.06, 0.86, 0.84);
-
 }
 
 section.feature {
@@ -104,6 +103,9 @@ div.task-details textarea:focus {
 div.task-details .task-title > textarea {
   font-size: 24px;
   width: 90%;
+  overflow: hidden;
+  margin-bottom: 5px;
+  height: 28px;
 }
 
 div.task-details .task-description > textarea {
