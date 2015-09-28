@@ -24,6 +24,7 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
     var content = this.template();
     this.$el.html(content);
     this.populateTaskItems();
+    this.populateNewTaskItem();
 
     return this;
   },
@@ -33,6 +34,12 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
       var taskItemView = new Trak.Views.TasksIndexItem({ model: task });
       this.addSubview('ul.task-items', taskItemView);
     }.bind(this));
+  },
+
+  populateNewTaskItem: function() {
+    if (!this.projectId) {
+      return;
+    }
 
     var newTaskView = new Trak.Views.TaskForm({
       model: new Trak.Models.Task({ project_id: this.projectId }),

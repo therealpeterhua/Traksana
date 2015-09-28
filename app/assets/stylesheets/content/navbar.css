@@ -60,6 +60,11 @@ section.navbar ul.user-container-items li {
   margin: 0px 16px 0px 4px;
 }
 
+ul.user-container-items figure {
+  float: right;
+  margin-top: 8px; 
+}
+
 section.navbar a.sign-out {
   /*all button styles are on the reset above*/
 }

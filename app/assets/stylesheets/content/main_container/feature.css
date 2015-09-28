@@ -8,6 +8,7 @@ section.feature.zero-height {
 section.feature.transitioning {
   max-height: 0px;
   transition: max-height 0.42s cubic-bezier(0.92, 0.06, 0.86, 0.84);
+
 }
 
 section.feature {
@@ -38,6 +39,52 @@ div.task-details {
   padding: 10px;
 }
 
+div.task-details div.task-assignments {
+  background: #F2F2F2;
+  position: relative;
+  top: -10px;
+  left: -10px;
+  width: -moz-calc(100% - 10px);
+  width: -webkit-calc(100% - 10px);
+  width: calc(100% - 10px);
+  padding: 5px 15px;
+  height: 30px;
+  border-bottom: 2px solid #E5E5E5;
+}
+
+div.task-details ul.task-assignment-items > p {
+  display: block;
+  float: left;
+  color: #596573;
+  padding: 7px 10px 7px 0px;
+  font-size: 13px;
+}
+
+div.task-details ul.task-assignment-items > a {
+  display: block;
+  float: left;
+  color: #A4A4A4;
+  padding: 7px 10px 7px 0px;
+  font-size: 13px;
+  transition: font-size 0.05s, padding 0.05s;
+  cursor: pointer;
+}
+
+div.task-details ul.task-assignment-items > a:hover {
+  color: #114D97;
+  padding: 6px 10px 8px 0px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+div.task-details ul.task-assignment-items > li {
+  display: block;
+  margin-left: 5px;
+  float: left;
+  cursor: pointer;
+}
+
 div.task-details textarea {
   font-family: inherit;
   border-radius: 5px;
@@ -56,11 +103,12 @@ div.task-details textarea:focus {
 
 div.task-details .task-title > textarea {
   font-size: 24px;
+  width: 90%;
 }
 
 div.task-details .task-description > textarea {
   font-size: 14px;
-  width: 75%;
+  width: 90%;
 }
 
 div.task-details textarea.blank-description {
@@ -68,13 +116,26 @@ div.task-details textarea.blank-description {
 }
 
 div.comments-index-container {
-  padding: 15px 45px 15px 15px;
+  padding: 0px 45px 0px 15px;
 }
+
+/*div.task-comments {
+  max-height: -moz-calc(100% - 183px);
+  max-height: -webkit-calc(100% - 183px);
+  max-height: calc(100% - 183px);
+  overflow-y: auto;
+}*/
 
 div.task-comments figure {
   margin-right: 10px;
   margin-top: 2.5px;
   float: left;
+}
+
+div.comments-index p.no-comments-message {
+  color: #C1C1C1;
+  margin: 15px 0px 15px 30px;
+  font-size: 14px;
 }
 
 div.task-comments li div.comment-item-text-container {
@@ -87,7 +148,7 @@ div.task-comments li div.comment-item-text-container {
 }
 
 li.comments-index-item {
-  margin-bottom: 15px;
+  margin: 15px 0px;
 }
 
 li.comments-index-item p {

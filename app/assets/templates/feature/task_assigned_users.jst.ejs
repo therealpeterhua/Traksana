@@ -1,3 +1,12 @@
+<p class="assigned-to">
+  Assigned to:
+</p>
+
+<% if (users.models.length === 0) {%>
+  <a class="add-new-assignments">No one, yet...</a>
+<% } %>
+<%  %>
+
 <% users.each( function(user) { %>
   <li class="task-assignment-item">
     <%= Trak.Utils.userAvatar(user) %>

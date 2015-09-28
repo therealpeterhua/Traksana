@@ -1,9 +1,9 @@
 Trak.Views.AssignedUsers = Backbone.View.extend({
   template: JST['feature/task_assigned_users'],
   tagName: 'ul',
-  className: 'task-assignment-items',
+  className: 'task-assignment-items group',
   events: {
-    'click': 'assignTask',
+    'click li.task-assignment-item, a.add-new-assignments': 'assignTask',
   },
 
   initialize: function() {

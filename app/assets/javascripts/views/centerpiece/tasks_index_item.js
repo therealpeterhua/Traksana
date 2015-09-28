@@ -23,6 +23,7 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
     this.$el.html(content);
     this.checkCompletion();
     this.checkClicked();
+    this.checkAssignments();
 
     return this;
   },
@@ -39,6 +40,17 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
     if (this.$el.hasClass('clicked-task')) {
       this.$('input').caret(this._caretPosition);
       this.$('.icon').removeClass('transparent');
+    }
+  },
+
+  checkAssignments: function() {
+    var assignedUsers = this.model.assignedUsers();
+
+    if (assignedUsers.models.length !== 0) {
+      var icon = this.$('div.assignment-icon.icon');
+      icon.text('');
+      var userAvatar = Trak.Utils.userAvatar(assignedUsers.first())
+      icon.append(userAvatar);
     }
   },
 

@@ -153,6 +153,14 @@ ul.task-items div.assignment-icon {
   left: 5px;
 }
 
+ul.task-items div.assignment-icon figure {
+  width: 19px;
+  height: 19px;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
 /* -------- DELETION ---------- */
 
 ul.task-items strong.task-deletion {

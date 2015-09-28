@@ -12,3 +12,10 @@ Extend modal display into global function extended into each View
 
 Make a tooltip top-level style that displays it on hover of anything with id=whatever and class tooltip
 Maybe can make a tooltip partial that just takes a "content" input?
+
+
+VISUAL SNAFUS
+Style sign-in: center vertically in page again, put email/pass diff lines
+Team member addition
+Task assignment
+Top right of toolbar -- sign out, back to team select, etc.

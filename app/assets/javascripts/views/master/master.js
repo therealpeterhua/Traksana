@@ -120,14 +120,13 @@ Trak.Views.Master = Backbone.CompositeView.extend({
 
       $feature.removeClass('zero-height');
       $feature.removeClass('transitioning');
-      $feature.one('transitionend', function() {
-
-        $feature.one('transitionend', function() {
+      $feature.on('transitionend', function(e) {
+        if ( $feature.hasClass('transitioning') ) {
           $feature.addClass('zero-height');
-        });
+        }
         //set another listener once you hear a transitionEnd!
 
-      })
+      });
     } else {
       $feature.addClass('transitioning');
         // can't do a 1-time listener because initializes to false, so you'll have an outstanding listener...
