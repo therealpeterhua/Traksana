@@ -33,7 +33,6 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
       this.$('.completion-icon').text('✓');
       this.$('.completion-icon').addClass('completed');
     }
-    //PH** will probably need this for other things where completed is a different display?
   },
 
   checkClicked: function() {
@@ -50,7 +49,9 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
       var icon = this.$('div.assignment-icon.icon');
       icon.text('');
       var userAvatar = Trak.Utils.userAvatar(assignedUsers.first())
-      icon.append(userAvatar);
+      icon.append(userAvatar)
+          .addClass('has-assigned')
+          .removeClass('transparent');
     }
   },
 
@@ -91,10 +92,12 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
   },
 
   toggleIcons: function(e) {
-    if ( $(e.currentTarget).hasClass('clicked-task') ) {
+    var $ct = $(e.currentTarget);
+    this.$('div.completion-icon').toggleClass('transparent');
+    if (this.$('div.assignment-icon').hasClass('has-assigned')) {
       return;
     }
-    this.$('.icon').toggleClass('transparent');
+    this.$('div.assignment-icon').toggleClass('transparent');
   },
 
 })

@@ -51,7 +51,7 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
   emphasizeTask: function(e) {
     var $currentTarget = $(e.currentTarget);
     this.$('li').removeClass('clicked-task');
-    this.$('li .icon').addClass('transparent');
+    this.$('li .icon:not(.has-assigned)').addClass('transparent');
     $currentTarget.addClass('clicked-task');
   },
 
