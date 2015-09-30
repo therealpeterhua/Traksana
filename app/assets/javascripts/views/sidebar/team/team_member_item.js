@@ -20,6 +20,6 @@ Trak.Views.TeamMemberItem = Backbone.View.extend({
 
   editTeamDesignations: function() {
     var designationModal = new Trak.Views.Designation();
-    Trak.masterView.showAndSwapModal(designationModal);
+    Trak.masterView.swapModal(designationModal);
   },
 })

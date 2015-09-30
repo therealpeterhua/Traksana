@@ -21,6 +21,6 @@ Trak.Views.AssignedUsers = Backbone.View.extend({
 
   assignTask: function(e) {
     var assignmentModal = new Trak.Views.Assignment({ model: this.model });
-    Trak.masterView.showAndSwapModal(assignmentModal);
+    Trak.masterView.swapModal(assignmentModal);
   },
 })

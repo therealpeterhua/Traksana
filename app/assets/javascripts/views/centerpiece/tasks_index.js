@@ -97,7 +97,7 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
       model: task,
     });
 
-    Trak.masterView.showAndSwapModal(assignmentModal);
+    Trak.masterView.swapModal(assignmentModal);
   },
 
 })

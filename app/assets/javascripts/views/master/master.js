@@ -4,10 +4,12 @@ Trak.Views.Master = Backbone.CompositeView.extend({
 
   events: {
     'click li.team-select-item': 'switchTeam',
-    'click div.modal': 'toggleModal',
-    'click div.modal > div': 'stopPropagation'
   },
   //PH -- NO LISTENERS HERE. can't afford to repaint whole page. Just a command center/battle station to render rest of site
+
+  initialize: function() {
+    Trak.Utils.extendModals(this);
+  },
 
   render: function() {
     this.$el.html( this.template() )
@@ -133,24 +135,6 @@ Trak.Views.Master = Backbone.CompositeView.extend({
     }
 
     return this;
-  },
-
-  toggleModal: function() {
-    this.$('.modal-cover').toggleClass('hidden');
-    this.$('.modal').toggleClass('hidden');
-  },
-
-  stopPropagation: function(e) {
-    console.log('stopping propagation!');
-    e.stopPropagation();
-  },
-
-  showAndSwapModal: function(view) {
-    this.toggleModal();
-    this._modalView && this._modalView.remove();
-    this._modalView = view;
-    this.$('.modal').html( this._modalView.render().$el );
-    //PH** - refactor this into separate method later. Shouldn't have to add/remove 2 separate things, or type this here.
   },
 
   //PH** - Need to revamp the listeners on Sidebar -- I'll have to fetch the team to get the associated projects (and fetch this one), which will trigger a sync on the entire sidebar object right now. Maybe have just a teams handler?

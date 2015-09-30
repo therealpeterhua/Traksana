@@ -1,7 +1,7 @@
 Trak.Views.AssignedUserItem = Backbone.View.extend({
   template: JST['modals/task_assignment/assigned_user_item'],
   tagName: 'li',
-  className: 'assigned-user',
+  className: 'assigned-user group',
 
   render: function() {
     this.$el.data('assigned-user-id', this.model.id)

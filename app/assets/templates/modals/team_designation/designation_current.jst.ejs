@@ -1,6 +1,8 @@
+<h2>Current members</h2>
+
 <ul class="current-member-items">
   <% users.each( function(user) { %>
-    <li class="current-member-item" data-user-id="<%= user.id %>">
+    <li class="current-member-item group" data-user-id="<%= user.id %>">
 
       <%= Trak.Utils.userAvatar(user) %>
 
@@ -8,7 +10,7 @@
         <%= user.escape('name') %>
       </div>
 
-      <strong class="delete-designation"
+      <strong class="delete-designation icon"
               data-user-id="<%= user.id %>">
         ✖
       </strong>

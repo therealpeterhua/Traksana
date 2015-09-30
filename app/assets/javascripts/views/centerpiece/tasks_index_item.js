@@ -15,6 +15,11 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
   initialize: function() {
     this.$el.data('task-id', this.model.id);
     this.listenTo(this.model, "sync change", this.render);
+    this.listenTo(
+      this.model.assignedUsers(), 
+      "sync change add remove",
+      this.render
+    );
   },
 
   render: function() {
