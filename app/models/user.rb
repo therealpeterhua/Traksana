@@ -43,13 +43,15 @@ class User < ActiveRecord::Base
     return user if user.try(:is_password?, password)
   end
 
+  def self.make_new_guest
+    # guest_id = rand(10000)
+  end
+
   def self.find_or_create_by_auth_hash(auth_hash)
     user = User.find_by(
       uid: auth_hash[:uid],
       provider: auth_hash[:provider]
     )
-
-    # user.avatar = URI.parse(auth_hash[:info][:image])
 
     unless user
       user = User.create!(
