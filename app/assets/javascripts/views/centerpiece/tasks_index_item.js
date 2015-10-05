@@ -5,8 +5,7 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
 
   events: {
     //PH** if you wanna go cowboy -- listen to clicks here and render outside the $el
-    'blur': 'commitEdits',
-    // 'blur input': 'commitEdits'     // PH - uncomment for CRAZYTOWN
+    'submit form': 'commitEdits',
     'click': 'showTask',
     'mouseenter': 'toggleIcons',
     'mouseleave': 'toggleIcons',
@@ -16,7 +15,7 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
     this.$el.data('task-id', this.model.id);
     this.listenTo(this.model, "sync change", this.render);
     this.listenTo(
-      this.model.assignedUsers(), 
+      this.model.assignedUsers(),
       "sync change add remove",
       this.render
     );
@@ -68,10 +67,8 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
 
     this.model.save({}, {
       success: function() {
-        alert('successful edit!');
       },
       error: function() {
-        alert('ruh roh, something went wrong');
       }
     });
   },
