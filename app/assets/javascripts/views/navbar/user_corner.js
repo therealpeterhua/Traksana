@@ -7,7 +7,10 @@ Trak.Views.UserCorner = Backbone.View.extend({
   },
 
   render: function() {
-    var content = this.template({currentUser: Trak.currentUser});
+    var content = this.template({
+      currentUser: Trak.currentUser,
+      currentSessionId: Trak.sessionId,
+    });
     this.$el.html(content);
 
     return this;

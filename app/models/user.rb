@@ -24,19 +24,15 @@ class User < ActiveRecord::Base
             class_name: 'Comment',
             foreign_key: :author_id
 
-  validates :name, :password_hash, :session_token, presence: true
+  has_many :sessions
+
+  validates :name, :password_hash, presence: true
   validates :password, length: {minimum: 6, allow_nil: true}
   validate :has_email_or_uid
   validate :has_unique_email
 
   has_attached_file :avatar, default_url: "user.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
-
-  after_initialize :ensure_session_token
-
-  def self.generate_unique_key
-    # PH**generate unique session tokens here
-  end
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
@@ -76,17 +72,6 @@ class User < ActiveRecord::Base
 
   def is_password?(password)
     BCrypt::Password.new(password_hash).is_password?(password)
-  end
-
-  def reset_session_token!
-    self.session_token = SecureRandom.urlsafe_base64(16)
-    self.save!
-
-    return session_token
-  end
-
-  def ensure_session_token
-    self.session_token ||= SecureRandom.urlsafe_base64(16)
   end
 
   def has_email_or_uid

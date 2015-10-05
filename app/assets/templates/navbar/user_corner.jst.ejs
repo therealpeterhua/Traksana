@@ -1,6 +1,8 @@
 <ul class="user-container-items">
   <li class="sign-out">
-    <form class="sign-out-form" action="/session" method="post">
+    <form class="sign-out-form"
+          action="/sessions/<%= currentSessionId %>" 
+          method="post">
       <input type="hidden" name="authenticity_token" value="">
       <input type="hidden" name="_method" value="DELETE">
       <button class="sign-out">Sign out</button>

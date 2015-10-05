@@ -19,3 +19,5 @@ json.coworkers do
     json.avatar asset_path(coworker.avatar.url)
   end
 end
+
+json.session_id current_session.id

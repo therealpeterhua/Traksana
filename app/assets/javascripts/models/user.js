@@ -21,9 +21,14 @@ Trak.Models.User = Backbone.Model.extend({
   },
 
   parse: function(response) {
-    this.parseHelper(response, this.assignedTasks, 'assigned_tasks')
-    this.parseHelper(response, this.teams, 'teams')
-    this.parseHelper(response, this.coworkers, 'coworkers')
+    this.parseHelper(response, this.assignedTasks, 'assigned_tasks');
+    this.parseHelper(response, this.teams, 'teams');
+    this.parseHelper(response, this.coworkers, 'coworkers');
+
+    if (response.session_id) {
+      Trak.sessionId = response.session_id;
+      delete response.session_id;
+    }
 
     return response;
   },
