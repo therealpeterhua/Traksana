@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150924190511) do
+ActiveRecord::Schema.define(version: 20151005211345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,15 @@ ActiveRecord::Schema.define(version: 20150924190511) do
 
   add_index "projects", ["owner_id"], name: "index_projects_on_owner_id", using: :btree
   add_index "projects", ["team_id"], name: "index_projects_on_team_id", using: :btree
+
+  create_table "sessions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["user_id"], name: "index_sessions_on_user_id", using: :btree
 
   create_table "tasks", force: :cascade do |t|
     t.integer  "creator_id",   null: false
@@ -86,7 +95,6 @@ ActiveRecord::Schema.define(version: 20150924190511) do
     t.string   "email"
     t.string   "name",                null: false
     t.string   "password_hash",       null: false
-    t.string   "session_token",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar_file_name"
