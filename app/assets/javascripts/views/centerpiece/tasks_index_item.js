@@ -4,7 +4,6 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
   className: 'task-item',
 
   events: {
-    //PH** if you wanna go cowboy -- listen to clicks here and render outside the $el
     'submit form': 'commitEdits',
     'click': 'showTask',
     'mouseenter': 'toggleIcons',
@@ -64,6 +63,7 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
 
     var attributes = this.$('form').serializeJSON().task;
     this.model.set(attributes);
+    this._caretPosition = this.$('input').caret();
 
     this.model.save({}, {
       success: function() {
@@ -80,7 +80,6 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
       this.model.set({ completer_id: Trak.currentUser.id });
     }
   },
-  //PH**** NEED TO MOVE EDITS HERE!!!!
 
   showTask: function(e) {
     this._caretPosition = this.$('input').caret();

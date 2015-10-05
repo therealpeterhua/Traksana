@@ -14,6 +14,12 @@ div.sign-in-background {
   opacity: 0.25;
 }
 
+div.sign-in-super-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
 div.sign-in-container {
   position: relative;
   display: block;
@@ -24,36 +30,46 @@ div.sign-in-container {
 
   border-radius: 5px;
 
-  width: 440px;
+  width: 290px;
 
-  top:-moz-calc(30%);
-  top: -webkit-calc(30%);
-  top: calc(30%);
+  top: 50%;
+  transform: translateY(-50%);
   max-height: -moz-calc(100% - 100px);
   max-height: -webkit-calc(100% - 100px);
   max-height: calc(100% - 100px);
-  padding: 20px;
+  padding: 30px;
 }
 
 div.sign-in-content > h1 {
   font-family: 'Michroma', 'Roboto', 'Helvetica', sans-serif;
   font-size: 36px;
   display: block;
+  text-align: center;
   margin: 0 auto 10px auto;
-  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
   color: #218FD7;
 }
 
+form.user-sign-in {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+form.user-sign-in div.email-input,
+form.user-sign-in div.password-input {
+  margin: 15px 0px;
+  display: block;
+}
+
 form.user-sign-in input {
-  width: 115px;
+  display: block;
+  width: 175px;
+  margin: auto;
   border-radius: 3px;
   font-size: 14px;
   border: 1px solid #ccc;
-  margin-right: 25px;
-}
-
-form.user-sign-in label {
-  margin-right: 5px;
+  padding: 7px 12px;
 }
 
 form.user-sign-in input:hover {
@@ -66,8 +82,9 @@ form.user-sign-in input:focus {
 
 form.user-sign-in button {
   color: white;
-  margin-top: 10px;
+  margin: 10px auto 0px auto;
   display: block;
+  width: 230px;
   padding: 7px 15px;
   background: #38C800;
   border: 1px solid transparent;
@@ -80,7 +97,8 @@ form.user-sign-in button:hover {
 
 div.sign-in-content p {
   display: block;
-  margin-top: 10px;
+  margin: 10px auto 0px auto;
+  text-align: center;
 }
 
 div.sign-in-content p > a {

@@ -11,21 +11,25 @@
 
     <form class="user-sign-in" action="/session" method="post">
       <input type="hidden" name="authenticity_token">
-      <label for="email">Email</label>
-      <input id="email"
-             type="text"
-             name="user[email]"
-             autocomplete="off">
-      <label for="password">Password</label>
-      <input id="password"
-             type="password"
-             name="user[password]"
-             autocomplete="off">
+      <div class="email-input group">
+        <input id="email"
+               type="text"
+               name="user[email]"
+               autocomplete="off"
+               placeholder="Email">
+      </div>
+      <div class="password-input group">
+        <input id="password"
+               type="password"
+               name="user[password]"
+               autocomplete="off"
+               placeholder="Password">
+      </div>
       <button>Sign In</button>
     </form>
 
     <p>
-      Not a member yet? Git good.
+      Not a member?
       <a class="create-new-user">Register New User</a>
     </p>
 

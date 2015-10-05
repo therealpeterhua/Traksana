@@ -1,5 +1,6 @@
 Trak.Views.LandingPage = Backbone.View.extend({
   template: JST['landing_page/landing_page'],
+  className: 'sign-in-super-container',
 
   events: {
     'click a.create-new-user': 'showUserCreationModal',
