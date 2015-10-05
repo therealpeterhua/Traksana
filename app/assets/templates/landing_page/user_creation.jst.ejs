@@ -1,6 +1,6 @@
-<p>
+<h2>
   Buckle up!
-</p>
+</h2>
 
 <form class="user-registration"
       action="/users"
@@ -9,17 +9,25 @@
 
   <input type="hidden" name="authenticity_token">
 
-  <label for="name">Name</label>
-  <input id="name" type="text" name="user[name]" autocomplete="off">
+  <div class="name input-field group">
+    <label for="name">Name</label>
+    <input id="name" type="text" name="user[name]" autocomplete="off">
+  </div>
 
-  <label for="email">Email</label>
-  <input id="email" type="text" name="user[email]" autocomplete="off">
+  <div class="email input-field group">
+    <label for="email">Email</label>
+    <input id="email" type="text" name="user[email]" autocomplete="off">
+  </div>
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="user[password]" autocomplete="off">
+  <div class="password input-field group">
+    <label for="password">Password</label>
+    <input id="password" type="password" name="user[password]" autocomplete="off">
+  </div>
 
-  <label for="input-post-image">Avatar</label>
-  <input type="file" name="user[avatar]" id="input-post-image">
+  <div class="avatar input-field group">
+    <label for="input-post-image">Avatar</label>
+    <input type="file" name="user[avatar]" id="input-post-image">
+  </div>
 
-  <button>Sign Up</button>
+  <button class="green-button">Sign Up</button>
 </form>

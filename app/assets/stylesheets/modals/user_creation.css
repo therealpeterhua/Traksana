@@ -1,0 +1,45 @@
+div.modal div.user-creation {
+  width: 300px;
+  font-weight: 300;
+}
+
+div.modal div.user-creation h2 {
+  text-align: center;
+  font-size: 24px;
+}
+
+div.user-creation form.user-registration {
+  margin: 10px;
+}
+
+form.user-registration div.input-field {
+  display: block;
+  width: 100%;
+}
+
+form.user-registration label {
+  display: block;
+  float: left;
+  padding: 5px;
+}
+
+form.user-registration input {
+  display: block;
+  float: right;
+  width: 175px;
+  margin: auto;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+form.user-registration input:focus {
+  border: 1px solid #60B2EB;
+}
+
+form.user-registration button {
+  display: block;
+  width: 150px;
+  padding: 10px 15px;
+  background: #38C800;
+  margin: 15px auto 0px auto;
+}

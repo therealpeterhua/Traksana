@@ -3,8 +3,13 @@ Trak.Views.TeamsIndex = Backbone.CompositeView.extend({
   template: JST['teams_page/teams_index'],
   className: 'teams-index group',
 
+  events: {
+    'click button': 'showTeamCreationModal',
+  },
+
   initialize: function() {
     this.listenTo(this.collection, "sync", this.render);
+    Trak.Utils.extendModals(this);
   },
 
   render: function() {
@@ -27,5 +32,9 @@ Trak.Views.TeamsIndex = Backbone.CompositeView.extend({
     });
 
     this.addSubview("div.new-team", newTeamView);
+  },
+
+  showTeamCreationModal: function() {
+    debugger;
   },
 })
