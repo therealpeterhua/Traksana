@@ -3,7 +3,6 @@ Trak.Views.ProjectsIndex = Backbone.CompositeView.extend({
 
   events: {
     'click li': 'emphasizeProject',
-    'resize': 'resizeProjIndex',
   },
 
   initialize: function(options) {

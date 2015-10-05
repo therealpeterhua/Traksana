@@ -3,20 +3,15 @@ Trak.Views.Sidebar = Backbone.CompositeView.extend({
   addClass: 'sidebar',
 
   events: {
-    'resize div.sidebar-body': 'setSizeAndListener'
+    'resizeMe div.sidebar-body': 'resizeProjIndex',
   },
 
   initialize: function() {
-    this.listenTo(this.model, "sync", this.render);     //PH -- rem this is team
-    //PH** Will want to abstract into its own view for name changing
-    //PH** You actually do need to listen for sync here -- after the team#show finishes fetching, you'll need to refresh this page
+    this.listenTo(this.model, "sync", this.render);
   },
 
   render: function() {
-    // alert('sidebar render triggered');
     var content = this.template({team: this.model});
-    //PH** - QUESTION: should I extrapolate the title into its own view?
-    //Don't I need this to refresh if the .members() changes?
     this.$el.html(content);
     this.populateSections();
     this.setSizeAndListener();
@@ -51,8 +46,11 @@ Trak.Views.Sidebar = Backbone.CompositeView.extend({
   },
 
   resizeProjIndex: function() {
-    var parentLength = this.$('div.sidebar-body').height();
-    this.$('div.projects-index').height(parentLength - 117);
+    var parentHeight = this.$('div.sidebar-body').height();
+    var teamMembersHeight = $('ul.team-member-items').height();
+    this.$('div.projects-index').height(
+      parentHeight - 82 - teamMembersHeight
+    );
   },
 
 })

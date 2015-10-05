@@ -17,16 +17,23 @@ div.navigation input.search-box {
   float: left;            /* PH** - comment out */
   display: block;
   font-family: inherit;
-  font-size: 12px;
-  padding: 6px 15px;
-  /*margin: 5px auto 5px auto;*/        /* PH** - comment in */
+  font-size: 14px;
+  padding: 5px 15px;
   margin: 8px 30px 7px 30px;
   color: inherit;
-  border: 1px solid #CFD2D4;
+  border: 1px solid #ddd;
   border-radius: 20px;
   width: 30%;
   min-width: 300px;
   max-width: 510px;
+}
+
+div.navigation input.search-box:hover {
+  border: 1px solid #bbb;
+}
+
+div.navigation input.search-box:focus {
+  border: 1px solid #60B2EB;
 }
 
 ul.tasks-teams-container, div.user-container, div.user-corner {
@@ -45,8 +52,13 @@ section.navbar li {
 section.navbar .tasks-teams-container li {
   float: left;
   padding: 16px 4px 15px 4px;
-  margin: 0px 4px 0px 16px; /* give margin here to provide non-clickable spaces */
+  margin: 0px 4px 0px 16px;
   cursor: pointer;
+}
+
+div.user-container {
+  float: right;
+  min-width: 105px;
 }
 
 section.navbar ul.user-container-items {
@@ -62,17 +74,19 @@ section.navbar ul.user-container-items li {
 
 ul.user-container-items figure {
   float: right;
-  margin-top: 8px; 
-}
-
-section.navbar a.sign-out {
-  /*all button styles are on the reset above*/
+  margin-top: 8px;
 }
 
 section.navbar li.team-selection {
   position: relative;
+  padding: 0px;
   border-left: 1px solid transparent;
   border-right: 1px solid transparent;
+}
+
+section.navbar li.team-selection a {
+  display: block;
+  padding: 16px 4px 15px 4px;
 }
 
 section.navbar li.team-selection.active {

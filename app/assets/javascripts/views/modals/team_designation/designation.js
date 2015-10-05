@@ -18,7 +18,7 @@ Trak.Views.Designation = Backbone.CompositeView.extend({
 
   populateCurrentMembers: function() {
     var designationCurrentView = new Trak.Views.DesignationCurrent({
-      collection: this.model.members()
+      collection: this.model.members(),
     });
     this.addSubview('div.current-members', designationCurrentView);
   },

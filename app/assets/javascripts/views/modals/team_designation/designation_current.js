@@ -8,6 +8,8 @@ Trak.Views.DesignationCurrent = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.collection, "sync add remove", this.render);
+    this.memberIds = this.collection.pluck('id');
+    this.currentTeamId = Trak.currentTeam.id;
   },
 
   render: function() {
@@ -20,7 +22,21 @@ Trak.Views.DesignationCurrent = Backbone.View.extend({
   deleteDesignation: function(e) {
     var userId = $(e.currentTarget).data('user-id');
     var user = this.collection.get(userId);
-    this.collection.remove(user);
+
+    var url = '/api/teams/' + this.currentTeamId + '/assign_members';
+    this.memberIds.splice( this.memberIds.indexOf(userId), 1 );
+
+    var data = { team: {member_ids: this.memberIds} };
+
+    $.ajax({
+      url: url,
+      method: 'post',
+      data: data,
+      dataType: 'json',
+      success: function(response) {
+        this.collection.remove(user);
+      }.bind(this)
+    });
   },
 
 })

@@ -9,6 +9,7 @@ Trak.Views.TeamMemberIndex = Backbone.CompositeView.extend({
     var content = this.template();
     this.$el.html(content);
     this.addMemberViews();
+    this.$el.trigger('resizeMe');
 
     return this;
   },
