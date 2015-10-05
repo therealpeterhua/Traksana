@@ -26,6 +26,10 @@ Trak.Views.DesignationCurrent = Backbone.View.extend({
     var url = '/api/teams/' + this.currentTeamId + '/assign_members';
     this.memberIds.splice( this.memberIds.indexOf(userId), 1 );
 
+    if (this.memberIds.length === 0) {
+      this.memberIds = [""];
+    }
+
     var data = { team: {member_ids: this.memberIds} };
 
     $.ajax({

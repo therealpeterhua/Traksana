@@ -26,7 +26,7 @@ div.teams-index-container {
   max-height: -moz-calc(100% - 100px);
   max-height: -webkit-calc(100% - 100px);
   max-height: calc(100% - 100px);
-  overflow: hidden;
+  overflow-y: auto;
 
   border: 1px solid #ccc;
   border-radius: 5px;
