@@ -25,16 +25,15 @@ Trak.Views.TeamsIndex = Backbone.CompositeView.extend({
       var teamItemView = new Trak.Views.TeamsIndexItem({model: team});
       this.addSubview(".teams-index-items", teamItemView);
     }.bind(this));
-
-    var newTeamView = new Trak.Views.TeamForm({
-      collection: this.collection,
-      model: new Trak.Models.Team()
-    });
-
-    this.addSubview("div.new-team", newTeamView);
   },
 
-  showTeamCreationModal: function() {
-    debugger;
+  showTeamCreationModal: function(e) {
+    e.preventDefault();
+    var teamCreationModal = new Trak.Views.TeamForm({
+      collection: this.collection,
+      model: new Trak.Models.Team(),
+    });
+    this.swapModal(teamCreationModal);
+    $.rails.refreshCSRFTokens();
   },
 })

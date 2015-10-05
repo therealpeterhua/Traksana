@@ -1,0 +1,35 @@
+div.new-team-modal {
+  width: 300px;
+  padding: 20px;
+}
+
+div.new-team-modal label {
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+div.new-team-modal input {
+  display: block;
+  width: 200px;
+  text-align: center;
+  font-size: 15px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  margin: 12px auto;
+}
+
+div.new-team-modal input:hover {
+  border: 1px solid #ccc;
+}
+
+div.new-team-modal input:focus {
+  border: 1px solid #60B2EB;
+}
+
+div.new-team-modal button {
+  padding: 5px 25px;
+  display: block;
+  margin: auto;
+}
