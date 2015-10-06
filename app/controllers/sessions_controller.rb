@@ -25,6 +25,12 @@ class SessionsController < ApplicationController
     end
   end
 
+  def sign_in_guest
+    user = User.pick_guest
+    log_in(user)
+    redirect_to bb_root_url
+  end
+
   def destroy
     log_out
     redirect_to bb_new_session_url

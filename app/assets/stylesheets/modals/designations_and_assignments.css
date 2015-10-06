@@ -41,6 +41,12 @@ li.search-result-item * {
   float: left;
 }
 
+div.modal ul.current-member-items,
+div.modal ul.current-assigned-user-items {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
 div.modal ul div.user-name,
 div.modal ul div.user-detail,
 div.modal ul div.user-email {

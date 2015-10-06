@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
-  resources :users, only: [:new, :create]
-  resources :sessions, only: [:new, :create, :destroy]
-
   root to: "static_pages#root"
-
   get '/hello', to: 'sessions#new'
   get 'auth/:provider/callback', to: 'sessions#omniauth'
   # this routes to the omniauth method in api/sessions_controller.rb
+
+  resources :users, only: [:new, :create]
+  resources :sessions, only: [:new, :create, :destroy] do
+    collection do
+      post 'sign_in_guest'
+    end
+  end
 
   namespace :api, defaults: { format: :json } do      #PH - why json here? json anyway?
     resources :teams, only: [:index, :create, :show] do

@@ -28,6 +28,11 @@
       <button>Sign In</button>
     </form>
 
+    <form class="guest-login" action="/sessions/sign_in_guest" method="post">
+      <input type="hidden" name="authenticity_token">
+      <button class="guest-sign-in">Guest Sign In</button>
+    </form>
+
     <p>
       Not a member?
       <a class="create-new-user">Register New User</a>

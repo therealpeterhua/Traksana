@@ -11,6 +11,7 @@
   <input class="task-title-input"
          type="text" name="task[title]"
          value="<%= task.escape('title') %>"
+         autocomplete="off"
          data-task-id="<%= task.id %>"
          placeholder="Make or edit a task, hit return to submit...">
 </form>

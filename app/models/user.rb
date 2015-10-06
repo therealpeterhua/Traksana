@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  GUEST_USERS = ['guest@guest.com', 'visitor@visitor.com']
+
   has_many :user_teams
   has_many :teams, through: :user_teams, source: :team
   has_many :managed_teams, class_name: 'Team', foreign_key: :leader_id
@@ -39,8 +41,9 @@ class User < ActiveRecord::Base
     return user if user.try(:is_password?, password)
   end
 
-  def self.make_new_guest
-    # guest_id = rand(10000)
+  def self.pick_guest
+    guests = User.where("email IN (?)", GUEST_USERS)
+    guests.sample
   end
 
   def self.find_or_create_by_auth_hash(auth_hash)

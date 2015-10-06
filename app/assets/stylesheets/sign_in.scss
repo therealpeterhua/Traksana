@@ -34,10 +34,8 @@ div.sign-in-container {
 
   top: 50%;
   transform: translateY(-50%);
-  max-height: -moz-calc(100% - 100px);
-  max-height: -webkit-calc(100% - 100px);
-  max-height: calc(100% - 100px);
-  padding: 30px;
+  height: 330px;
+  padding: 25px 30px;
 }
 
 div.sign-in-content > h1 {
@@ -53,7 +51,6 @@ div.sign-in-content > h1 {
 
 form.user-sign-in {
   position: relative;
-  margin-bottom: 20px;
 }
 
 form.user-sign-in div.email-input,
@@ -80,7 +77,8 @@ form.user-sign-in input:focus {
   border: 1px solid #60B2EB;
 }
 
-form.user-sign-in button {
+form.user-sign-in button,
+form.guest-login button {
   color: white;
   margin: 10px auto 0px auto;
   display: block;
@@ -93,6 +91,11 @@ form.user-sign-in button {
 form.user-sign-in button:hover {
   background: #34B501;
   border: 1px solid #aaa;
+}
+
+form.guest-login {
+  display: block;
+  margin-bottom: 20px;
 }
 
 div.sign-in-content p {

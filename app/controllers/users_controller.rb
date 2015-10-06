@@ -16,12 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    render json: "Yet to be implemented!"
-    # PH** - should send down all associated projects, tasks, comments, etc. with this user -- so can show them the tabulated view of all their To-Dos
-  end
-
-  def create_guest_user
-    @user = User.new_guest
+    render json: "Not yet implemented..."
   end
 
   private
