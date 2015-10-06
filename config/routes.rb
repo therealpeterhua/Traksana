@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy] do
     collection do
       post 'sign_in_guest'
+      get 'check_credentials'
     end
   end
 

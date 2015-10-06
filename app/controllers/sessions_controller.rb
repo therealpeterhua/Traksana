@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    render 'new'
+    render :new
   end
 
   def omniauth
@@ -29,6 +29,19 @@ class SessionsController < ApplicationController
     user = User.pick_guest
     log_in(user)
     redirect_to bb_root_url
+  end
+
+  def check_credentials
+    @user = User.find_by_credentials(
+      params[:user][:email],
+      params[:user][:password]
+    )
+
+    if @user
+      render json: :PASS     # must json symbol for backbone to run success...
+    else
+      render json: :FALSE     # must json symbol for backbone to run success...
+    end
   end
 
   def destroy

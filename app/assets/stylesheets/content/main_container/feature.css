@@ -88,7 +88,7 @@ div.task-details textarea {
   font-family: inherit;
   border-radius: 5px;
   border: 1px solid transparent;
-  padding: 5px;
+  padding: 5px 10px;
 }
 
 div.task-details textarea:hover {

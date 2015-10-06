@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def log_out
-    current_session.destroy!
+    current_session.try(:destroy!)
     session[:token] = nil
   end
 

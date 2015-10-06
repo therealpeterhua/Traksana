@@ -67,7 +67,7 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
         task.set(response);
         task.trigger('sync');
       }.bind(this)
-    })
+    });
     //PH** grab task here, don't re-render feature pane, have master.js to that via listener
     //completion will automatically trigger a re-render here -- you want that behavior --> maybe have a slideout animation for completed tasks
     //if you want animations -- this method's the place for them

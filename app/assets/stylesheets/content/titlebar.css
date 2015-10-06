@@ -20,3 +20,13 @@ section.titlebar h4.project-subheading {
   font-weight: 300;
   text-align: center;
 }
+
+section.titlebar i.edit-project {
+  margin-left: 5px;
+  color: #DDE4EA;
+  cursor: pointer;
+}
+
+section.titlebar i.edit-project:hover {
+  color: #ABBED0;
+}

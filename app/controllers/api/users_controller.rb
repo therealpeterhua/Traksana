@@ -1,11 +1,6 @@
 class Api::UsersController < ApplicationController
   wrap_parameters false
 
-  def index
-    @users = current_user.coworkers
-    render json: @users
-  end
-
   def show
     @user = User.find(params[:id])
   end

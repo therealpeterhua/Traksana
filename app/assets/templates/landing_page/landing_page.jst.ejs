@@ -9,6 +9,10 @@
 
     <h1 class="noselect">Traksana</h1>
 
+    <div class="error-message hidden">
+      Sorry, I couldn't find that email and password combo!
+    </div>
+
     <form class="user-sign-in" action="/sessions" method="post">
       <input type="hidden" name="authenticity_token">
       <div class="email-input group">
@@ -25,7 +29,7 @@
                autocomplete="off"
                placeholder="Password">
       </div>
-      <button>Sign In</button>
+      <button class="sign-in">Sign In</button>
     </form>
 
     <form class="guest-login" action="/sessions/sign_in_guest" method="post">

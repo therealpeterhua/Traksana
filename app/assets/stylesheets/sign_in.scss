@@ -36,7 +36,7 @@ div.sign-in-container {
 
   top: 50%;
   transform: translateY(-50%);
-  height: 330px;
+  min-height: 330px;
   padding: 25px 30px;
 }
 
@@ -49,6 +49,17 @@ div.sign-in-content > h1 {
   padding-bottom: 10px;
   border-bottom: 1px solid #ddd;
   color: #218FD7;
+}
+
+div.sign-in-content div.error-message {
+  color: red;
+  font-size: 13px;
+  display: block;
+  text-align: center;
+}
+
+div.sign-in-content div.error-message.hidden {
+  display: none;
 }
 
 form.user-sign-in {
