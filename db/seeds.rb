@@ -47,6 +47,6 @@ users.shuffle.each_with_index do |user, i|
   begin
     User.new(user).save!
   rescue ActiveRecord::RecordInvalid
-    #if email already taken by another random seed, skip
+    #if email already taken by another random seed, keep going
   end
 end
