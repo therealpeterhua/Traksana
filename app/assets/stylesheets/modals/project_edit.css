@@ -1,0 +1,60 @@
+div.project-editing {
+  width: 450px;
+}
+
+div.project-editing button {
+  color: white;
+  border-radius: 3px;
+}
+
+form.project-edit {
+  display: block;
+}
+
+form.project-edit input {
+  display: block;
+  font-size: 20px;
+  width: 300px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+}
+
+form.project-edit input:hover {
+  border: 1px solid #ddd;
+}
+
+form.project-edit input:focus {
+  border: 1px solid #60B2EB;
+}
+
+form.project-edit button.change-project {
+  display: block;
+  margin-top: 7px;
+  padding: 7px 12px;
+}
+
+div.project-deletion {
+  margin-top: 20px;
+  display: block;
+}
+
+div.project-deletion button.delete-project {
+  display: block;
+  padding: 4px 7px;
+  font-size: 13px;
+  float: left;
+  background: red;
+}
+
+div.project-deletion button.delete-project:hover {
+  background: darkred;
+}
+
+div.project-deletion p.deletion-warning {
+  float: left;
+  display: block;
+  margin-top: 5px;
+  margin-left: 7px;
+  color: red;
+  font-size: 13px;
+}

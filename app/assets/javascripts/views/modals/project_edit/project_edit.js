@@ -1,6 +1,6 @@
 Trak.Views.ProjectEdit = Backbone.View.extend({
   template: JST['modals/project_edit/project_edit'],
-  className: 'edit-project',
+  className: 'project-editing',
 
   events: {
     'submit form': 'submitEdits',
