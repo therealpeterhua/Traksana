@@ -8,6 +8,7 @@ div.modal > div h1 {
   font-size: 24px;
   font-weight: 300;
   margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
 }
 
 div.modal > div h2 {
@@ -19,7 +20,7 @@ div.modal > div h2 {
 div.modal > div ul {
   border-radius: 5px;
   border: 1px solid #ccc;
-  background: #EFEFEF;
+  background: #ECF3FA;
   margin-top: 5px;
 }
 

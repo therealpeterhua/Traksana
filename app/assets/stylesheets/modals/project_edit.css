@@ -2,6 +2,10 @@ div.project-editing {
   width: 450px;
 }
 
+div.project-editing h1 {
+  border-bottom: 1px solid #aaa;
+}
+
 div.project-editing button {
   color: white;
   border-radius: 3px;
