@@ -65,12 +65,7 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
     this.model.set(attributes);
     this._caretPosition = this.$('input').caret();
 
-    this.model.save({}, {
-      success: function() {
-      },
-      error: function() {
-      }
-    });
+    this.model.save({}, {});
   },
 
   switchCompletion: function() {
@@ -102,7 +97,8 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
       if (this.$('div.assignment-icon').hasClass('has-assigned')) {
         return;
       }
-      this.$('div.assignment-icon').toggleClass('transparent');
+      this.$('div.assignment-icon, div.deletion-icon')
+            .toggleClass('transparent');
     }
   },
 

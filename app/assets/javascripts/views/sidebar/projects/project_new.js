@@ -16,7 +16,6 @@ Trak.Views.ProjectNew = Backbone.View.extend({
 
   toggleInputables: function() {
     this.$('div.new-project-reveal').toggleClass('activated');
-    // this.$('form.new-project').toggleClass('hidden');
     var $transitionEl = this.$('div.new-project-transition')
 
     if ( $transitionEl.hasClass('zero-width') ) {
@@ -25,16 +24,6 @@ Trak.Views.ProjectNew = Backbone.View.extend({
     } else {
       $transitionEl.addClass('zero-width')
     }
-
-    // if ( this.$('form.new-project').hasClass('hidden') ) {
-    //   $('body').on('click', ":not('.new-project')", this.handleClickOut.bind(this));      //PH*** SHOULD BE ONE, NOT ON...
-    // }
-  },
-
-  handleClickOut: function(e) {
-    // console.log("handling click out!");
-    // // this.toggleInputables();
-    // $('body').off();      //PH**** off("click")
   },
 
   submitNewProject: function(e) {
@@ -49,7 +38,7 @@ Trak.Views.ProjectNew = Backbone.View.extend({
 
         this.model = new Trak.Models.Project({
           team_id: model.escape('team_id')
-        })      //PH - refresh model for consecutive adds
+        });
       }.bind(this),
       error: function() {
         alert("Ruh roh, something went wrong!");

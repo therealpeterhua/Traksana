@@ -4,6 +4,7 @@ Trak.Views.ProjectEdit = Backbone.View.extend({
 
   events: {
     'submit form': 'submitEdits',
+    'click button.delete-project': 'deleteProject',
   },
 
   render: function() {
@@ -21,7 +22,7 @@ Trak.Views.ProjectEdit = Backbone.View.extend({
 
     this.model.save({}, {
       success: function() {
-        console.log('Successfully saved!');
+        Trak.masterView.toggleModal();
       }
     });
   },
@@ -29,6 +30,6 @@ Trak.Views.ProjectEdit = Backbone.View.extend({
   deleteProject: function(e) {
     e.preventDefault();
     this.model.destroy();
-    Backbone.history().navigate()
+    console.log('destroyed model!');
   }
 })

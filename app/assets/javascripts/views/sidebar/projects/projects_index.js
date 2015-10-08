@@ -35,14 +35,13 @@ Trak.Views.ProjectsIndex = Backbone.CompositeView.extend({
     this.$('li').removeClass('clicked-project');
     var clickedProj = $(e.currentTarget);
     clickedProj.addClass('clicked-project');
-    debugger;
-    this.$emphasizedLi = 4;
+    this.currProjId = $(e.currentTarget).data('project-id');
   },
 
   checkEmphasized: function() {
-    debugger;
-    if (this.$emphasizedLi) {
-      this.$emphasizedLi.addClass('clicked-project');
+    if (this.currProjId) {
+      var $el = this.$("li[data-project-id='" + this.currProjId + "']")
+      $el.addClass('clicked-project');
     }
   },
 

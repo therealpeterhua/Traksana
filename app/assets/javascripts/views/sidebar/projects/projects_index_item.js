@@ -8,7 +8,7 @@ Trak.Views.ProjectsIndexItem = Backbone.View.extend({
   },
 
   initialize: function(options) {
-    this.$el.data('project-id', this.model.id)
+    this.$el.attr('data-project-id', this.model.id)
     this.teamId = options.teamId
     this.listenTo(this.model, "sync", this.render);
   },
