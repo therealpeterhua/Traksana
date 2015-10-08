@@ -21,7 +21,6 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
   },
 
   render: function() {
-    console.log("triggered task item render")
     var content = this.template({ task: this.model });
     this.$el.html(content);
     this.checkCompletion();
@@ -82,7 +81,6 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
       success: function() {
         Trak.masterView.displayTask(this.model);
         this.$el.trigger('taskClicked');
-        //check out dat CUSTOM TRIGGER DOH
       }.bind(this)
     });
   },

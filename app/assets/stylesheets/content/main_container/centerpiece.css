@@ -8,17 +8,15 @@ section.centerpiece {
   max-height: -webkit-calc(100% - 11px);
   max-height: calc(100% - 11px);
   min-width: 450px;
-  width: 50%;           /* PH - remember this is as % of parent element */
-  left: 20px;           /* PH moves to the right, else right against sidebar */
+  width: 50%;
+  left: 20px;
   margin: 10px 0px 0px 10px;
-  border-top: 1px solid #8B9CAF;      /*PH - source*/
+  border-top: 1px solid #8B9CAF;
   border-left: 1px solid #8B9CAF;
   border-right: 1px solid #8B9CAF;
   border-top-left-radius: 5px;
 }
-/* PH**** - need to have this scroll on container overflow. maybe put on ul? */
 
-/* PH** - have below NOT take up whole width of page */
 section.single-pane {
   width: 100%;
   margin: 10px;
@@ -40,18 +38,14 @@ ul.task-items {
 
 ul.task-items > li {
   height: 31px;
-  border-bottom: 1px solid #DFDFDF;     /*PH - SOURCE*/
+  border-bottom: 1px solid #DFDFDF;
 }
 
 ul.task-items > li:hover {
   height: 31px;
   border-bottom: 1px solid #C1C1C1;
-  /*PH** - this needs to be fixed*/
 }
 
-/* Do below for both new and existing tasks... */
-/*PH** - REM input doesn't inherit font-family!!*/
-/* outline-none disables browser feedback */
 ul.task-items li input {
   outline: none;
   font-family: inherit;
@@ -69,7 +63,6 @@ ul.task-items li input {
   padding: 8px 7px 7px 7px;
 }
 
-/* this is here to override reset */
 ul.task-items li input:focus {
   outline: none;
   border: none;
@@ -83,7 +76,6 @@ ul.task-items li.new-task {
 ul.task-items .clicked-task {
   background: #DAECFF;
 }
-/* PH - make sure this text doesn't wrap!! */
 
 
 /* ---------- ICONS -----------*/
@@ -106,7 +98,6 @@ ul.task-items .task-completion, ul.task-items .task-assignment {
 }
 
 /* ------- COMPLETION --------- */
-/* Below for both new and existing... */
 
 ul.task-items div.completion-icon {
   float: left;

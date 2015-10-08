@@ -24,7 +24,6 @@ Trak.Routers.Router = Backbone.Router.extend({
       return;
     }
     var indexView = new Trak.Views.TeamsIndex({ collection: this.collection });
-    //PH - REM TeamsIndex plural
     this._swapView(indexView);
   },
 
@@ -35,7 +34,6 @@ Trak.Routers.Router = Backbone.Router.extend({
     }
     var showTeam = this.collection.getOrFetch(id);
     Trak.currentTeam = showTeam;
-    //PH**** how we gonna show when there IS no team, huh?
     Trak.masterView = new Trak.Views.Master({ model: showTeam });
 
     this._swapView(Trak.masterView);
@@ -50,12 +48,10 @@ Trak.Routers.Router = Backbone.Router.extend({
       dataType: 'json',
       success: function(response) {
         Trak.currentUser.set( Trak.currentUser.parse(response) );
-        console.log("Fetching current user...");
         callback();
       }
     })
   },
-  // remember that Trak.currentUser.parse() returns the response itself. Here the manual ajax def won't parse FOR us, so..
 
   _swapView: function(view) {
     this._currentView && this._currentView.remove();

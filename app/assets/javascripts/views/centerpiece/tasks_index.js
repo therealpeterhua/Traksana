@@ -3,9 +3,6 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
   className: 'tasks-index',
 
   events: {
-    //PH** - listen to the filter to get working here
-    //Can have ALL by default -- have a hash to know which classes to apply "hidden" characteristic to
-    //Makes sense to have up here -- can select all child <li>, attach class
     'taskClicked li': 'emphasizeTask',
     'click .task-completion > .completion-icon': 'toggleCompletion',
     'click .task-deletion > .deletion-icon': 'deleteTask',
@@ -15,12 +12,9 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
   initialize: function(options) {
     this.projectId = options.projectId;
     this.listenTo(this.collection, "add remove", this.render);
-    //PH - I've removed sync here.. we only fetch from the server at loadup of the team master page anyway -- all this does is catch bubbled-up events from the feature fetch, which re-renders the section and kills focus/emphasized elements.
   },
 
   render: function() {
-    console.log("triggered task index render");
-    // alert('tasks index render triggered');
     var content = this.template();
     this.$el.html(content);
     this.populateTaskItems();
@@ -57,7 +51,7 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
 
   toggleCompletion: function(e) {
     var taskId = $(e.currentTarget).data('task-id');
-    var task = this.collection.get(taskId); //PH** SEND CUSTOM AJAX TO MARK!
+    var task = this.collection.get(taskId);
 
     $.ajax({
       method: 'post',
@@ -68,9 +62,6 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
         task.trigger('sync');
       }.bind(this)
     });
-    //PH** grab task here, don't re-render feature pane, have master.js to that via listener
-    //completion will automatically trigger a re-render here -- you want that behavior --> maybe have a slideout animation for completed tasks
-    //if you want animations -- this method's the place for them
   },
 
   deleteTask: function(e) {
@@ -85,8 +76,6 @@ Trak.Views.TasksIndex = Backbone.CompositeView.extend({
         alert("Couldn't delete that item!");
       }
     });
-    //see if you can find out what the model is after deletion, so you can remove it from the collection AND from the view(find subview by model);
-    //PH****** - do we HAVE to do this every time we delete something?? I think so...
   },
 
   assignTask: function(e) {

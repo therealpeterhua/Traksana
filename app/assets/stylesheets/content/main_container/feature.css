@@ -11,7 +11,6 @@ section.feature.transitioning {
 }
 
 section.feature {
-  /* PH** - 20px for margin, 40px for "position left", 3px for 3 line borders */
   width: -moz-calc(50% - 63px);
   width: -webkit-calc(50% - 63px);
   width: calc(50% - 63px);
@@ -32,7 +31,6 @@ section.feature {
   border-bottom: 1px solid #8B9CAF;
 }
 
-/* resize just lets users resize the box at will -- not what we want */
 div.task-details {
   border-bottom: 1px solid #ddd;
   padding: 10px;
@@ -122,13 +120,6 @@ div.comments-index-container {
   padding: 0px 45px 0px 15px;
 }
 
-/*div.task-comments {
-  max-height: -moz-calc(100% - 183px);
-  max-height: -webkit-calc(100% - 183px);
-  max-height: calc(100% - 183px);
-  overflow-y: auto;
-}*/
-
 div.comments-index p.no-comments-message {
   color: #C1C1C1;
   margin: 15px 0px 15px 30px;
@@ -155,7 +146,6 @@ li.comments-index-item p {
   float: left;
   font-size: 14px;
 }
-/* width: 30px avatar (1px border, 28px width), 10px avatar-margin */
 
 li.comments-index-item strong.author-name {
   float: left;

@@ -1,13 +1,6 @@
-//PH - don't need this to be invoked. It's loaded up anyway.
-
 Trak.Utils = {};
 
 Trak.Utils.imageName = function(user) {
-  //If name has a space, do something.
-    //name matches any letters + space + letters?
-    //split on space, take the first two of each
-  //ELSE...
-
   return user.escape('name').slice(0, 2).toUpperCase();
 };
 
@@ -26,7 +19,6 @@ Trak.Utils.extend = function(parent_obj, target_obj) {
     }
   });
 };
-//PH -- use this to extend the basic MODAL VIEW functions everywhere!
 
 Trak.Utils.modalEvents = {
   'click div.modal': 'toggleModal',
@@ -40,7 +32,6 @@ Trak.Utils.modalFuncs = {
   },
 
   stopPropagation: function(e) {
-    console.log('stopping propagation!');
     e.stopPropagation();
   },
 

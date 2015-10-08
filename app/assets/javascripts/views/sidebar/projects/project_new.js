@@ -41,7 +41,7 @@ Trak.Views.ProjectNew = Backbone.View.extend({
         });
       }.bind(this),
       error: function() {
-        alert("Ruh roh, something went wrong!");
+        alert("Something went wrong while submitting new project.");
       }
     });
   },

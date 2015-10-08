@@ -16,19 +16,17 @@ Trak.Views.TaskForm = Backbone.View.extend({
 
   submitNewTask: function(e) {
     e.preventDefault();
-    //PH -- default browser behavior puts formData into URL as query string
+
     var attributes = this.$('form').serializeJSON().task;
     this.model.set(attributes);
 
-    this.model.save({}, {       //PH - REM {}
+    this.model.save({}, {
       success: function(model) {
         this.collection.add(model);
-        // this.collection.trigger('sync');
       }.bind(this),
       error: function() {
-        alert("RUH ROH, something went wrong!")
+        alert("Something went wrong while submitting new task.")
       }
-      //PH**** remember when there's a error you get sent back a JSON of the errors.full_messages from the controller server-side. Can display those?
     })
   },
 })

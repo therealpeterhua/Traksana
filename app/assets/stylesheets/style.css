@@ -38,7 +38,7 @@ button {
 
 html {
   height: 100%;
-  overflow: hidden;       /*PH - completely prevents scrolling of page*/
+  overflow: hidden;
 }
 
 input {
@@ -54,11 +54,7 @@ input:focus {
 }
 
 body {
-  /*.HelveticaNeueDeskInterface-Regular*/
-  /*Helvetica Neue*/
   font-family: 'Roboto', 'Helvetica Neue', sans-serif;
-  /*letter-spacing: */
-  font-stretch: condensed;
   background: #EBF4FF;
   height: 100%;
   color: #212F40;
@@ -137,4 +133,3 @@ div.primary-sections {
   height: 100%;
   background: white;
 }
-/*PH - remember float doesn't necessarily take out of normal document flow -- just makes it float to left or right of its parent container! So, if have one float left, and want other next to it, should float left on that one as well*/

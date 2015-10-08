@@ -53,7 +53,7 @@ h4.sidebar-title {
   font-size: 12px;
   font-weight: 700;
   color: #8199B5;
-  cursor: default;  /*https://developer.mozilla.org/en-US/docs/Web/CSS/cursor*/
+  cursor: default;
 }
 
 
@@ -133,7 +133,6 @@ div.new-project form.new-project {
   background: #EBEBEB;
   border-radius: 3px;
 }
-/*box-shadow: first 2 args are offsets. 3rd arg smudges. 4th smudge strength */
 
 div.new-project form.new-project div.close-form {
   float: right;
@@ -205,7 +204,4 @@ ul.project-items > li.clicked-project {
   background: #B9C5D2;
   border-top: 1px solid #8B9CAF;
   border-bottom: 1px solid #E7ECF0;
-  /*box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);*/
-  /* offset-x | offset-y | blur-radius | spread-radius | color */
-  /*PH** - how to prevent from adding extra borderline?*/
 }

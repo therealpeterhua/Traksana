@@ -8,9 +8,6 @@ Trak.Views.DesignationNew = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.collection = new Trak.Collections.Users();
-    // this.listenTo(this.collection, 'addedToTeam', this.render);
-    //** fire 'addedToTeam' when you decide to add a guy
-    //Initially, this won't have anything -- set after search retrieval!
   },
 
   render: function() {
