@@ -82,16 +82,17 @@ div.modal li {
 }
 
 div.modal input.filter {
-  padding: 3px;
-  font-size: 14px;
-  border: 1px solid transparent;
+  padding: 6px;
+  font-size: 16px;
   margin-bottom: 3px;
   margin-left: 10px;
   width: 350px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
 div.modal input.filter:hover {
-  border: 1px solid #ccc;
+  border: 1px solid #bbb;
 }
 
 div.modal input.filter:focus {

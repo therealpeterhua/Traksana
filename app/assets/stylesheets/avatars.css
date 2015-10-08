@@ -36,6 +36,31 @@ ul.team-member-items figure.avatar {
   float: left;
 }
 
+ul.task-items div.assignment-icon figure {
+  width: 19px;
+  height: 19px;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+ul.team-member-items figure.avatar:hover,
+ul.task-items div.assignment-icon figure:hover,
+section.feature ul.task-assignment-items figure.avatar:hover {
+  opacity: .55;
+  transition: opacity 0.05s;
+}
+
 section.navbar figure.avatar {
+  float: left;
+}
+
+div.task-comments figure {
+  margin-right: 10px;
+  margin-top: 2.5px;
+  float: left;
+}
+
+form.new-comment figure {
   float: left;
 }

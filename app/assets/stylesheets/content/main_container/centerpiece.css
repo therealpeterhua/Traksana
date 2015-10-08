@@ -24,9 +24,13 @@ section.single-pane {
   margin: 10px;
 }
 
-h3.project-codename {
-  font-size: 24px;
-  padding: 5px;
+section.centerpiece h3 {
+  font-weight: 300;
+  font-size: 18px;
+  display: block;
+  border-bottom: 2px solid #E1E1E1;
+  padding: 11px 5px 8px 25px;
+  background: #eee;
 }
 
 ul.task-items {

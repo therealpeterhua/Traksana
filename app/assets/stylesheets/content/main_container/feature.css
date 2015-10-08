@@ -102,6 +102,7 @@ div.task-details textarea:focus {
 
 div.task-details .task-title > textarea {
   font-size: 24px;
+  font-weight: 300;
   width: 90%;
   overflow: hidden;
   margin-bottom: 5px;
@@ -127,12 +128,6 @@ div.comments-index-container {
   max-height: calc(100% - 183px);
   overflow-y: auto;
 }*/
-
-div.task-comments figure {
-  margin-right: 10px;
-  margin-top: 2.5px;
-  float: left;
-}
 
 div.comments-index p.no-comments-message {
   color: #C1C1C1;
@@ -200,19 +195,16 @@ div.task-comments form.new-comment {
   padding: 15px;
 }
 
-form.new-comment figure {
-  float: left;
-}
-
 div.task-comments textarea {
-  float: left;
+  display: block;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 14px;
   font-weight: normal;
   height: 40px;
   width: 270px;
-  padding: 10px;
+  padding: 7px;
+  margin-bottom: 10px;
 }
 
 div.task-comments textarea:focus {
@@ -220,11 +212,10 @@ div.task-comments textarea:focus {
 }
 
 div.task-comments form button {
-  float: left;
   display: block;
   font-size: 12px;
   padding: 5px 10px;
   display: block;
   border-radius: 4px;
-  margin-left: 10px;
+  margin-left: 40px;
 }

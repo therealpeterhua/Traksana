@@ -55,6 +55,6 @@ div.project-deletion p.deletion-warning {
   display: block;
   margin-top: 5px;
   margin-left: 7px;
-  color: red;
+  color: darkred;
   font-size: 13px;
 }
