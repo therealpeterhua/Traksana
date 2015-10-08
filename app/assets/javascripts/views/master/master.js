@@ -4,15 +4,15 @@ Trak.Views.Master = Backbone.CompositeView.extend({
 
   events: {
     'click li.team-select-item': 'switchTeam',
+    'projectDelete': 'resetMainPanes',
   },
-  //PH -- NO LISTENERS HERE. can't afford to repaint whole page. Just a command center/battle station to render rest of site
 
   initialize: function() {
     Trak.Utils.extendModals(this);
   },
 
   render: function() {
-    this.$el.html( this.template() )
+    this.$el.html( this.template() );
     this.populateSidebar();
     this.populateNavbar();
     this.displayTitlebar();       //display not populate b/c swap out views here
@@ -137,11 +137,9 @@ Trak.Views.Master = Backbone.CompositeView.extend({
     return this;
   },
 
-  //PH** - Need to revamp the listeners on Sidebar -- I'll have to fetch the team to get the associated projects (and fetch this one), which will trigger a sync on the entire sidebar object right now. Maybe have just a teams handler?
-  //Remember I'll also have to keep track of which project is currently being clicked!
-  //Do i have to delete subviews? I'll just keep populating the sidebar with old views here...
-
-  //I don't need to listen to sync EVerywhere -- can just listen for changes, to what exactly is being displayed?? Clearly not the case... try adding project
-
-  //NOTE: can always write like a cowboy -- have the click reference something OUTSIDE of the element with a raw jQuery selector, within your subviews
+  resetMainPanes: function() {
+    this.revealCenter(false).revealFeature(false);
+    this._currentProject = false;
+    this.displayTitlebar();
+  },
 })

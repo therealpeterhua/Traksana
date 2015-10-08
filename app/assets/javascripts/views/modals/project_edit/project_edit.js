@@ -15,7 +15,6 @@ Trak.Views.ProjectEdit = Backbone.View.extend({
   },
 
   submitEdits: function(e) {
-    debugger;
     e.preventDefault();
     var attr = $(e.currentTarget).serializeJSON().project;
     this.model.set(attr);
@@ -23,13 +22,17 @@ Trak.Views.ProjectEdit = Backbone.View.extend({
     this.model.save({}, {
       success: function() {
         Trak.masterView.toggleModal();
-      }
+      },
     });
   },
 
   deleteProject: function(e) {
     e.preventDefault();
-    this.model.destroy();
-    console.log('destroyed model!');
+    this.model.destroy({
+      success: function() {
+        Trak.masterView.toggleModal();
+      },
+    });
+    this.$el.trigger('projectDelete');
   }
 })
