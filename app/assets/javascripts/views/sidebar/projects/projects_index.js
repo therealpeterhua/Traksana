@@ -8,7 +8,6 @@ Trak.Views.ProjectsIndex = Backbone.CompositeView.extend({
   initialize: function(options) {
     this.teamId = options.teamId;
     this.listenTo(this.collection, "sync remove", this.render);
-    //PH** if don't have "sync" here, it doesn't update when I save new project!
   },
 
   render: function() {
@@ -29,7 +28,6 @@ Trak.Views.ProjectsIndex = Backbone.CompositeView.extend({
       this.addSubview("ul.project-items", projectItemView);
     }.bind(this));
   },
-  //PH**** - sort out naming conventions here - index item, etc.
 
   emphasizeProject: function(e) {
     this.$('li').removeClass('clicked-project');
