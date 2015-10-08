@@ -17,7 +17,6 @@ Trak.Collections.Users = Backbone.Collection.extend({
         }
       });
     }
-    //PH: why do we delete from collection again?
 
     return getModel;
   },

@@ -7,9 +7,7 @@ Trak.Views.AssignedUsers = Backbone.View.extend({
   },
 
   initialize: function() {
-    //pass in task as this.model here
     this.listenTo(this.model.assignedUsers(), 'sync change add remove', this.render);
-    //PH - sync !== add or remove
   },
 
   render: function() {

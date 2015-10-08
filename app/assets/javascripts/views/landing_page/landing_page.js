@@ -26,9 +26,6 @@ Trak.Views.LandingPage = Backbone.View.extend({
   },
 
   checkValidUser: function(e) {
-    //we'll prevent default here if check isn't passed -- else we'll get the form continue through by not preventing default (all Backbone event triggered functions take place BEFORE the default action)
-
-    //you need to preventDefault here -- if in ajax request, by the time the ajax fires (remember ajax === asynch) it'll already have bubbled up (ie. server will have registered it)
     e.preventDefault();
     var data = $(e.currentTarget).serializeJSON();
 
@@ -40,7 +37,7 @@ Trak.Views.LandingPage = Backbone.View.extend({
       success: function(response) {
         if (response === 'PASS') {
           debugger;
-          e.currentTarget.submit();       //can only call on DOM
+          e.currentTarget.submit();
         } else {
           this.revealError();
         }

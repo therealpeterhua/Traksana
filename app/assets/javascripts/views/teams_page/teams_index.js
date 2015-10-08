@@ -1,5 +1,4 @@
 Trak.Views.TeamsIndex = Backbone.CompositeView.extend({
-  //PH** - transform into composite view
   template: JST['teams_page/teams_index'],
   className: 'teams-index group',
 

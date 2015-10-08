@@ -23,7 +23,6 @@ Trak.Models.Team = Backbone.Model.extend({
 
     if (response.projects) {
       this.projects().set(response.projects, { parse: true });
-      //PH - tells it to run this JSON (response.projects) thru the Project model parse before setting it on this collection (knows it's the Project bc that's the collection model)
       delete response.projects;
     }
 

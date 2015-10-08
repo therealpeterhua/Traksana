@@ -18,7 +18,7 @@ Trak.Views.ProjectsIndexItem = Backbone.View.extend({
       project: this.model,
       teamId: this.teamId
     });
-    this.$el.html(content);       //PH NOTE #html doesn't wipe jQuery data
+    this.$el.html(content);
 
     return this;
   },

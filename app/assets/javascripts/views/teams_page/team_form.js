@@ -4,7 +4,6 @@ Trak.Views.TeamForm = Backbone.View.extend({
 
   events: {
     "click button.submit-form": "submitNewTeam",
-    //PH may change to "submit form: " because won't have button in end
     "click button.reveal-form": "revealForm"
   },
 
@@ -28,7 +27,6 @@ Trak.Views.TeamForm = Backbone.View.extend({
     e.preventDefault();
     var attributes = this.$("form").serializeJSON().team
     this.model.set(attributes);
-    //PH check if this is all OK
     this.model.save({}, {
       success: function(model) {
         this.collection.add(model);
@@ -45,5 +43,3 @@ Trak.Views.TeamForm = Backbone.View.extend({
     this.$("button.reveal-form").toggleClass("hidden");
   },
 })
-
-// PH** - implement a search-bar here later to edit teams? custom ajax for the search querying

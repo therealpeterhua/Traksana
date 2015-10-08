@@ -3,7 +3,6 @@ Trak.Views.TaskDetails = Backbone.CompositeView.extend({
   className: 'task-details',
 
   events: {
-    //PH** - handle blank description here
     'blur textarea': 'commitEdits',
     'submit': 'disableDefaultSubmit',
     'click #feature-task-description': 'hideGuide',
@@ -37,8 +36,6 @@ Trak.Views.TaskDetails = Backbone.CompositeView.extend({
     if (chgAttr === 'description' && !attributes[chgAttr]) {
       this.checkShowGuide(true)
     }
-    //PH - need do this before, because success callback not reached if model is already blank
-    //PH**** this the right way to handle the current attribute? doesn't make sense to do after save
     if (this.model.escape(chgAttr) !== attributes[chgAttr]) {
       this.model.set(attributes)
       this.model.save({}, {

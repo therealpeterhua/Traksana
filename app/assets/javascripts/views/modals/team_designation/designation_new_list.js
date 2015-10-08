@@ -41,6 +41,6 @@ Trak.Views.DesignationNewList = Backbone.View.extend({
   },
 
   removeFromCollection: function(user) {
-    this.collection.remove(user);     //triggers re-render
+    this.collection.remove(user);
   },
 })

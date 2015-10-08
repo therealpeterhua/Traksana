@@ -15,7 +15,7 @@ Trak.Views.Master = Backbone.CompositeView.extend({
     this.$el.html( this.template() );
     this.populateSidebar();
     this.populateNavbar();
-    this.displayTitlebar();       //display not populate b/c swap out views here
+    this.displayTitlebar();
     return this;
   },
 
@@ -25,7 +25,6 @@ Trak.Views.Master = Backbone.CompositeView.extend({
     });
     this.addSubview('.sidebar', sidebarView);
   },
-  //PH - we have the team as model here
 
   populateNavbar: function() {
     var navbarView = new Trak.Views.Navbar()
@@ -35,20 +34,14 @@ Trak.Views.Master = Backbone.CompositeView.extend({
   displayTitlebar: function() {
     var titlebarView = new Trak.Views.Titlebar({
       currTeamMoniker: this.model.escape('moniker'),
-      //PH**** - change this when you switch around the team view
       model: this._currentProject
-      //PH** - case currProj - if non-existent, just give it the current team name
-      //PH**** - you have to clear this._currentProject when you CLICK my_tasks!, AND you gotta render this again at that time
     });
-    //PH** have a thing here that tells it to put the title as "Peter's Regular Joe tasks"!
     this.swapTitlebar(titlebarView);
   },
 
   switchTeam: function(e) {
     var teamId = $(e.currentTarget).data('team-id');
     this._currentTeam = Trak.teams.getOrFetch(teamId);
-    //PH** call this.render again, or set the sidebar, titlebar, and main content here manually
-    //PH** how to initialize? Have every user start with their PERSONAL workspace? And always log into that one?
   },
 
   displayProject: function(project) {
@@ -86,7 +79,6 @@ Trak.Views.Master = Backbone.CompositeView.extend({
     this._centerView = view;
     this.$("section.centerpiece").html(this._centerView.render().$el);
   },
-  //PH -- can i dry this out?? have a function that swaps with a selector??
 
   swapFeatureView: function(view) {
     this._featureView && this._featureView.remove();
@@ -126,12 +118,9 @@ Trak.Views.Master = Backbone.CompositeView.extend({
         if ( $feature.hasClass('transitioning') ) {
           $feature.addClass('zero-height');
         }
-        //set another listener once you hear a transitionEnd!
-
       });
     } else {
       $feature.addClass('transitioning');
-        // can't do a 1-time listener because initializes to false, so you'll have an outstanding listener...
     }
 
     return this;

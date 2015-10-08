@@ -7,7 +7,6 @@ Trak.Models.Comment = Backbone.Model.extend({
 
   author: function() {
     this._author = this._author || new Trak.Models.User();
-    //PH** - only 1 author -- just set attributes on the user model..
     return this._author;
   },
 

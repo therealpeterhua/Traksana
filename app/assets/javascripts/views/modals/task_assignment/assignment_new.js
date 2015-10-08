@@ -5,7 +5,6 @@ Trak.Views.AssignmentNew = Backbone.CompositeView.extend({
     'input input.new-assignments-selector': 'refreshSubview'
   },
 
-  //PH - collection here are the users' coworkers
   render: function() {
     var content = this.template();
     this.$el.html(content);
@@ -31,9 +30,7 @@ Trak.Views.AssignmentNew = Backbone.CompositeView.extend({
 
   prefilteredUsers: function(e) {
     var filterClause = this.$('input.new-assignments-selector').val();
-    //THIS BREAKS BECAUSE RIGHT NOW, THE CLAUSE IS 'filter teammates...'
     var regEx = new RegExp(filterClause, "i");
-    //Adds case insensitivity to existing regEx
 
     var filteredCollection = this.collection.filter(
       function(user) {

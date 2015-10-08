@@ -6,7 +6,6 @@ Trak.Views.Navbar = Backbone.CompositeView.extend({
     'mouseenter li.team-selection': 'toggleTeamSelectDisplay',
     'mouseleave li.team-selection': 'toggleTeamSelectDisplay',
     'transitionend': 'applyMouseScrollFix',
-    //PH - QUESTION: way to consolidate these two?
   },
 
   render: function() {

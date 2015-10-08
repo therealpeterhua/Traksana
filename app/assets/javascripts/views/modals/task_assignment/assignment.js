@@ -8,8 +8,6 @@ Trak.Views.Assignment = Backbone.CompositeView.extend({
   },
 
   initialize: function() {
-    //pass in a task model
-    //PH** can also listen to task changes here if wanna be able to edit
     this.collection = this.model.assignedUsers();
     this.listenTo(this.collection, 'sync add remove', this.render);
     this.assignedUserIds = this.collection.pluck('id');

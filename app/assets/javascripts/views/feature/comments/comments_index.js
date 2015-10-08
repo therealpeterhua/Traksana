@@ -4,7 +4,6 @@ Trak.Views.CommentsIndex = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.listenTo(this.collection, "add remove", this.render);
-    //PH - don't need sync here -- we only render this *after* fetching from server anyway
   },
 
   render: function() {
