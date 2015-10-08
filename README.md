@@ -1,10 +1,10 @@
 # Traksana
-A single-page app inspired by the popular "teamwork without email" webapp Asana.
+A single-page Backbone app inspired by the popular "teamwork without email" webapp Asana.
 
-###[Live URL][live_url]
+####[Live URL][live_url]
 [live_url]: https://traksana.herokuapp.com/
 
-PICTURE
+![screenshot] (screenshot.png)
 
 ## Core Tech
 Rails, PostGres, Backbone
