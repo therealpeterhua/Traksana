@@ -1,17 +1,13 @@
 <ul class="user-container-items">
   <li class="sign-out">
     <form class="sign-out-form"
-          action="/sessions/<%= currentSessionId %>" 
+          action="/sessions/<%= currentSessionId %>"
           method="post">
       <input type="hidden" name="authenticity_token" value="">
       <input type="hidden" name="_method" value="DELETE">
       <button class="sign-out">Sign out</button>
     </form>
   </li>
-
-  <!-- <li class="back-to-team-select">
-    <a href="#/teams">BACK</a>
-  </li> -->
 
   <%= Trak.Utils.userAvatar(currentUser) %>
 </ul>
