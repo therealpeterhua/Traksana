@@ -3,7 +3,6 @@ class Api::TasksController < ApplicationController
     @task = current_user.created_tasks.new(task_params)
     if @task.save
       render json: @task
-      #PH QUESTION: renders json here for Backbone to set attr on the model?
     else
       render json: @task.errors.full_messages,
              status: :unprocessable_entity
@@ -32,7 +31,6 @@ class Api::TasksController < ApplicationController
   end
 
   def toggle_completion
-    # PH - only need this because don't have access to current_user in javascript
     @task = Task.find(params[:id])
 
     if @task.completer_id
@@ -45,9 +43,6 @@ class Api::TasksController < ApplicationController
   end
 
   def edit_assigned_users
-    # empty arrays aren't sent -- conditional to account for that
-    # if ( params.include?(:task) &&
-    #      params[:task].include?(:assigned_user_ids) )
     @task = Task.find(params[:id])
 
     if params[:task][:assigned_user_ids] == [""]

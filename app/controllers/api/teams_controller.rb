@@ -11,10 +11,8 @@ module Api
           @team = current_user.managed_teams.create!(team_params)
           @team.members << current_user
         end
-        # PH - transaction only catches exceptions -- itself will raise an exception
         render json: @team
       rescue ActiveRecord::RecordInvalid
-        # PH - don't want to blind rescue here
         render json: @team.errors.full_messages,
                status: :unprocessable_entity
       end
@@ -23,12 +21,9 @@ module Api
     def show
       @team = Team.includes(
         projects: {tasks: :assigned_users}).find(params[:id])
-      # PH - include associated projects here
-      # for comments, includes a nested hash
 
       if @team
         render 'show'
-        #PH** have show send down all associated projects, tasks, comments, etc.
       else
         render json: @team.errors.full_messages,
                status: :unprocessable_entity

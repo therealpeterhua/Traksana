@@ -1,5 +1,5 @@
 
-# =========== Set up users as array of hashes ================
+# =========== Set up users hash array ================
 
 def pull_lines(file)
   File.readlines(file).map { |line| line.gsub("\n", "") }

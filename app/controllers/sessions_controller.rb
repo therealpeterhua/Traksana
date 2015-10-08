@@ -38,9 +38,9 @@ class SessionsController < ApplicationController
     )
 
     if @user
-      render json: :PASS     # must json symbol for backbone to run success...
+      render json: :PASS
     else
-      render json: :FALSE     # must json symbol for backbone to run success...
+      render json: :FALSE
     end
   end
 
@@ -52,6 +52,6 @@ class SessionsController < ApplicationController
   private
 
   def omniauth_hash
-    request.env['omniauth.auth']        # get the request for free?
+    request.env['omniauth.auth']
   end
 end

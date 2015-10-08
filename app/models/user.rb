@@ -57,9 +57,7 @@ class User < ActiveRecord::Base
         uid: auth_hash[:uid],
         provider: auth_hash[:provider],
         name: auth_hash[:info][:name],
-        # avatar_url: auth_hash[:info][:image],
         password: SecureRandom.urlsafe_base64(16)
-        # avatar: URI.parse(auth_hash[:info][:image])
       )
     end
 

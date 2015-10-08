@@ -25,6 +25,4 @@ class UsersController < ApplicationController
     params.require(:user).permit(:email, :name, :password, :avatar)
   end
 
-  #PH - need to have email, invite takes place via email.
-  #Name should be optional..
 end
