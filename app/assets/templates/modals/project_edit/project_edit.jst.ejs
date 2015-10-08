@@ -1,0 +1,14 @@
+<h1><%= project.escape('code_name') %></h1>
+
+
+<form class="project-edit-form">
+  <input type="text"
+         name="project[code_name]"
+         value="<%= project.escape('code_name') %>">
+  <button class="change-project">Commit Changes</button>
+</form>
+
+<button type="delete-project">Delete Project</button>
+<p class="deletion-warning">
+  Caution: deleting this project will delete all associated tasks and comments!
+</p>

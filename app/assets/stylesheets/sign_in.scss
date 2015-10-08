@@ -5,7 +5,8 @@ div.sign-in-cover {
   height: 100%;
   min-height: 800px;
   background: image-url("wood_office_large.jpg");
-  background-size: 100%;
+  background-size: cover;
+  background-position: center center;
 }
 
 div.sign-in-background {

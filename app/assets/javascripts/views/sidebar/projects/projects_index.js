@@ -7,7 +7,7 @@ Trak.Views.ProjectsIndex = Backbone.CompositeView.extend({
 
   initialize: function(options) {
     this.teamId = options.teamId;
-    this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.collection, "sync remove", this.render);
     //PH** if don't have "sync" here, it doesn't update when I save new project!
   },
 
@@ -15,6 +15,7 @@ Trak.Views.ProjectsIndex = Backbone.CompositeView.extend({
     var content = this.template({projects: this.collection});
     this.$el.html(content);
     this.populateSubviews();
+    this.checkEmphasized();
 
     return this;
   },
@@ -34,6 +35,15 @@ Trak.Views.ProjectsIndex = Backbone.CompositeView.extend({
     this.$('li').removeClass('clicked-project');
     var clickedProj = $(e.currentTarget);
     clickedProj.addClass('clicked-project');
+    debugger;
+    this.$emphasizedLi = 4;
+  },
+
+  checkEmphasized: function() {
+    debugger;
+    if (this.$emphasizedLi) {
+      this.$emphasizedLi.addClass('clicked-project');
+    }
   },
 
 })
