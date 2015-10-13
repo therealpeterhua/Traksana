@@ -79,7 +79,7 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
     this._caretPosition = this.$('input').caret();
     this.$el.addClass('clicked-task');
     this.$('div.three-quarters-loader').removeClass('hidden');
-    // Trak.masterView.displayTask(this.model);
+
     this.model.fetch({
       success: function() {
         Trak.masterView.displayTask(this.model);
@@ -96,11 +96,11 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
       return;
     } else {
       this.$('div.completion-icon').toggleClass('transparent');
+      this.$('div.deletion-icon').toggleClass('transparent');
       if (this.$('div.assignment-icon').hasClass('has-assigned')) {
         return;
       }
-      this.$('div.assignment-icon, div.deletion-icon')
-            .toggleClass('transparent');
+      this.$('div.assignment-icon').toggleClass('transparent');
     }
   },
 
