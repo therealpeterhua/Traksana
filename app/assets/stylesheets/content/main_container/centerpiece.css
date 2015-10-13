@@ -157,3 +157,25 @@ ul.task-items strong.task-deletion {
 ul.task-items div.deletion-icon {
   top: 7px;
 }
+
+/* -------- LOADER ---------- */
+
+ul.task-items strong.loading-dots {
+  position: absolute;
+  right: 40px;
+  cursor: default;
+}
+
+ul.task-items div.three-quarters-loader {
+  cursor: default;
+  height: 10px;
+  width: 10px;
+  margin-top: 7px;
+  border: 8px solid #BECEDE;
+  border-right-color: transparent;
+  border-radius: 16px;
+}
+
+ul.task-items div.three-quarters-loader.hidden {
+  display: none;
+}

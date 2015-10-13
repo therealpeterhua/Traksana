@@ -20,7 +20,8 @@ class Api::TasksController < ApplicationController
   end
 
   def show
-    @task = Task.find(params[:id])
+    @task = Task.includes(comments: :author).find(params[:id])
+    sleep 0.075
 
     if @task
       render :show

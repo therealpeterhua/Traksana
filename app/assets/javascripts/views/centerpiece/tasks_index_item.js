@@ -77,10 +77,14 @@ Trak.Views.TasksIndexItem = Backbone.View.extend({
 
   showTask: function(e) {
     this._caretPosition = this.$('input').caret();
+    this.$el.addClass('clicked-task');
+    this.$('div.three-quarters-loader').removeClass('hidden');
+    // Trak.masterView.displayTask(this.model);
     this.model.fetch({
       success: function() {
         Trak.masterView.displayTask(this.model);
         this.$el.trigger('taskClicked');
+        this.$('div.three-quarters-loader').addClass('hidden');
       }.bind(this)
     });
   },

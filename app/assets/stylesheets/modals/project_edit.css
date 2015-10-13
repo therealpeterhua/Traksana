@@ -18,6 +18,7 @@ form.project-edit {
 form.project-edit input {
   display: block;
   font-size: 20px;
+  font-weight: 300;
   width: 300px;
   border: 1px solid #bbb;
   border-radius: 5px;
