@@ -28,6 +28,8 @@ class User < ActiveRecord::Base
 
   has_many :sessions
 
+  has_many :stories
+
   validates :name, :password_hash, presence: true
   validates :password, length: {minimum: 6, allow_nil: true}
   validate :has_email_or_uid
