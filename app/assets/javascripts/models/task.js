@@ -15,6 +15,11 @@ Trak.Models.Task = Backbone.Model.extend({
     return this._comments
   },
 
+  stories: function() {
+    this._stories = this._stories || new Trak.Collections.stories();
+    return this._stories
+  },
+
   parse: function(response) {
     if (response.assigned_users) {
       this.assignedUsers().set(response.assigned_users);
@@ -24,6 +29,11 @@ Trak.Models.Task = Backbone.Model.extend({
     if (response.comments) {
       this.comments().set(response.comments, { parse: true });
       delete response.comments;
+    }
+
+    if (response.stories) {
+      this.stories().set(response.stories, { parse: true });
+      delete response.stories;
     }
 
     return response;

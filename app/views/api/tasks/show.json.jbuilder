@@ -8,6 +8,11 @@ json.comments do
       json.extract!(comment.author, :id, :name, :email)
       json.avatar asset_path(comment.author.avatar.url)
     end
+  end
+end
 
+json.stories do
+  json.array!(@task.stories) do |story|
+    json.extract!(story, *story.attributes.keys)
   end
 end

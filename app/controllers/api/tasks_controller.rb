@@ -12,6 +12,7 @@ class Api::TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     if @task.update(task_params)
+      Story.record_task_update(@task)
       render json: @task
     else
       render json: @task.errors.full_messages,
@@ -40,6 +41,7 @@ class Api::TasksController < ApplicationController
       @task.update!(completer_id: current_user.id)
     end
 
+    Story.record_task_completion(@task)
     render json: @task
   end
 
