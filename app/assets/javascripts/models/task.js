@@ -16,7 +16,7 @@ Trak.Models.Task = Backbone.Model.extend({
   },
 
   stories: function() {
-    this._stories = this._stories || new Trak.Collections.stories();
+    this._stories = this._stories || new Trak.Collections.Stories();
     return this._stories
   },
 

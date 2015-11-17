@@ -1,4 +1,4 @@
-window.Trak = {
+window.Trak = {       //just namespacing
   Models: {},
   Collections: {},
   Views: {},

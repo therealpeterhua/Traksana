@@ -10,6 +10,7 @@ Trak.Views.TaskShow = Backbone.CompositeView.extend({
     this.$el.html(content);
     this.populateTaskSubviews();
     this.populateCommentsSubviews();
+    this.populateStoriesSubviews();
 
     return this;
   },
@@ -21,9 +22,17 @@ Trak.Views.TaskShow = Backbone.CompositeView.extend({
 
   populateCommentsSubviews: function() {
     var commentsView = new Trak.Views.Comments({
-      model: this.model
+      model: this.model,
     });
 
     this.addSubview('div.task-comments', commentsView);
+  },
+
+  populateStoriesSubviews: function() {
+    var storiesView = new Trak.Views.StoriesIndex({
+      collection: this.model.stories(),
+    });
+
+    this.addSubview('div.task-stories'), storiesView);
   },
 })
