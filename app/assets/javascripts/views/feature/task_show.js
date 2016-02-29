@@ -33,6 +33,6 @@ Trak.Views.TaskShow = Backbone.CompositeView.extend({
       collection: this.model.stories(),
     });
 
-    this.addSubview('div.task-stories'), storiesView);
+    this.addSubview('div.task-stories', storiesView);
   },
-})
+});
