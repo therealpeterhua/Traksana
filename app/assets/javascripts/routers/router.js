@@ -50,7 +50,7 @@ Trak.Routers.Router = Backbone.Router.extend({
         Trak.currentUser.set( Trak.currentUser.parse(response) );
         callback();
       }
-    })
+    });
   },
 
   _swapView: function(view) {
@@ -59,4 +59,4 @@ Trak.Routers.Router = Backbone.Router.extend({
     this.$rootEl.html(this._currentView.render().$el);
   },
 
-})
+});

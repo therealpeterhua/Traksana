@@ -1,0 +1,7 @@
+A list of todos. May be out of date.
+
+- Change loading interstitial, Chrome messed with it?
+- Format datestamps on user comments.
+- Allow ordering of tasks.
+- Implement 'disabled' state of user edits
+- Add loading interstitial to fetching users & projects, and tasks

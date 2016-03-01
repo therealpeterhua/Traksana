@@ -1,5 +1,5 @@
 Trak.Views.Master = Backbone.CompositeView.extend({
-  template: JST['master/master'],
+  template: JST['master'],
   className: 'master',
 
   events: {
@@ -27,7 +27,7 @@ Trak.Views.Master = Backbone.CompositeView.extend({
   },
 
   populateNavbar: function() {
-    var navbarView = new Trak.Views.Navbar()
+    var navbarView = new Trak.Views.Navbar();
     this.addSubview('.navbar', navbarView);
   },
 
@@ -45,7 +45,7 @@ Trak.Views.Master = Backbone.CompositeView.extend({
   },
 
   displayProject: function(project) {
-    this._currentProject = project
+    this._currentProject = project;
     this.displayTitlebar();
 
     var projectShowView = new Trak.Views.ProjectShow({
@@ -64,7 +64,7 @@ Trak.Views.Master = Backbone.CompositeView.extend({
       model: task
     });
 
-    this.revealFeature(true).showSinglePane(false)
+    this.revealFeature(true).showSinglePane(false);
     this.swapFeatureView(taskShowView);
   },
 
@@ -131,4 +131,4 @@ Trak.Views.Master = Backbone.CompositeView.extend({
     this._currentProject = false;
     this.displayTitlebar();
   },
-})
+});
